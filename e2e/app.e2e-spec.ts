@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('hour-management App', () => {
+describe('cms-front App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('hour-management App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to hm!');
+    expect(page.getParagraphText()).toEqual('Welcome to cm!');
   });
 });
