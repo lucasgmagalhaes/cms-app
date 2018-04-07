@@ -1,0 +1,20 @@
+<mat-card class="col-xs-12 col-sm-5 h-400 p-5 container container-size">
+
+  <h3 class="mt-2">Login</h3>
+  <mat-form-field class="full-size">
+    <input matInput placeholder="Usuário" [errorStateMatcher]="matcher">
+  </mat-form-field>
+  <mat-form-field class="full-size mt-2">
+    <input matInput placeholder="Senha" [errorStateMatcher]="matcher">
+  </mat-form-field>
+
+  <div class="row justify-content-between mt-4 mb-4">
+    <div class="col-4">
+      <a href="#" class="no-link">Criar conta</a>
+    </div>
+    <div class="col-4">
+      <button mat-raised-button color="primary">Login</button>
+    </div>
+  </div>
+
+</mat-card>

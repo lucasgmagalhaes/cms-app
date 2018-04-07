@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <button mat-button class="font-ajusted">CMS</button>
+  <button mat-button class="font-ajusted">Usuário</button>
+  <button mat-button class="font-ajusted">Gerencia de aulas</button>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="appMenu"><mat-icon>more_vert</mat-icon></button>
+  </mat-toolbar>
+  <mat-menu #appMenu="matMenu">
+  <button mat-menu-item> Perfil </button>
+  <button mat-menu-item> Sair </button>
+  </mat-menu>
