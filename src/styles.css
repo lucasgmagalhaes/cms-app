@@ -1,7 +1,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~bootstrap/dist/css/bootstrap.css";
-
 body {
   margin: 0;
   padding: 0;
+  padding-top: 70px;
+}
+
+button::-moz-focus-inner {
+  outline: none;
+  border: 0;
 }

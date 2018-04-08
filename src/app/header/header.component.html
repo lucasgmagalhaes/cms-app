@@ -1,11 +1,33 @@
-<mat-toolbar color="primary">
-  <button mat-button class="font-ajusted">CMS</button>
-  <button mat-button class="font-ajusted">Usuário</button>
-  <button mat-button class="font-ajusted">Gerencia de aulas</button>
-  <span class="example-spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="appMenu"><mat-icon>more_vert</mat-icon></button>
-  </mat-toolbar>
-  <mat-menu #appMenu="matMenu">
-  <button mat-menu-item> Perfil </button>
-  <button mat-menu-item> Sair </button>
-  </mat-menu>
+<header class="main-header">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-static-top navbar-dark justify-content-between" id="nav_header">
+   
+    <a class="navbar-brand" href="#">CMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Usuário
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Painel de aulas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Documentação</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sobre</a>
+        </li>
+      </ul>
+      <a class="font-ajusted button-b" [routerLink]="['/login']">Login</a>
+    </div>
+  </nav>
+</header>
