@@ -1,7 +1,7 @@
 <header class="main-header">
   <nav class="navbar navbar-expand-lg fixed-top navbar-static-top navbar-dark justify-content-between" id="nav_header">
-   
-    <a class="navbar-brand" href="#">CMS</a>
+
+    <a class="navbar-brand" [routerLink]="['']">CMS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,23 @@
           <a class="nav-link" href="#">Sobre</a>
         </li>
       </ul>
-      <a class="font-ajusted button-b" [routerLink]="['/login']">Login</a>
+      <a class="font-ajusted button-b" data-toggle="modal" data-target="#exampleModalCenter">
+        Login
+      </a>
     </div>
   </nav>
 </header>
+
+<div class="modal fade border-0" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-top">
+          <h3 class="mt-2">Login</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <cm-login [showHeader]="false"></cm-login>
+    </div>
+  </div>
+</div>
