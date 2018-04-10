@@ -2,8 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatToolbarModule,
-  MatGridListModule, MatInputModule} from '@angular/material';
+import {
+  MatMenuModule,
+  MatButtonModule,
+  MatIconModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatGridListModule,
+  MatInputModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
 import 'hammerjs';
 
 @NgModule({
@@ -19,7 +27,8 @@ import 'hammerjs';
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule
   ],
   declarations: [],
   exports: [
@@ -33,7 +42,8 @@ import 'hammerjs';
     MatCardModule,
     MatToolbarModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule
   ]
 })
 export class AngularComponentsModule { }

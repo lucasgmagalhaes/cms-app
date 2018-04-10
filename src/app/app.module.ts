@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './tools/firebaseConfigs';
+import { GrafoComponent } from './grafo/grafo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    GrafoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class="container container-size">
+  <div class="col-xs-12 border h-400 p-5">
+    <div class="input-group mb-3 w-100">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input mw-50" id="inputGroupFile02">
+        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+      </div>
+      <button type="button" class="btn btn-outline-primary ml-2" (click)="uploadFile()">Gerar horários</button>
+    </div>
+  </div>
+  <div class="row h-100 justify-content-center align-items-center mt-5" *ngIf="isUploading === true">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
