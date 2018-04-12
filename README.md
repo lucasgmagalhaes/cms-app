@@ -1,6 +1,7 @@
-1 Tema
+# Sistema de gestão de horário. 4º período TI
+## Tema
 Especificação e implementação de um sistema de informação.
-2 Objetivo geral
+## Objetivo geral
 Fazer a especificação de um Sistema de Gestão de horários de disciplinas e implementar
 algumas funcionalidades.
 Alocação de horários
