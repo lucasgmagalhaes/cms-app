@@ -1,0 +1,10 @@
+/home/lgmagalhaes/Desktop/cmsApp/bin/Debug/netcoreapp2.0/cmsApp.deps.json
+/home/lgmagalhaes/Desktop/cmsApp/bin/Debug/netcoreapp2.0/cmsApp.runtimeconfig.json
+/home/lgmagalhaes/Desktop/cmsApp/bin/Debug/netcoreapp2.0/cmsApp.runtimeconfig.dev.json
+/home/lgmagalhaes/Desktop/cmsApp/bin/Debug/netcoreapp2.0/cmsApp.dll
+/home/lgmagalhaes/Desktop/cmsApp/bin/Debug/netcoreapp2.0/cmsApp.pdb
+/home/lgmagalhaes/Desktop/cmsApp/obj/Debug/netcoreapp2.0/cmsApp.csproj.CoreCompileInputs.cache
+/home/lgmagalhaes/Desktop/cmsApp/obj/Debug/netcoreapp2.0/cmsApp.AssemblyInfoInputs.cache
+/home/lgmagalhaes/Desktop/cmsApp/obj/Debug/netcoreapp2.0/cmsApp.AssemblyInfo.cs
+/home/lgmagalhaes/Desktop/cmsApp/obj/Debug/netcoreapp2.0/cmsApp.dll
+/home/lgmagalhaes/Desktop/cmsApp/obj/Debug/netcoreapp2.0/cmsApp.pdb
