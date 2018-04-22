@@ -1,0 +1,64 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>CMS</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="icon" href="~/Images/icon.ico">
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('black');            
+                $('.logo img').attr('src','../Images/Logo_branco.png')
+            }
+            else {
+                $('nav').removeClass('black');
+                $('.logo img').attr('src', '../Images/Logo_preto.png')
+            }
+        })
+        </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <ul class="Menu">
+                <li class="logo"><img alt="" src="~/Images/Logo_preto.png"></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Documentação</a></li>
+                <li class="dropdown">
+                    <a href="#">Download</a>
+                    <div class="dropdown-content">
+                        <a class="drop" href="#">Código-Fonte</a>
+                        <a class="drop" href="#">Modelo lógico relacional</a>
+                        <a class="drop" href="#">Documentação</a>
+                    </div>
+                </li>
+                <li><a href="#">Sobre</a></li>
+                <li class="Login"><a class="active" href="#">Log in</a></li>
+            </ul>
+        </nav>
+        <section class="Gerador"></section>
+        <section class="content">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim odio, cursus vel bibendum vitae, pharetra id magna. Fusce ut risus non nisi maximus tempor et et nulla. Curabitur egestas pretium sapien sed porta. Maecenas nec mollis velit, ut dictum magna. Sed sed magna a ligula laoreet dapibus ac eget augue. Curabitur non convallis tellus. Phasellus feugiat tempus magna. Suspendisse id tincidunt turpis. Duis fermentum mauris quis elementum blandit. Morbi mattis, nunc vitae dictum porta, risus mauris interdum ex, eu aliquam odio odio sit amet diam. Nam faucibus dui non ullamcorper accumsan. In pellentesque urna in rhoncus aliquam. Mauris placerat felis vel ornare finibus. Nullam venenatis a lorem et tincidunt.
+                Sed feugiat arcu augue, id lobortis eros tincidunt blandit. Ut semper magna in tellus scelerisque vestibulum. Nullam eleifend ante a fermentum mattis. In sit amet tincidunt est, et lacinia magna. Integer posuere arcu nec orci fermentum sodales. Cras vestibulum cursus consequat. Ut pretium sed ligula et feugiat. Morbi ornare finibus purus vel laoreet. Nullam fermentum, augue a finibus faucibus, diam ligula molestie quam, vitae rhoncus nisi lectus ac sem. Nam gravida mollis interdum. Suspendisse et metus condimentum, vestibulum massa sit amet, viverra erat. In venenatis interdum dui, sit amet venenatis ligula placerat vel. Aenean ultrices neque a metus rhoncus finibus. Maecenas aliquet eleifend diam vel interdum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim odio, cursus vel bibendum vitae, pharetra id magna. Fusce ut risus non nisi maximus tempor et et nulla. Curabitur egestas pretium sapien sed porta. Maecenas nec mollis velit, ut dictum magna. Sed sed magna a ligula laoreet dapibus ac eget augue. Curabitur non convallis tellus. Phasellus feugiat tempus magna. Suspendisse id tincidunt turpis. Duis fermentum mauris quis elementum blandit. Morbi mattis, nunc vitae dictum porta, risus mauris interdum ex, eu aliquam odio odio sit amet diam. Nam faucibus dui non ullamcorper accumsan. In pellentesque urna in rhoncus aliquam. Mauris placerat felis vel ornare finibus. Nullam venenatis a lorem et tincidunt.
+                Sed feugiat arcu augue, id lobortis eros tincidunt blandit. Ut semper magna in tellus scelerisque vestibulum. Nullam eleifend ante a fermentum mattis. In sit amet tincidunt est, et lacinia magna. Integer posuere arcu nec orci fermentum sodales. Cras vestibulum cursus consequat. Ut pretium sed ligula et feugiat. Morbi ornare finibus purus vel laoreet. Nullam fermentum, augue a finibus faucibus, diam ligula molestie quam, vitae rhoncus nisi lectus ac sem. Nam gravida mollis interdum. Suspendisse et metus condimentum, vestibulum massa sit amet, viverra erat. In venenatis interdum dui, sit amet venenatis ligula placerat vel. Aenean ultrices neque a metus rhoncus finibus. Maecenas aliquet eleifend diam vel interdum.
+            </p>
+        </section>
+    </div>
+    @* modificar *@
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

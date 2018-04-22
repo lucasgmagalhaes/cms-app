@@ -1,7 +1,136 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Quicksand', sans-serif;
 }
+
+nav {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 10px 100px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+
+nav ul li#logo {
+    padding-left:0px;
+    margin-left: -50px;
+    float: left;
+}
+
+nav ul {
+    list-style: none;
+    float: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    list-style: none;
+    padding-left: 70px;
+    align-items:center;
+    
+}
+
+nav ul li a {
+    line-height: 80px;
+    color: #151515;
+    padding: 12px 30px;
+    margin-left: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s; 
+}
+
+nav ul li a.drop {
+        color: white;
+        margin-top: -10px;
+        font-size: 10px;
+        background: rgba(0,0,0,.8);
+        margin-left: -50px;
+        margin-right: -3px;
+        margin:0px;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+ul.Menu li:hover {
+    background-color: rgba(0,0,0,.09);
+}
+    ul.Menu li.Login:hover{
+        background-color:rgba(0,0,0,0);
+}
+
+    a.drop:hover {
+        background-color: rgba(0,0,0,.2);
+}
+
+nav ul li:focus{
+    outline:none;
+}
+
+nav ul li a.active{
+    background : #E2472F;
+    color: #fff;
+    border-radius: 20px;
+}
+
+section.Gerador{
+    width: 100%;
+    height: 20vh;
+    /*background: url(../Images/images.jpg);*/
+    /*background-size: cover;
+    background-position: center;*/
+}
+
+.content{
+    margin-top:80px;
+}
+
+.content p{
+    width:900px;
+    margin:30px auto;
+    text-align: justify;
+    font-size: 20px;
+    line-height:30px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown-content a {
+        text-decoration: none;
+        display: block;
+}
+
+nav.black {
+    background: rgba(0,0,0,.8);
+    height: 100px;
+    padding: 10px 100px;
+}
+
+
+nav.black ul li a {
+    color: #fff;
+}
+
+
+
+
+
+
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
