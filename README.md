@@ -1,6 +1,8 @@
 # Sistema de gestão de horário. 4º período TI
+
 ## Tema
 Especificação e implementação de um sistema de informação.
+
 ## Objetivo geral
 Fazer a especificação de um Sistema de Gestão de horários de disciplinas e implementar
 algumas funcionalidades.
@@ -10,6 +12,20 @@ Informação – São Gabriel (noite) da PUC Minas. O problema consiste em aloca
 professores às suas disciplinas de forma a maximizar o número de disciplinas em
 paralelo. Considere que alguns professores possam ministrar diversas disciplinas, e que
 por dia, possamos ter 2 horários de alocação.
+
+# Estrutura do arquivo a ser lido
+### v1 
+> nome_da_disciplina;nome_do_professor;período
+### v2
+> nome_da_disciplina;nome_do_professor;período;qtd_aulas_semana 
+
+# Exemplo tabela gerada
+
+| Período       | Metéria       | Professor | Horário | Dia Semana | 
+|:-------------:|:-------------:|:---------:|:-------:|:----------:|
+| 1º            | ATP           |  Hugo     |   2º    | Segunda    | 
+| 2º            | POO           |  Caram    |   1º    | Terça      | 
+| 3º            | AED           |  Caram    |   1º    | Segunda    |
 
 # Estrutura do grafo que é gerado
 ![alt text](https://github.com/lgmagalhaes88/cms-app/blob/master/docs/GrafoDiagrama.png)
