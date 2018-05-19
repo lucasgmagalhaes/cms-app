@@ -13,3 +13,6 @@ por dia, possamos ter 2 horários de alocação.
 
 # Estrutura do grafo que é gerado
 ![alt text](https://github.com/lgmagalhaes88/cms-app/blob/master/docs/GrafoDiagrama.png)
+
+# Modelo lógico do banco de dados: 
+![alt text](https://github.com/lgmagalhaes88/cms-app/blob/master/docs/BD/Outros%20Arquivos/TI_BD_LOGICO.png)
