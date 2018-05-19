@@ -10,3 +10,6 @@ Informação – São Gabriel (noite) da PUC Minas. O problema consiste em aloca
 professores às suas disciplinas de forma a maximizar o número de disciplinas em
 paralelo. Considere que alguns professores possam ministrar diversas disciplinas, e que
 por dia, possamos ter 2 horários de alocação.
+
+# Estrutura do grafo que é gerado
+![alt text](https://github.com/lgmagalhaes88/cms-app/blob/master/docs/GrafoDiagrama.png)
