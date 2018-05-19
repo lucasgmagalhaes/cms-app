@@ -16,3 +16,5 @@ por dia, possamos ter 2 horários de alocação.
 
 # Modelo lógico do banco de dados: 
 ![alt text](https://github.com/lgmagalhaes88/cms-app/blob/master/docs/BD/Outros%20Arquivos/TI_BD_LOGICO.png)
+
+[Link para visualizar a descrição do projeto](https://github.com/lgmagalhaes88/cms-app/blob/master/docs/TI%20Grafos%201_2018_ER_BD.pdf)
