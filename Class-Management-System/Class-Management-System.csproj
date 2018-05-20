@@ -152,8 +152,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\Interns\DiaSemana.cs" />
+    <Compile Include="Models\Entities\Interns\Disciplina.cs" />
+    <Compile Include="Models\Entities\Interns\Materia.cs" />
+    <Compile Include="Models\Entities\Interns\Professor.cs" />
+    <Compile Include="Models\Enums\DiaLetivo.cs" />
+    <Compile Include="Models\Enums\Horario.cs" />
+    <Compile Include="Models\Enums\Periodo.cs" />
     <Compile Include="Models\ServiceImp\GrafoService.cs" />
+    <Compile Include="Models\Services\IAulaService.cs" />
     <Compile Include="Models\Services\IGrafoService.cs" />
+    <Compile Include="Models\Structures\Aresta.cs" />
+    <Compile Include="Models\Structures\Dado.cs" />
+    <Compile Include="Models\Structures\Grafo.cs" />
+    <Compile Include="Models\Structures\Vertice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Entities\Database\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
