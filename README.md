@@ -21,7 +21,7 @@ por dia, possamos ter 2 horários de alocação.
 
 # Exemplo tabela gerada
 
-| Período       | Metéria       | Professor | Horário | Dia Semana | 
+| Período       | Matéria       | Professor | Horário | Dia Semana | 
 |:-------------:|:-------------:|:---------:|:-------:|:----------:|
 | 1º            | ATP           |  Hugo     |   2º    | Segunda    | 
 | 2º            | POO           |  Caram    |   1º    | Terça      | 
