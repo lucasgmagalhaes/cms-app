@@ -1,6 +1,6 @@
 ﻿namespace Class_Management_System
 {
-    partial class Home
+    partial class Index
     {
         /// <summary>
         /// Required designer variable.
