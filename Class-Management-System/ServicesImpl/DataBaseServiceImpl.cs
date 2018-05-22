@@ -6,6 +6,9 @@ using System.Data;
 
 namespace Class_Management_System.ServicesImpl
 {
+    /// <summary>
+    /// Classe implementadora do serviço de banco de dados
+    /// </summary>
     public class DataBaseServiceImpl : IDataBaseService
     {
         public void Close()
