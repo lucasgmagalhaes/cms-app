@@ -68,6 +68,7 @@
     <Compile Include="Entities\Disciplina.cs" />
     <Compile Include="Entities\Materia.cs" />
     <Compile Include="Entities\Professor.cs" />
+    <Compile Include="Enums\Cor.cs" />
     <Compile Include="Enums\DiaLetivo.cs" />
     <Compile Include="Enums\Horario.cs" />
     <Compile Include="Enums\Periodo.cs" />
@@ -77,13 +78,13 @@
     <Compile Include="Index.Designer.cs">
       <DependentUpon>Index.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IDado.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicesImpl\GrafoService.cs" />
     <Compile Include="Services\IAulaService.cs" />
     <Compile Include="Services\IGrafoService.cs" />
     <Compile Include="Structures\Aresta.cs" />
-    <Compile Include="Structures\Dado.cs" />
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

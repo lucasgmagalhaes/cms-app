@@ -7,3 +7,5 @@ C:\Users\1047825\Desktop\cms-app\Class-Management-System\obj\Debug\Class_Managem
 C:\Users\1047825\Desktop\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.GenerateResource.Cache
 C:\Users\1047825\Desktop\cms-app\Class-Management-System\obj\Debug\Class-Management-System.exe
 C:\Users\1047825\Desktop\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
+C:\Users\1047825\Desktop\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe.CodeAnalysisLog.xml
+C:\Users\1047825\Desktop\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe.lastcodeanalysissucceeded
