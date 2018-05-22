@@ -6,13 +6,11 @@ using System.Text;
 
 namespace Class_Management_System.Structures
 {
-    public class Grafo
+    public class Grafo : IGrafo
     {
         private List<Vertice> vertices;
         private List<Aresta> arestas;
-
         private int componentes; //Número de componentes do grafo
-        private int tempo; //Usado na contagem do tempo de descoberta dos vértices
 
         public int Numero_vertices { get { return this.vertices.Count; } }
 
@@ -357,7 +355,7 @@ namespace Class_Management_System.Structures
             }
         }
 
-        public Grafo GetAGMKruskal(out StringBuilder ordemInsercao)
+        public IGrafo GetAGMKruskal(out StringBuilder ordemInsercao)
         {
             Aresta arestaMenor = null;
             Vertice v1, v2;
@@ -399,7 +397,7 @@ namespace Class_Management_System.Structures
             this.vertices.ForEach(vertice => vertice.SetVisitado(false));
         }
 
-        public Grafo GetAGMKruskal(Vertice inicial, out StringBuilder ordemInsercaoVertices) // ~ pra que vértice inicial???
+        public IGrafo GetAGMKruskal(Vertice inicial, out StringBuilder ordemInsercaoVertices) // ~ pra que vértice inicial???
         {
             if (!inicial.Contem(GetMenorArestaDesempate(GetArestasMenorPeso(this.arestas))))
             {
@@ -495,7 +493,7 @@ namespace Class_Management_System.Structures
         /// por referência(caso ele exista no grafo)
         /// </summary>
         /// <returns></returns>
-        public Grafo GetAGMPrim(Vertice v1, out StringBuilder ordemInsercaoVertices)
+        public IGrafo GetAGMPrim(Vertice v1, out StringBuilder ordemInsercaoVertices)
         {
             ordemInsercaoVertices = new StringBuilder();
             Grafo AGM = new Grafo();
@@ -536,7 +534,7 @@ namespace Class_Management_System.Structures
         /// do grafo
         /// </summary>
         /// <returns></returns>
-        public Grafo GetAGMPrim(out StringBuilder ordemInsercaoVertices)
+        public IGrafo GetAGMPrim(out StringBuilder ordemInsercaoVertices)
         {
             return this.GetAGMPrim(this.vertices[0], out ordemInsercaoVertices);
         }
