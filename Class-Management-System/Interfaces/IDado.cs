@@ -28,11 +28,5 @@ namespace Class_Management_System.Interfaces
         /// </summary>
         /// <returns></returns>
         object GetValor();
-
-        /// <summary>
-        /// Cria uma nova instância do objeto. Porém mantem os valores do mesmo.
-        /// </summary>
-        /// <returns></returns>
-        new IDado Clone();
     }
 }

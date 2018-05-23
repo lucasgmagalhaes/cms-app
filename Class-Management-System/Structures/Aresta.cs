@@ -1,15 +1,16 @@
-﻿using Class_Management_System.Interfaces;
+﻿using Class_Management_System.Enums;
+using Class_Management_System.Interfaces;
 using System.Collections.Generic;
 
 namespace Class_Management_System.Structures
 {
     public class Aresta
     {
-        protected Vertice vertice1;
-        protected Vertice vertice2;
-        protected bool visitada; //visitada, usada para grafo euleriano
-        protected int peso;
-
+        private Vertice vertice1;
+        private Vertice vertice2;
+        private bool visitada; //visitada, usada para grafo euleriano
+        private int peso;
+        private Cor cor;
         public Aresta(Vertice v1, Vertice v2)
         {
             this.vertice1 = v1;
@@ -22,6 +23,14 @@ namespace Class_Management_System.Structures
             this.vertice1 = v1;
             this.vertice2 = v2;
             this.peso = peso;
+            this.visitada = false;
+        }
+
+        public Aresta(Vertice v1, Vertice v2, Cor cor)
+        {
+            this.vertice1 = v1;
+            this.vertice2 = v2;
+            this.cor = cor;
             this.visitada = false;
         }
 
@@ -70,7 +79,6 @@ namespace Class_Management_System.Structures
         {
             return visitada;
         }
-
         public void SetVisitado(bool visita) => this.visitada = visita;
 
         /// <summary>
@@ -116,12 +124,10 @@ namespace Class_Management_System.Structures
                 return false;
             }
         }
-
         public object Clone()
         {
             return this.MemberwiseClone();
         }
-
         public object getValorVertice1
         {
             get
@@ -130,7 +136,6 @@ namespace Class_Management_System.Structures
                 else return null;
             }
         }
-
         public object getValorVertice2
         {
             get
@@ -139,7 +144,6 @@ namespace Class_Management_System.Structures
                 else return null;
             }
         }
-
         public IDado getDadoVertice1
         {
             get
@@ -153,7 +157,6 @@ namespace Class_Management_System.Structures
                 this.vertice1.SetDado(value);
             }
         }
-
         public IDado getDadoVertice2
         {
             get
@@ -167,11 +170,19 @@ namespace Class_Management_System.Structures
             }
         }
 
+        public Cor GetCor()
+        {
+            return this.cor;
+        }
+
+        public void SetCor(Cor cor)
+        {
+            this.cor = cor;
+        }
+
         public Vertice getVertice1 { get { return this.vertice1; } }
         public Vertice getVertice2 { get { return this.vertice2; } }
-
         public void SetVertice1(Vertice vertice) => this.vertice1 = vertice;
-
         public void SetVertice2(Vertice vertice) => this.vertice2 = vertice;
     }
 }

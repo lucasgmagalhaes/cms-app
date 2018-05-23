@@ -249,6 +249,25 @@ namespace Class_Management_System.Structures
         }
 
         /// <summary>
+        /// Insere um novo vértice no grafo SE ele já não foi adicionado
+        /// </summary>
+        /// <param name="v1"></param>
+        public void AddVerticeSeNaoContem(Vertice v1)
+        {
+            if (v1 != null && !this.Contem(v1))
+            {
+                this.vertices.Add(v1);
+                this.CalcularArestas(v1);
+                this.AddArestasEmAdjacentes(v1);
+
+                foreach (Aresta a in v1.GetArestas())
+                {
+                    if (!this.Contem(a)) this.arestas.Add(a);
+                }
+            }
+        }
+
+        /// <summary>
         /// Adiciona as arestas de um vértice nos outro vértice 
         /// no qual ela está ligada, SE este não tiver ela adicionada
         /// em sua lista
