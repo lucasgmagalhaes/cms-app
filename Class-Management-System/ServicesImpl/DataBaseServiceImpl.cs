@@ -1,4 +1,4 @@
-﻿using Class_Management_System.Entities;
+using Class_Management_System.Entities;
 using Class_Management_System.Services;
 using MySql.Data.MySqlClient;
 using System;
@@ -57,7 +57,45 @@ namespace Class_Management_System.ServicesImpl
                 }
             }
         }
+        /// <summary>
+        /// Busca dados pela consulta feita
+        /// </summary>
+        /// <param name="sSql"> Query a ser executada</param>
+        /// <returns>Retorna DataTable com o resultado</returns>
+        public DataTable BuscaDados(string sSql)
+        {
+            try
+            {
+                MySqlCommand sQlCmd = new MySqlCommand(sSql); 
+                DataTable dtbResult = new DataTable();
+                MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
+                sqlDtb.Fill(dtbResult);
+                return dtbResult;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
+        /// <summary>
+        /// Execura Query que alteram, apagam ou inserem dados no BD
+        /// </summary>
+        /// <param name="sSql"></param>
+        /// <returns>Retorna quantidade de linhas afetadas</returns>
+        public int ExecutaQuery(string sSql)
+        {
+            try
+            {
+                MySqlCommand sQlCmd = new MySqlCommand(sSql);
+                return sQlCmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public string GetErrorMessage()
         {
             return DataBaseConection.sqlerromsg;
