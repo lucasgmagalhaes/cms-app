@@ -95,6 +95,7 @@
     <Compile Include="Structures\Aresta.cs" />
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />
+    <Compile Include="Utils\LeitorArquivo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

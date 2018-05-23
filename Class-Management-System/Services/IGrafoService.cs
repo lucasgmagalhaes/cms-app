@@ -1,5 +1,6 @@
 ﻿using Class_Management_System.Entities;
 using Class_Management_System.Interfaces;
+using Class_Management_System.Structures;
 using System.Collections.Generic;
 
 namespace Class_Management_System.Services
@@ -15,7 +16,7 @@ namespace Class_Management_System.Services
         /// </summary>
         /// <param name="arquivo"></param>
         /// <returns></returns>
-        IGrafo GerarHorarios(string[] arquivo);
+        IGrafo GerarHorarios(List<Vertice> vertices);
         
         /// <summary>
         /// Gera um dia da semana(segunda, terça, quarta, quinta e sexta)

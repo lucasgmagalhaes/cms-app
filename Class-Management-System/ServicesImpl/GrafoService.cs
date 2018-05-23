@@ -2,11 +2,14 @@
 using Class_Management_System.Enums;
 using Class_Management_System.Interfaces;
 using Class_Management_System.Services;
-using System;
+using Class_Management_System.Structures;
 using System.Collections.Generic;
 
 namespace Class_Management_System.ServicesImp
 {
+    /// <summary>
+    /// Implementação do serviço do IGrafoService
+    /// </summary>
     public class GrafoService : IGrafoService
     {
         public List<DiaSemana> GerarDiasDaSemana()
@@ -29,9 +32,10 @@ namespace Class_Management_System.ServicesImp
             return listaRetorno;
         }
 
-        public IGrafo GerarHorarios(string[] arquivo)
+        public IGrafo GerarHorarios(List<Vertice> vertices)
         {
-            throw new NotImplementedException();
+            IGrafo grafo = new Grafo();
+            return grafo;
         }
     }
 }
