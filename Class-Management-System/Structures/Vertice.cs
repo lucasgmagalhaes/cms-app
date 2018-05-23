@@ -48,7 +48,7 @@ namespace Class_Management_System.Structures
         /// <returns></returns>
         public Vertice Clonar()
         {
-            Vertice retorno = new Vertice(this.dado.Clone());
+            Vertice retorno = new Vertice((IDado)this.dado.Clone());
             retorno.AddArestas(this.GetArestas());
             return retorno;
         }
@@ -59,7 +59,7 @@ namespace Class_Management_System.Structures
         /// <returns></returns>
         public Vertice ClonarSemArestas()
         {
-            return new Vertice(this.dado.Clone());
+            return new Vertice((IDado)this.dado.Clone());
         }
 
         public Aresta GetAresta(int index)
