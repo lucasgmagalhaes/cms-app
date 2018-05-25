@@ -9,3 +9,15 @@ C:\Users\1047825\Desktop\cms-app\Class-Management-System\obj\Debug\Class-Managem
 C:\Users\1047825\Desktop\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
 C:\Users\1047825\Desktop\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe.CodeAnalysisLog.xml
 C:\Users\1047825\Desktop\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe.lastcodeanalysissucceeded
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe.config
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\bin\Debug\Class-Management-System.pdb
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\bin\Debug\MySql.Data.dll
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csprojResolveAssemblyReference.cache
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Properties.Resources.resources
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.GenerateResource.Cache
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.CoreCompileInputs.cache
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.exe
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Login.resources
+C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.CadUsuario.resources

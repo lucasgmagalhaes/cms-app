@@ -100,7 +100,22 @@ namespace Class_Management_System.ServicesImpl
         {
             return DataBaseConection.sqlerromsg;
         }
+        public void CarregaCmb(System.Windows.Forms.ComboBox cmb,string sSql)
+        {
+            try
+            {
+                MySqlCommand sQlCmd = new MySqlCommand(sSql);
+                DataTable dtbResult = new DataTable();
+                MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
+                sqlDtb.Fill(dtbResult);
+                cmb.DataSource = dtbResult;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            } 
+        }
         public ConnectionState State()
         {
             return DataBaseConection.GetConnection().State;

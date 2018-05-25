@@ -78,6 +78,18 @@
     <Compile Include="Enums\DiaLetivo.cs" />
     <Compile Include="Enums\Horario.cs" />
     <Compile Include="Enums\Periodo.cs" />
+    <Compile Include="Forms\CadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadUsuario.Designer.cs">
+      <DependentUpon>CadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +109,12 @@
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />
     <Compile Include="Utils\LeitorArquivo.cs" />
+    <EmbeddedResource Include="Forms\CadUsuario.resx">
+      <DependentUpon>CadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -131,9 +149,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DLL\MySql.Data.dll" />
   </ItemGroup>

@@ -42,6 +42,8 @@
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtSenha = new System.Windows.Forms.MaskedTextBox();
             this.txtConfirma = new System.Windows.Forms.MaskedTextBox();
+            this.BtnLogin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TxtNome
@@ -164,11 +166,41 @@
             this.txtConfirma.TabIndex = 16;
             this.txtConfirma.UseSystemPasswordChar = true;
             // 
+            // BtnLogin
+            // 
+            this.BtnLogin.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnLogin.FlatAppearance.BorderSize = 0;
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnLogin.Location = new System.Drawing.Point(462, 462);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(159, 35);
+            this.BtnLogin.TabIndex = 17;
+            this.BtnLogin.Text = "GRAVAR";
+            this.BtnLogin.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(666, 462);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 35);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "DELETAR";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // CadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 544);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.txtConfirma);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtCpf);
@@ -208,5 +240,7 @@
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.MaskedTextBox txtSenha;
         private System.Windows.Forms.MaskedTextBox txtConfirma;
+        private System.Windows.Forms.Button BtnLogin;
+        private System.Windows.Forms.Button button1;
     }
 }
