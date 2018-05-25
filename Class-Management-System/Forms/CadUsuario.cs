@@ -22,7 +22,7 @@ namespace Class_Management_System.Forms
             try
             {
                 DataBaseServiceImpl dbService = new DataBaseServiceImpl();
-                dbService.CarregaCmb(cmbPerfil, "SELECT COD_PERFIL_USUARIO ,DSC_PERFIL_USUARIO FROM PERFIL_USUARIO")
+                dbService.CarregaCmb(cmbPerfil, "EXEC SPCARREGA_PERFIL")
 ;            }
             catch (Exception)
             {
