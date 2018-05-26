@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Class_Management_System
 {
-    public partial class Index : Form
+    public partial class Home : Form
     {
-        public Index()
+        public Home()
         {
             InitializeComponent();
         }

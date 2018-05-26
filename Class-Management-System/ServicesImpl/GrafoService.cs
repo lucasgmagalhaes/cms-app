@@ -1,6 +1,5 @@
 ﻿using Class_Management_System.Entities;
 using Class_Management_System.Enums;
-using Class_Management_System.Interfaces;
 using Class_Management_System.Services;
 using Class_Management_System.Structures;
 using System.Collections.Generic;

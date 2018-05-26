@@ -21,3 +21,16 @@ C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-
 C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
 C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Login.resources
 C:\Users\henri\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.CadUsuario.resources
+D:\Git\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe.config
+D:\Git\cms-app\Class-Management-System\bin\Debug\Class-Management-System.exe
+D:\Git\cms-app\Class-Management-System\bin\Debug\Class-Management-System.pdb
+D:\Git\cms-app\Class-Management-System\bin\Debug\MySql.Data.dll
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csprojAssemblyReference.cache
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.CadUsuario.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Login.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Properties.Resources.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.GenerateResource.cache
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.CoreCompileInputs.cache
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.CopyComplete
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.exe
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb

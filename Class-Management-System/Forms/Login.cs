@@ -7,23 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Class_Management_System.Services;
 using Class_Management_System.ServicesImpl;
+using Class_Management_System.Utils;
 
 namespace Class_Management_System.Forms
 {
     public partial class Login : Form
     {
+        private readonly IDataBaseService databaseService;
         public Login()
         {
             InitializeComponent();
+            this.databaseService = DependencyFactory.Resolve<IDataBaseService>();
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            DataBaseServiceImpl dbService = new DataBaseServiceImpl();
             DataTable dtbLogin = new DataTable();
-            dtbLogin = dbService.BuscaDados("EXEC SPVERIFICA_LOGIN @sLogin= '" + txtLogin.Text + "',@sSenha ='" + txtSenha.Text + "'");
-            if (dtbLogin.Rows.Count >0)
+            dtbLogin = this.databaseService.BuscaDados("EXEC SPVERIFICA_LOGIN @sLogin= '" + txtLogin.Text + "',@sSenha ='" + txtSenha.Text + "'");
+            if (dtbLogin.Rows.Count > 0)
             {
                 //login validado , direciona tela inicial 
             }

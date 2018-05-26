@@ -57,6 +57,7 @@ namespace Class_Management_System.ServicesImpl
                 }
             }
         }
+
         /// <summary>
         /// Busca dados pela consulta feita
         /// </summary>
@@ -78,6 +79,7 @@ namespace Class_Management_System.ServicesImpl
                 throw;
             }
         }
+
         /// <summary>
         /// Execura Query que alteram, apagam ou inserem dados no BD
         /// </summary>
