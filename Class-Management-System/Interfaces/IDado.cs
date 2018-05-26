@@ -8,14 +8,14 @@ namespace Class_Management_System.Interfaces
     public interface IDado : IEquatable<IDado>, IComparable<IDado>, ICloneable
     {
         /// <summary>
-        /// Deve verificar se um IDado é igual à outro
+        /// Verificar se um IDado é igual à outro
         /// </summary>
         /// <param name="other"></param>
         /// <returns></returns>
         new bool Equals(IDado other);
 
         /// <summary>
-        /// Deve comparar dois IDados. Retornando -1 se o que foi passado por parâmetro
+        /// Compara dois IDados. Retornando -1 se o que foi passado por parâmetro
         /// for "menor" que o IDado local contém; 0 Se eles forem iguais e 1 se o IDado local 
         /// for maior que aquele passado por parâmetro
         /// </summary>
@@ -24,7 +24,7 @@ namespace Class_Management_System.Interfaces
         new int CompareTo(IDado other);
 
         /// <summary>
-        /// Deve retornar o valor que o dado contém
+        /// Retorna o conteúdo do dado
         /// </summary>
         /// <returns></returns>
         object GetValor();

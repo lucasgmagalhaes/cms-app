@@ -8,23 +8,23 @@ namespace Class_Management_System.Entities
 {
     public class DiaSemana : IDado
     {
-        private List<Aula> materias;
+        private List<Aula> aulas;
         private Horario horario;
         private DiaLetivo descricaoDia;
-        private int materias_cadastradas { get { return this.materias.Count; } } //Variável interna e para debug
+        private int aulas_cadastradas { get { return this.aulas.Count; } } //Variável interna e para debug
         public DiaSemana(Horario horario, DiaLetivo dia)
         {
             this.horario = horario;
             this.descricaoDia = dia;
-            this.materias = new List<Aula>(8);
+            this.aulas = new List<Aula>(8);
         }
 
-        public DiaSemana(Horario horario, DiaLetivo dia, List<Aula> materias)
+        public DiaSemana(Horario horario, DiaLetivo dia, List<Aula> aulas)
         {
             this.horario = horario;
             this.descricaoDia = dia;
-            this.materias = new List<Aula>(8);
-            this.AdicionarMaterias(materias);
+            this.aulas = new List<Aula>(8);
+            this.Adicionaraulas(aulas);
         }
 
         /// <summary>
@@ -34,9 +34,9 @@ namespace Class_Management_System.Entities
         /// <param name="materia"></param>
         public void AdicionarMateria(Aula materia)
         {
-            if (this.materias.Count < this.materias.Capacity && !this.materias.Contains(materia))
+            if (this.aulas.Count < this.aulas.Capacity && !this.aulas.Contains(materia))
             {
-                this.materias.Add(materia);
+                this.aulas.Add(materia);
             }
         }
 
@@ -45,10 +45,10 @@ namespace Class_Management_System.Entities
         /// Se não houver estourado o limite de matérias para esse dia e horário
         /// </summary>
         /// <param name="materia"></param>
-        public void AdicionarMaterias(List<Aula> materias)
+        public void Adicionaraulas(List<Aula> aulas)
         {
-            this.materias.AddRange(materias.FindAll(materia =>
-            this.materias.Count < this.materias.Capacity && !this.materias.Contains(materia)));
+            this.aulas.AddRange(aulas.FindAll(materia =>
+            this.aulas.Count < this.aulas.Capacity && !this.aulas.Contains(materia)));
         }
 
         /// <summary>
@@ -57,24 +57,40 @@ namespace Class_Management_System.Entities
         /// <param name="materia"></param>
         public void RemoverMateria(Aula materia)
         {
-            if (this.materias.Contains(materia))
+            if (this.aulas.Contains(materia))
             {
-                this.materias.Remove(materia);
+                this.aulas.Remove(materia);
             }
         }
 
         /// <summary>
-        /// Verifica se já existe uma máteria para o mesmo período,
+        /// Verifica se já existe uma aula para o mesmo período,
         /// horario e dia.
         /// </summary>
         /// <param name="materia"></param>
         /// <returns></returns>
         public bool ExisteAulaNoPeriodo(Aula aula)
         {
-            Aula retorno = this.materias.Find(aula_ => aula_.GetDisciplina().GetPeriodo() == aula.GetDisciplina().GetPeriodo());
-            return retorno != null;
+            return this.aulas.Find(aula_ => aula_.GetDisciplina().GetPeriodo() 
+            == aula.GetDisciplina().GetPeriodo()) != null;
         }
 
+        /// <summary>
+        /// Verifica se existe alguma aula com o professor passado por parâmetro
+        /// </summary>
+        /// <param name="professor">Professor</param>
+        /// <returns></returns>
+        public bool ExisteAulaComProfessor(Professor professor)
+        {
+            return this.aulas.Find(aula_ => aula_.GetProfessor().Equals(professor)) != null;
+        }
+
+        /// <summary>
+        /// É retornado TRUE se o dado informado for do tipo DiaSemana e se ele possuir o mesmo
+        /// horário e DiaLetivo que o diaSemana que está comparando
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(IDado other)
         {
             if (other is DiaSemana)
@@ -87,6 +103,13 @@ namespace Class_Management_System.Entities
             return false;
         }
 
+        /// <summary>
+        /// Retorna -1 se o diaSemana do parâmatro for de um dia depois do dia do objeto atual,
+        /// 1 se for menor, e 0 se forem iguais.
+        /// Lança a exceção ArgumentException se o objeto do parâmetro não for do tipo DiaSemana
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo(IDado other)
         {
             if (other is DiaSemana)
