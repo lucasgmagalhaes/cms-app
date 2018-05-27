@@ -5,9 +5,6 @@ using Class_Management_System.Structures;
 using Class_Management_System.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -40,12 +37,24 @@ namespace Class_Management_System
 
                 List<string> grafo = this.grafoService
                     .GerarHorariosFormatados(Vertice.ConverterParaVertice(dadosAula));
+
+                this.InserirResultadosNaTabela(grafo);
             }
         }
 
         private void InserirResultadosNaTabela(List<string> resultados)
         {
-            this.
+            string[] divisao;
+            resultados.ForEach(resultado =>
+            {
+                divisao = resultado.Split(';');
+                this.dataGridGrafo.Rows.Add(divisao[0], divisao[1], divisao[2], divisao[3], divisao[4]);
+            });
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

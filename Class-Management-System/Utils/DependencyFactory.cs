@@ -21,7 +21,6 @@ namespace Class_Management_System.Utils
             Type interface_ = typeof(T);
             Assembly assembly = Assembly.GetExecutingAssembly();
             Type[] types = assembly.GetTypes();
-
             IEnumerable<Type> implementacoes = types.Where(t => t.GetInterfaces().Contains(interface_));
 
             if (implementacoes != null)

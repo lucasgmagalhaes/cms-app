@@ -1,12 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Class_Management_System.ServicesImpl;
-
-namespace Class_Management_System.Entities
+﻿namespace Class_Management_System.Entities
 {
    public class Pessoa
     { 

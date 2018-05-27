@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Class_Management_System.Entities
+﻿namespace Class_Management_System.Entities
 {
     public class Professor
     {

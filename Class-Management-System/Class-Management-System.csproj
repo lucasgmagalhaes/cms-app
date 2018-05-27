@@ -73,7 +73,9 @@
     <Compile Include="Entities\DiaSemana.cs" />
     <Compile Include="Entities\Disciplina.cs" />
     <Compile Include="Entities\Aula.cs" />
+    <Compile Include="Entities\Pessoa.cs" />
     <Compile Include="Entities\Professor.cs" />
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Enums\Cor.cs" />
     <Compile Include="Enums\DiaLetivo.cs" />
     <Compile Include="Enums\Horario.cs" />
