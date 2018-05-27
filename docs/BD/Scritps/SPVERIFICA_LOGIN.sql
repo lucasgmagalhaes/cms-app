@@ -1,0 +1,8 @@
+CREATE PROC SPVERIFICA_LOGIN
+    @sLogin AS NVARCHAR(MAX) ,
+    @sSenha AS NVARCHAR(MAX)
+AS
+    SELECT  U.COD_USUARIO
+    FROM    USUARIO U
+    WHERE   U.[LOGIN] = @sLogin
+            AND U.SENHA = @sSenha;
