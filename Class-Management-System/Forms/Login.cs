@@ -35,5 +35,10 @@ namespace Class_Management_System.Forms
                 MessageBox.Show("Login e/ou senha estão incorretos!");
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

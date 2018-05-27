@@ -1,4 +1,5 @@
 ﻿using Class_Management_System.Entities;
+using Class_Management_System.Forms;
 using Class_Management_System.Interfaces;
 using Class_Management_System.Services;
 using Class_Management_System.Structures;
@@ -54,7 +55,14 @@ namespace Class_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Login login = new Login();
+            login.ShowDialog();
+        }
 
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            CadUsuario cadastro = new CadUsuario();
+            cadastro.ShowDialog();
         }
     }
 }

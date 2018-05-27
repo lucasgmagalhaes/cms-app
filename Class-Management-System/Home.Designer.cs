@@ -38,7 +38,7 @@
             this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dia_semana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +46,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGrafo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -101,7 +102,7 @@
             this.dataGridGrafo.ShowCellErrors = false;
             this.dataGridGrafo.ShowCellToolTips = false;
             this.dataGridGrafo.ShowRowErrors = false;
-            this.dataGridGrafo.Size = new System.Drawing.Size(542, 363);
+            this.dataGridGrafo.Size = new System.Drawing.Size(542, 436);
             this.dataGridGrafo.TabIndex = 4;
             // 
             // periodo
@@ -136,30 +137,32 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(236)))));
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(174, 524);
+            this.panel1.Size = new System.Drawing.Size(174, 552);
             this.panel1.TabIndex = 5;
             // 
-            // button1
+            // btnCadastrar
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Cadastrar Usuário";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCadastrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(0, 135);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(174, 32);
+            this.btnCadastrar.TabIndex = 0;
+            this.btnCadastrar.Text = "Cadastrar Usuário";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // button2
             // 
@@ -236,16 +239,30 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Class Management System";
             // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(0, 259);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(174, 32);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Configurações";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 524);
+            this.ClientSize = new System.Drawing.Size(907, 552);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridGrafo);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
+            this.MaximizeBox = false;
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -268,7 +285,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn horario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dia_semana;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -276,6 +293,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button4;
     }
 }
 

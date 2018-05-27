@@ -73,10 +73,10 @@ namespace Class_Management_System.ServicesImpl
                 sqlDtb.Fill(dtbResult);
                 return dtbResult;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                throw new Exception(e.Message);
             }
         }
 

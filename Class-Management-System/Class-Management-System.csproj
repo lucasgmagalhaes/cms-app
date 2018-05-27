@@ -86,12 +86,19 @@
     <Compile Include="Forms\CadUsuario.Designer.cs">
       <DependentUpon>CadUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Configuracoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes.Designer.cs">
+      <DependentUpon>Configuracoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global\Session.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +122,9 @@
     <Compile Include="Utils\LeitorArquivo.cs" />
     <EmbeddedResource Include="Forms\CadUsuario.resx">
       <DependentUpon>CadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes.resx">
+      <DependentUpon>Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
