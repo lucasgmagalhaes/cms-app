@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.TxtNome = new System.Windows.Forms.TextBox();
-            this.txtEmailuser = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.cmbPerfil = new System.Windows.Forms.ComboBox();
+            this.CmbPerfil = new System.Windows.Forms.ComboBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
             this.lblConfSenha = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtSenha = new System.Windows.Forms.MaskedTextBox();
             this.txtConfirma = new System.Windows.Forms.MaskedTextBox();
-            this.BtnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnGravar = new System.Windows.Forms.Button();
+            this.BtnDeletar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TxtNome
@@ -53,12 +53,12 @@
             this.TxtNome.Size = new System.Drawing.Size(268, 29);
             this.TxtNome.TabIndex = 0;
             // 
-            // txtEmailuser
+            // txtEmail
             // 
-            this.txtEmailuser.Location = new System.Drawing.Point(434, 205);
-            this.txtEmailuser.Name = "txtEmailuser";
-            this.txtEmailuser.Size = new System.Drawing.Size(262, 29);
-            this.txtEmailuser.TabIndex = 1;
+            this.txtEmail.Location = new System.Drawing.Point(434, 205);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(262, 29);
+            this.txtEmail.TabIndex = 1;
             // 
             // txtLogin
             // 
@@ -67,13 +67,13 @@
             this.txtLogin.Size = new System.Drawing.Size(268, 29);
             this.txtLogin.TabIndex = 4;
             // 
-            // cmbPerfil
+            // CmbPerfil
             // 
-            this.cmbPerfil.FormattingEnabled = true;
-            this.cmbPerfil.Location = new System.Drawing.Point(82, 376);
-            this.cmbPerfil.Name = "cmbPerfil";
-            this.cmbPerfil.Size = new System.Drawing.Size(268, 32);
-            this.cmbPerfil.TabIndex = 6;
+            this.CmbPerfil.FormattingEnabled = true;
+            this.CmbPerfil.Location = new System.Drawing.Point(82, 376);
+            this.CmbPerfil.Name = "CmbPerfil";
+            this.CmbPerfil.Size = new System.Drawing.Size(268, 32);
+            this.CmbPerfil.TabIndex = 6;
             // 
             // lblNome
             // 
@@ -102,14 +102,14 @@
             this.lblLogin.TabIndex = 9;
             this.lblLogin.Text = "Login:";
             // 
-            // txtEmail
+            // lblEmail
             // 
-            this.txtEmail.AutoSize = true;
-            this.txtEmail.Location = new System.Drawing.Point(430, 178);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(68, 24);
-            this.txtEmail.TabIndex = 10;
-            this.txtEmail.Text = "E-mail:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(430, 178);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(68, 24);
+            this.lblEmail.TabIndex = 10;
+            this.lblEmail.Text = "E-mail:";
             // 
             // lblSenha
             // 
@@ -166,54 +166,55 @@
             this.txtConfirma.TabIndex = 16;
             this.txtConfirma.UseSystemPasswordChar = true;
             // 
-            // BtnLogin
+            // BtnGravar
             // 
-            this.BtnLogin.BackColor = System.Drawing.SystemColors.Highlight;
-            this.BtnLogin.FlatAppearance.BorderSize = 0;
-            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnLogin.Location = new System.Drawing.Point(462, 462);
-            this.BtnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(159, 35);
-            this.BtnLogin.TabIndex = 17;
-            this.BtnLogin.Text = "GRAVAR";
-            this.BtnLogin.UseVisualStyleBackColor = false;
+            this.BtnGravar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnGravar.FlatAppearance.BorderSize = 0;
+            this.BtnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGravar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnGravar.Location = new System.Drawing.Point(462, 462);
+            this.BtnGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnGravar.Name = "BtnGravar";
+            this.BtnGravar.Size = new System.Drawing.Size(159, 35);
+            this.BtnGravar.TabIndex = 17;
+            this.BtnGravar.Text = "GRAVAR";
+            this.BtnGravar.UseVisualStyleBackColor = false;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
-            // button1
+            // BtnDeletar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(666, 462);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 35);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "DELETAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnDeletar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnDeletar.FlatAppearance.BorderSize = 0;
+            this.BtnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDeletar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnDeletar.Location = new System.Drawing.Point(666, 462);
+            this.BtnDeletar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnDeletar.Name = "BtnDeletar";
+            this.BtnDeletar.Size = new System.Drawing.Size(159, 35);
+            this.BtnDeletar.TabIndex = 18;
+            this.BtnDeletar.Text = "DELETAR";
+            this.BtnDeletar.UseVisualStyleBackColor = false;
             // 
             // CadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 544);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.BtnLogin);
+            this.Controls.Add(this.BtnDeletar);
+            this.Controls.Add(this.BtnGravar);
             this.Controls.Add(this.txtConfirma);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblConfSenha);
             this.Controls.Add(this.lblSenha);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.cmbPerfil);
+            this.Controls.Add(this.CmbPerfil);
             this.Controls.Add(this.txtLogin);
-            this.Controls.Add(this.txtEmailuser);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.TxtNome);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -227,20 +228,20 @@
         #endregion
 
         private System.Windows.Forms.TextBox TxtNome;
-        private System.Windows.Forms.TextBox txtEmailuser;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.ComboBox cmbPerfil;
+        private System.Windows.Forms.ComboBox CmbPerfil;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.Label txtEmail;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblConfSenha;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.MaskedTextBox txtSenha;
         private System.Windows.Forms.MaskedTextBox txtConfirma;
-        private System.Windows.Forms.Button BtnLogin;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnGravar;
+        private System.Windows.Forms.Button BtnDeletar;
     }
 }
