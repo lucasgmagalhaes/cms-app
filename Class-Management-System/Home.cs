@@ -62,7 +62,7 @@ namespace Class_Management_System
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            CadUsuario cadastro = new CadUsuario();
+            CadUsuario cadastro = new CadUsuario(0);
             cadastro.ShowDialog();
         }
 
