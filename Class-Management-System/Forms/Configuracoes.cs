@@ -135,6 +135,13 @@ namespace Class_Management_System.Forms
         private void btnSalvarEFechar_Click(object sender, EventArgs e)
         {
             SalvarInformacoesEmArquivo(txtBanco.Text, txtPorta.Text, txtSenha.Text, txtServidor.Text, txtUsuario.Text);
+
+            this.backupDatabase = this.txtBanco.Text;
+            this.backupPort = this.txtPorta.Text;
+            this.backupPassword = this.txtSenha.Text;
+            this.backupNameServidor = this.txtServidor.Text;
+            this.backupUser = this.txtUsuario.Text;
+
             this.Close();
         }
 

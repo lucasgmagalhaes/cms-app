@@ -127,7 +127,7 @@
             this.dataGridGrafo.ShowCellErrors = false;
             this.dataGridGrafo.ShowCellToolTips = false;
             this.dataGridGrafo.ShowRowErrors = false;
-            this.dataGridGrafo.Size = new System.Drawing.Size(500, 436);
+            this.dataGridGrafo.Size = new System.Drawing.Size(503, 436);
             this.dataGridGrafo.TabIndex = 4;
             // 
             // panel1
