@@ -45,15 +45,19 @@ namespace Class_Management_System.ServicesImpl
                     {
                         case 0:
                             DataBaseConection.sqlerromsg = "Não foi possível conectar ao servidor";
-                            break;
+                            throw new Exception(DataBaseConection.sqlerromsg);
                         case 1:
                             DataBaseConection.sqlerromsg = "Usuário ou senha inválidos";
-                            break;
+                            throw new Exception(DataBaseConection.sqlerromsg);
+                        case 1042:
+                            DataBaseConection.sqlerromsg = "Não foi possível encontrar um host com essas especificações";
+                            throw new Exception(DataBaseConection.sqlerromsg);
                     }
                 }
                 catch (Exception)
                 {
                     DataBaseConection.sqlerromsg = "Servidor Offiline";
+                    throw new Exception(DataBaseConection.sqlerromsg);
                 }
             }
         }

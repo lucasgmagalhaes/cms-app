@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Class-Management-System")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Projeto de TI do curso Sistemas de Informação do 4º. Conjunto das matérias: Algoritmos em grafos, Banco de dados e Engenharia de Requisitos")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SoluTIons")]
 [assembly: AssemblyProduct("cms-app")]

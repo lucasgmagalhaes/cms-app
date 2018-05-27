@@ -20,6 +20,7 @@ namespace Class_Management_System
             InitializeComponent();
             this.grafoService = DependencyFactory.Resolve<IGrafoService>();
             this.aulaService = DependencyFactory.Resolve<IAulaService>();
+            Configuracoes.CarregarInfosArquivo();
         }
 
         private void btnGerarGrafo_Click(object sender, EventArgs e)
@@ -63,6 +64,24 @@ namespace Class_Management_System
         {
             CadUsuario cadastro = new CadUsuario();
             cadastro.ShowDialog();
+        }
+
+        private void btnSobre_Click(object sender, EventArgs e)
+        {
+            Sobre about = new Sobre();
+            about.ShowDialog();
+        }
+
+        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            BuscaUsuario usuario = new BuscaUsuario();
+            usuario.ShowDialog();
+        }
+
+        private void btnConfiguracoes_Click(object sender, EventArgs e)
+        {
+            Configuracoes configs = new Configuracoes();
+            configs.ShowDialog();
         }
     }
 }

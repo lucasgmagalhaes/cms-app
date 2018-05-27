@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnTestarConexao = new System.Windows.Forms.Button();
+            this.txtBanco = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPorta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtServidor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSalvarEFechar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,30 +52,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Banco de dados";
             // 
-            // button1
+            // btnTestarConexao
             // 
-            this.button1.Location = new System.Drawing.Point(212, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTestarConexao.Location = new System.Drawing.Point(77, 288);
+            this.btnTestarConexao.Name = "btnTestarConexao";
+            this.btnTestarConexao.Size = new System.Drawing.Size(114, 23);
+            this.btnTestarConexao.TabIndex = 1;
+            this.btnTestarConexao.Text = "Testar Conexão";
+            this.btnTestarConexao.UseVisualStyleBackColor = true;
+            this.btnTestarConexao.Click += new System.EventHandler(this.btnTestarConexao_Click);
             // 
-            // textBox1
+            // txtBanco
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(77, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 25);
-            this.textBox1.TabIndex = 2;
+            this.txtBanco.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBanco.Location = new System.Drawing.Point(77, 71);
+            this.txtBanco.Name = "txtBanco";
+            this.txtBanco.Size = new System.Drawing.Size(178, 25);
+            this.txtBanco.TabIndex = 2;
             // 
-            // textBox2
+            // txtUsuario
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(77, 128);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(178, 25);
-            this.textBox2.TabIndex = 4;
+            this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(77, 128);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(178, 25);
+            this.txtUsuario.TabIndex = 4;
             // 
             // label2
             // 
@@ -86,13 +88,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Usuário";
             // 
-            // textBox3
+            // txtSenha
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(77, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(178, 25);
-            this.textBox3.TabIndex = 6;
+            this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(77, 183);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(178, 25);
+            this.txtSenha.TabIndex = 6;
             // 
             // label3
             // 
@@ -104,13 +106,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Senha";
             // 
-            // textBox4
+            // txtPorta
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(77, 238);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(178, 25);
-            this.textBox4.TabIndex = 8;
+            this.txtPorta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorta.Location = new System.Drawing.Point(77, 238);
+            this.txtPorta.Name = "txtPorta";
+            this.txtPorta.Size = new System.Drawing.Size(178, 25);
+            this.txtPorta.TabIndex = 8;
             // 
             // label4
             // 
@@ -122,13 +124,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Porta";
             // 
-            // textBox5
+            // txtServidor
             // 
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(77, 23);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(178, 25);
-            this.textBox5.TabIndex = 10;
+            this.txtServidor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServidor.Location = new System.Drawing.Point(77, 23);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(178, 25);
+            this.txtServidor.TabIndex = 10;
             // 
             // label5
             // 
@@ -140,24 +142,39 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Servidor";
             // 
+            // btnSalvarEFechar
+            // 
+            this.btnSalvarEFechar.Location = new System.Drawing.Point(197, 288);
+            this.btnSalvarEFechar.Name = "btnSalvarEFechar";
+            this.btnSalvarEFechar.Size = new System.Drawing.Size(114, 23);
+            this.btnSalvarEFechar.TabIndex = 11;
+            this.btnSalvarEFechar.Text = "Salvar e fechar";
+            this.btnSalvarEFechar.UseVisualStyleBackColor = true;
+            this.btnSalvarEFechar.Click += new System.EventHandler(this.btnSalvarEFechar_Click);
+            // 
             // Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 343);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.btnSalvarEFechar);
+            this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtPorta);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtBanco);
+            this.Controls.Add(this.btnTestarConexao);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Configuracoes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuracoes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuracoes_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,15 +183,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnTestarConexao;
+        private System.Windows.Forms.TextBox txtBanco;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPorta;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtServidor;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSalvarEFechar;
     }
 }

@@ -35,3 +35,6 @@ D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csproj.
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.exe
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Home.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Configuracoes.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Sobre.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.BuscaUsuario.resources
