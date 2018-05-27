@@ -1,4 +1,5 @@
 ﻿using Class_Management_System.Entities;
+using Class_Management_System.Enums;
 using Class_Management_System.Structures;
 using System.Collections.Generic;
 
@@ -62,5 +63,13 @@ namespace Class_Management_System.Services
         /// <param name="grafo"></param>
         /// <returns></returns>
         List<Vertice> BuscarVerticesDiaSemana(Grafo grafo);
+
+        /// <summary>
+        /// Busca uma lista de dias da semana pela descricao do dia
+        /// </summary>
+        /// <param name="dia"></param>
+        /// <param name="dias"></param>
+        /// <returns></returns>
+        List<DiaSemana> GetDiaSemanaPorDescricaoDia(DiaLetivo dia, List<DiaSemana> dias);
     }
 }

@@ -117,8 +117,21 @@ namespace Class_Management_System.ServicesImp
 
         public DiaSemana GetDiaDisponivelParaMateria(Aula aula, List<DiaSemana> dias)
         {
-            return dias.Find(dia => !dia.ExisteAulaNoPeriodo(aula)
+            List<DiaSemana> dias_ = dias.FindAll(dia => !dia.ExisteAulaNoPeriodo(aula)
             && !dia.ExisteAulaComProfessor(aula.GetProfessor()));
+            List<DiaSemana> diasIguais;
+
+            foreach(DiaSemana dia in dias_)
+            {
+                diasIguais = this.GetDiaSemanaPorDescricaoDia(dia.GetDia(), dias_);
+                if (diasIguais.Count == 1) return dia;
+            }
+            return dias_[0];
+        }
+
+        public List<DiaSemana> GetDiaSemanaPorDescricaoDia(DiaLetivo dia, List<DiaSemana> dias)
+        {
+            return dias.FindAll(dia_ => dia_.GetDia() == dia);
         }
 
         public List<Vertice> BuscarVerticesAula(Grafo grafo)
