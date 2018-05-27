@@ -60,7 +60,6 @@ namespace Class_Management_System.ServicesImp
                     builder.Clear();
                 });
             });
-
             return horarios;
         }
 
@@ -103,7 +102,6 @@ namespace Class_Management_System.ServicesImp
                 });
                 totalDiasRestantes = this.GetTotalDiasRestantesAulas(aulas);
             }
-
             return grafo;
         }
 
