@@ -24,7 +24,7 @@ namespace Class_Management_System.Utils
             List<string> retorno = new List<string>();
             if (File.Exists(path))
             {
-                using (StreamReader leitor = new StreamReader("path"))
+                using (StreamReader leitor = new StreamReader(path))
                 {
                     string line;
 

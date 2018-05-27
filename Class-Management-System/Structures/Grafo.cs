@@ -3,6 +3,7 @@ using Class_Management_System.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web.Script.Serialization;
 
 namespace Class_Management_System.Structures
 {
@@ -245,6 +246,28 @@ namespace Class_Management_System.Structures
                 {
                     if (!this.Contem(a)) this.arestas.Add(a);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Insere uma lista de vértices no grafo
+        /// </summary>
+        /// <param name="v1"></param>
+        public void AddVertice(List<Vertice> v1)
+        {
+            if (v1 != null)
+            {
+                v1.ForEach(vertice =>
+                {
+                    this.vertices.Add(vertice);
+                    this.CalcularArestas(vertice);
+                    this.AddArestasEmAdjacentes(vertice);
+
+                    foreach (Aresta a in vertice.GetArestas())
+                    {
+                        if (!this.Contem(a)) this.arestas.Add(a);
+                    }
+                });
             }
         }
 
@@ -1052,6 +1075,11 @@ namespace Class_Management_System.Structures
             List<string> retorno = new List<string>();
             this.vertices.ForEach(vertice => retorno.Add(vertice.GetDadoValor().ToString()));
             return retorno.ToArray();
+        }
+
+        public string Json()
+        {
+           return new JavaScriptSerializer().Serialize(this).ToString();
         }
     }
 }

@@ -24,15 +24,15 @@ namespace Class_Management_System.Entities
             this.horario = horario;
             this.descricaoDia = dia;
             this.aulas = new List<Aula>(8);
-            this.Adicionaraulas(aulas);
+            this.AdicionarAulas(aulas);
         }
 
         /// <summary>
-        /// Insere uma nova máteria para um dia e um horário da semana
+        /// Insere uma nova aula para um dia e um horário da semana
         /// Se não houver estourado o limite de matérias para esse dia e horário
         /// </summary>
         /// <param name="materia"></param>
-        public void AdicionarMateria(Aula materia)
+        public void AdicionarAula(Aula materia)
         {
             if (this.aulas.Count < this.aulas.Capacity && !this.aulas.Contains(materia))
             {
@@ -41,11 +41,11 @@ namespace Class_Management_System.Entities
         }
 
         /// <summary>
-        /// Insere uma lista de novas máterias para um dia e um horário da semana
+        /// Insere uma lista de novas aulas para um dia e um horário da semana
         /// Se não houver estourado o limite de matérias para esse dia e horário
         /// </summary>
         /// <param name="materia"></param>
-        public void Adicionaraulas(List<Aula> aulas)
+        public void AdicionarAulas(List<Aula> aulas)
         {
             this.aulas.AddRange(aulas.FindAll(materia =>
             this.aulas.Count < this.aulas.Capacity && !this.aulas.Contains(materia)));
@@ -144,6 +144,11 @@ namespace Class_Management_System.Entities
         public DiaLetivo GetDia()
         {
             return this.descricaoDia;
+        }
+
+        public List<Aula> GetAulas()
+        {
+            return this.aulas;
         }
     }
 }

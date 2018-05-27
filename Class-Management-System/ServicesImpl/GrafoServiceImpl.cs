@@ -1,20 +1,18 @@
 ﻿using Class_Management_System.Entities;
 using Class_Management_System.Enums;
+using Class_Management_System.Interfaces;
 using Class_Management_System.Services;
 using Class_Management_System.Structures;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Class_Management_System.ServicesImp
 {
     /// <summary>
     /// Implementação do serviço do IGrafoService
     /// </summary>
-    public class GrafoService : IGrafoService
+    public class GrafoServiceImpl : IGrafoService
     {
-        /// <summary>
-        /// Cria objetos do tipo DiaSemana referente a cada dia da semana e a cada horário de aula.
-        /// </summary>
-        /// <returns></returns>
         public List<DiaSemana> GerarDiasDaSemana()
         {
             List<DiaSemana> listaRetorno = new List<DiaSemana>();
@@ -42,9 +40,35 @@ namespace Class_Management_System.ServicesImp
         /// <returns></returns>
         public Grafo GerarHorarios(List<Vertice> vertices)
         {
+            return this.GerarGrafoBase(vertices);
+        }
+
+        public List<string> GerarHorariosFormatados(List<Vertice> vertices)
+        {
+            List<string> horarios = new List<string>();
+            StringBuilder builder = new StringBuilder();
+            Grafo grafo = this.GerarGrafoBase(vertices);
+
+            this.BuscarVerticesDiaSemana(grafo).ForEach(dia =>
+            {
+                ((DiaSemana)dia.GetDado()).GetAulas().ForEach(aula =>
+                {
+                builder.Append((int)aula.GetDisciplina().GetPeriodo() + ";" + aula.GetDisciplina().GetNome() +
+                    ";" + aula.GetProfessor().GetNome() + ";" + (int)((DiaSemana)dia.GetDado()).GetHorario()
+                    + ";" + ((DiaSemana)dia.GetDado()).GetDia());
+                    horarios.Add(builder.ToString());
+                    builder.Clear();
+                });
+            });
+
+            return horarios;
+        }
+
+        private Grafo GerarGrafoBase(List<Vertice> vertices)
+        {
             if (vertices == null) return new Grafo();
             Grafo grafo = new Grafo();
-            List<DiaSemana> dias = new List<DiaSemana>();
+            List<DiaSemana> dias = this.GerarDiasDaSemana();
             List<Aula> aulas = new List<Aula>();
             DiaSemana diaDisponivel;
             Aresta aresta;
@@ -53,6 +77,7 @@ namespace Class_Management_System.ServicesImp
             int totalDiasRestantes = 0;
 
             this.AdicionarVerticesEmVerticeEListas(grafo, dias, aulas, vertices);
+            grafo.AddVertice(Vertice.ConverterParaVertice(new List<IDado>(dias)));
             totalDiasRestantes = this.GetTotalDiasRestantesAulas(aulas);
 
             while (totalDiasRestantes > 0)
@@ -71,6 +96,7 @@ namespace Class_Management_System.ServicesImp
 
                             verticeDia.AddAresta(aresta);
                             verticeAula.AddAresta(aresta);
+                            ((DiaSemana)verticeDia.GetDado()).AdicionarAula((Aula)verticeAula.GetDado());
                             aula.DiminuirAulasPorSemanasRestante();
                         }
                     }
@@ -81,11 +107,6 @@ namespace Class_Management_System.ServicesImp
             return grafo;
         }
 
-        /// <summary>
-        /// Informa o total de aulas na semana todas as aulas juntas terão
-        /// </summary>
-        /// <param name="aulas"></param>
-        /// <returns></returns>
         public int GetTotalDiasRestantesAulas(List<Aula> aulas)
         {
             if (aulas == null) return 0;
@@ -94,19 +115,23 @@ namespace Class_Management_System.ServicesImp
             return count;
         }
 
-        /// <summary>
-        /// Retorna o dia semana disponível para a matéria passada por parâmetro.
-        /// Para "dia disponível" é verificado quais dias da semana não tem aula para o período
-        /// em que a matéria é, e se já não existe uma matéria com o mesmo professor da aula passada por parâmetro.
-        /// </summary>
-        /// <param name="materia"></param>
-        /// <returns></returns>
-        private DiaSemana GetDiaDisponivelParaMateria(Aula aula, List<DiaSemana> dias)
+        public DiaSemana GetDiaDisponivelParaMateria(Aula aula, List<DiaSemana> dias)
         {
-            return dias.Find(dia => dia.ExisteAulaNoPeriodo(aula)
-            && dia.ExisteAulaComProfessor(aula.GetProfessor()));
+            return dias.Find(dia => !dia.ExisteAulaNoPeriodo(aula)
+            && !dia.ExisteAulaComProfessor(aula.GetProfessor()));
         }
 
+        public List<Vertice> BuscarVerticesAula(Grafo grafo)
+        {
+            if (grafo == null) return null;
+            return grafo.GetVertices().FindAll(vertice => vertice.GetDado() is Aula);
+        }
+
+        public List<Vertice> BuscarVerticesDiaSemana(Grafo grafo)
+        {
+            if (grafo == null) return null;
+            return grafo.GetVertices().FindAll(vertice => vertice.GetDado() is DiaSemana);
+        }
 
         /// <summary>
         /// Adiciona a lista de vértices no grafo e, para cada vértice , se ele  for do tipo Dia, 

@@ -398,5 +398,17 @@ namespace Class_Management_System.Structures
             }
             return null;
         }
+
+        /// <summary>
+        /// Cria uma lista de vértices através de uma lista de dados
+        /// </summary>
+        /// <param name="dados"></param>
+        /// <returns></returns>
+        public static List<Vertice> ConverterParaVertice(List<IDado> dados)
+        {
+            List<Vertice> vertices = new List<Vertice>();
+            dados.ForEach(dado => vertices.Add(new Vertice(dado)));
+            return vertices;
+        }
     }
 }
