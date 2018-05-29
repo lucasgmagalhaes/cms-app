@@ -73,7 +73,7 @@ namespace Class_Management_System.Forms
         {
             if (User.PkUsuario == 0)
             {
-                MessageBox.Show("Usuário não existe!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuário não existe ou nenhum usuário selecionado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -265,6 +265,20 @@ namespace Class_Management_System.Forms
                 throw;
             }
         }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.User = new Usuario();
+                LimpaCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro BtnNovo_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        } 
     }
 }
 
