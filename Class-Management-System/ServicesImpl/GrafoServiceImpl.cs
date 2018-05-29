@@ -122,7 +122,7 @@ namespace Class_Management_System.ServicesImp
             foreach(DiaSemana dia in dias_)
             {
                 diasIguais = this.GetDiaSemanaPorDescricaoDia(dia.GetDia(), dias_);
-                if (diasIguais.Count == 1) return dia;
+                if (diasIguais.Count > 0) return diasIguais[0];
             }
             return dias_[0];
         }
