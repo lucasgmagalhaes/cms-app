@@ -49,7 +49,7 @@
             // 
             // TxtNome
             // 
-            this.TxtNome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtNome.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNome.Location = new System.Drawing.Point(51, 59);
             this.TxtNome.Name = "TxtNome";
             this.TxtNome.Size = new System.Drawing.Size(268, 33);
@@ -57,7 +57,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(381, 138);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(262, 33);
@@ -65,7 +65,7 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLogin.Location = new System.Drawing.Point(51, 138);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(268, 33);
@@ -73,7 +73,7 @@
             // 
             // CmbPerfil
             // 
-            this.CmbPerfil.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbPerfil.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbPerfil.FormattingEnabled = true;
             this.CmbPerfil.Location = new System.Drawing.Point(51, 309);
             this.CmbPerfil.Name = "CmbPerfil";
@@ -83,7 +83,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblNome.Location = new System.Drawing.Point(47, 32);
             this.lblNome.Name = "lblNome";
@@ -94,7 +94,7 @@
             // lblCpf
             // 
             this.lblCpf.AutoSize = true;
-            this.lblCpf.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpf.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCpf.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblCpf.Location = new System.Drawing.Point(377, 32);
             this.lblCpf.Name = "lblCpf";
@@ -105,7 +105,7 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblLogin.Location = new System.Drawing.Point(52, 111);
             this.lblLogin.Name = "lblLogin";
@@ -116,7 +116,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblEmail.Location = new System.Drawing.Point(377, 111);
             this.lblEmail.Name = "lblEmail";
@@ -127,7 +127,7 @@
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSenha.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblSenha.Location = new System.Drawing.Point(47, 204);
             this.lblSenha.Name = "lblSenha";
@@ -138,7 +138,7 @@
             // lblConfSenha
             // 
             this.lblConfSenha.AutoSize = true;
-            this.lblConfSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConfSenha.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblConfSenha.Location = new System.Drawing.Point(377, 204);
             this.lblConfSenha.Name = "lblConfSenha";
@@ -149,7 +149,7 @@
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerfil.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPerfil.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblPerfil.Location = new System.Drawing.Point(47, 282);
             this.lblPerfil.Name = "lblPerfil";
@@ -161,7 +161,7 @@
             // 
             this.txtCpf.AllowDrop = true;
             this.txtCpf.Culture = new System.Globalization.CultureInfo("pt-CH");
-            this.txtCpf.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCpf.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(381, 59);
             this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
@@ -171,7 +171,7 @@
             // txtSenha
             // 
             this.txtSenha.AllowDrop = true;
-            this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(51, 231);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(268, 33);
@@ -181,7 +181,7 @@
             // txtConfirma
             // 
             this.txtConfirma.AllowDrop = true;
-            this.txtConfirma.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirma.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirma.Location = new System.Drawing.Point(381, 231);
             this.txtConfirma.Name = "txtConfirma";
             this.txtConfirma.Size = new System.Drawing.Size(268, 33);
@@ -193,7 +193,7 @@
             this.BtnGravar.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnGravar.FlatAppearance.BorderSize = 0;
             this.BtnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGravar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGravar.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGravar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnGravar.Location = new System.Drawing.Point(70, 388);
             this.BtnGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -209,7 +209,7 @@
             this.BtnDeletar.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnDeletar.FlatAppearance.BorderSize = 0;
             this.BtnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDeletar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDeletar.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDeletar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnDeletar.Location = new System.Drawing.Point(286, 388);
             this.BtnDeletar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -224,7 +224,7 @@
             this.BtnNovo.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnNovo.FlatAppearance.BorderSize = 0;
             this.BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnNovo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNovo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNovo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnNovo.Location = new System.Drawing.Point(501, 388);
             this.BtnNovo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

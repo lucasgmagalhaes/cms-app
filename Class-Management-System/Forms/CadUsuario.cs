@@ -31,8 +31,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
         /// <summary>
@@ -52,8 +51,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
         private void CarregaPerfil()
@@ -65,8 +63,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
         private void BtnDeletar_Click(object sender, EventArgs e)
@@ -103,8 +100,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
         private bool ValidaGravar()
@@ -181,8 +177,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
         public bool ValidaCpf(string cpf)
@@ -225,7 +220,7 @@ namespace Class_Management_System.Forms
             catch (Exception e)
             {
                 MessageBox.Show("Erro - ValidaCpf " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                return false;
             }
         }
         public bool VerificaCpfExist()
@@ -244,7 +239,7 @@ namespace Class_Management_System.Forms
             catch (Exception e)
             {
                 MessageBox.Show("Erro VerificaCpfExist - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                return false;
             }
         }
         public void LimpaCampos()
@@ -261,8 +256,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
 
@@ -275,8 +269,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro BtnNovo_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro BtnNovo_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         } 
     }
