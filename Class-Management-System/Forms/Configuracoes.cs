@@ -175,6 +175,6 @@ namespace Class_Management_System.Forms
                 SalvarInformacoesEmArquivo(this.txtBanco.Text, this.txtPorta.Text, this.txtSenha.Text,
                        this.txtServidor.Text, this.txtUsuario.Text);
             }
-        }
+        } 
     }
 }
