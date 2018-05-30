@@ -39,32 +39,34 @@
             // lblPesquisa
             // 
             this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Location = new System.Drawing.Point(165, 37);
-            this.lblPesquisa.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPesquisa.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
+            this.lblPesquisa.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblPesquisa.Location = new System.Drawing.Point(135, 31);
+            this.lblPesquisa.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPesquisa.Name = "lblPesquisa";
-            this.lblPesquisa.Size = new System.Drawing.Size(92, 24);
+            this.lblPesquisa.Size = new System.Drawing.Size(90, 25);
             this.lblPesquisa.TabIndex = 0;
             this.lblPesquisa.Text = "Pesquisa:";
             // 
             // txtPesquisa
             // 
-            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisa.Location = new System.Drawing.Point(170, 66);
-            this.txtPesquisa.Margin = new System.Windows.Forms.Padding(6);
+            this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisa.Location = new System.Drawing.Point(139, 55);
+            this.txtPesquisa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(667, 38);
+            this.txtPesquisa.Size = new System.Drawing.Size(546, 35);
             this.txtPesquisa.TabIndex = 1;
             // 
             // BtnPesquisar
             // 
             this.BtnPesquisar.BackColor = System.Drawing.SystemColors.Highlight;
             this.BtnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPesquisar.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
             this.BtnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnPesquisar.Location = new System.Drawing.Point(1002, 66);
-            this.BtnPesquisar.Margin = new System.Windows.Forms.Padding(6);
+            this.BtnPesquisar.Location = new System.Drawing.Point(821, 55);
+            this.BtnPesquisar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.BtnPesquisar.Name = "BtnPesquisar";
-            this.BtnPesquisar.Size = new System.Drawing.Size(138, 39);
+            this.BtnPesquisar.Size = new System.Drawing.Size(113, 38);
             this.BtnPesquisar.TabIndex = 2;
             this.BtnPesquisar.Text = "PESQUISAR";
             this.BtnPesquisar.UseVisualStyleBackColor = false;
@@ -73,41 +75,41 @@
             // dtgPesquisa
             // 
             this.dtgPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPesquisa.Location = new System.Drawing.Point(170, 114);
-            this.dtgPesquisa.Margin = new System.Windows.Forms.Padding(6);
+            this.dtgPesquisa.Location = new System.Drawing.Point(139, 116);
+            this.dtgPesquisa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dtgPesquisa.Name = "dtgPesquisa";
-            this.dtgPesquisa.Size = new System.Drawing.Size(972, 628);
+            this.dtgPesquisa.Size = new System.Drawing.Size(795, 523);
             this.dtgPesquisa.TabIndex = 3;
             this.dtgPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgPesquisa_CellContentClick);
             // 
             // CmbFiltro
             // 
-            this.CmbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbFiltro.Font = new System.Drawing.Font("Segoe UI Semibold", 16.25F);
             this.CmbFiltro.FormattingEnabled = true;
             this.CmbFiltro.Items.AddRange(new object[] {
             "ID",
             "LOGIN",
             "NOME",
             "CPF"});
-            this.CmbFiltro.Location = new System.Drawing.Point(846, 66);
+            this.CmbFiltro.Location = new System.Drawing.Point(692, 55);
+            this.CmbFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmbFiltro.Name = "CmbFiltro";
-            this.CmbFiltro.Size = new System.Drawing.Size(147, 39);
+            this.CmbFiltro.Size = new System.Drawing.Size(121, 38);
             this.CmbFiltro.TabIndex = 4;
             // 
             // BuscaUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 809);
+            this.ClientSize = new System.Drawing.Size(1139, 674);
             this.Controls.Add(this.CmbFiltro);
             this.Controls.Add(this.dtgPesquisa);
             this.Controls.Add(this.BtnPesquisar);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.lblPesquisa);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "BuscaUsuario";
-            this.Text = "BuscaUsuario";
             ((System.ComponentModel.ISupportInitialize)(this.dtgPesquisa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

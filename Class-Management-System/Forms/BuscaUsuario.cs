@@ -27,8 +27,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro - BtnPesquisar_Click " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro - BtnPesquisar_Click " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
         public void MontaDtb()
@@ -44,8 +43,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro - MontaDtb " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro - MontaDtb " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
 
@@ -79,7 +77,7 @@ namespace Class_Management_System.Forms
             catch (Exception e)
             {
                 MessageBox.Show("Erro - MontaGrade " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                return null;
             }
         }
         private void DtgPesquisa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -94,8 +92,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
 
         }
@@ -112,8 +109,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro - DtgPesquisa_CellContentClick " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show("Erro - DtgPesquisa_CellContentClick " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
     }
