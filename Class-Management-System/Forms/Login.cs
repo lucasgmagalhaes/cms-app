@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Class_Management_System.Entities;
 using Class_Management_System.Global;
 using Class_Management_System.Services;
-using Class_Management_System.ServicesImpl;
 using Class_Management_System.Utils;
 
 namespace Class_Management_System.Forms
@@ -23,7 +21,7 @@ namespace Class_Management_System.Forms
             DataTable dtbLogin = new DataTable();
             try
             {
-                dtbLogin = this.databaseService.BuscaDados(" CALL SPVERIFICA_LOGIN (sLogin= '" + txtLogin.Text + "',sSenha ='" + txtSenha.Text + "')");
+                dtbLogin = this.databaseService.BuscaDados(" CALL cms.SPVERIFICA_LOGIN ('" + txtLogin.Text + "','" + txtSenha.Text + "')");
             }
             catch (Exception ex)
             {
