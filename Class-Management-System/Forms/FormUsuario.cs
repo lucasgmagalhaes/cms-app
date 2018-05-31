@@ -37,6 +37,16 @@ namespace Class_Management_System.Forms
         }
 
         /// <summary>
+        /// Remove os caracteres especiais do cpf
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
+        private string RemoverMascaraCpf(string cpf)
+        {
+            return cpf.Replace(".", "").Replace("-", "").Replace(",", "");
+        }
+
+        /// <summary>
         /// Mostra os dados do Usuário na tela
         /// </summary>
         public void MostraRegistro()
@@ -88,9 +98,9 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                if (ValidaGravar())
+                if (this.ValidaGravar())
                 {
-                    SetDadosUsuario();
+                    this.SetDadosUsuario();
                     this.user.Gravar();
                     this.user.GetDados();
                 }
@@ -123,7 +133,7 @@ namespace Class_Management_System.Forms
                     return false;
                 }
                 if (this.user.PkUsuario == 0)
-                    if (VerificaCpfExist())
+                    if (this.VerificaCpfExist())
                     {
                         MessageBox.Show("Já existe um usuário com este CPF:" + txtCpf.Text);
                         txtCpf.Focus();
@@ -135,7 +145,7 @@ namespace Class_Management_System.Forms
                     txtEmail.Focus();
                     return false;
                 }
-                if ((int)CmbPerfil.SelectedValue == 0)
+                if (CmbPerfil.SelectedIndex == -1)
                 {
                     MessageBox.Show("Favor selecionar um perfil!");
                     CmbPerfil.Focus();
@@ -166,7 +176,7 @@ namespace Class_Management_System.Forms
             try
             {
                 this.user.SNome = TxtNome.Text;
-                this.user.SCPF = txtCpf.Text;
+                this.user.SCPF = this.RemoverMascaraCpf(txtCpf.Text);
                 this.user.SEmail = txtEmail.Text;
                 this.user.Perfil.SetDescricao(CmbPerfil.SelectedValue.ToString());
                 this.user.SLogin = txtLogin.Text;
@@ -187,8 +197,10 @@ namespace Class_Management_System.Forms
                 string digito;
                 int soma;
                 int resto;
+
                 cpf = cpf.Trim();
-                cpf = cpf.Replace(".", "").Replace("-", "");
+                cpf = this.RemoverMascaraCpf(cpf);
+
                 if (cpf.Length != 11)
                     return false;
                 tempCpf = cpf.Substring(0, 9);
@@ -197,15 +209,19 @@ namespace Class_Management_System.Forms
                 for (int i = 0; i < 9; i++)
                     soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
                 resto = soma % 11;
+
                 if (resto < 2)
                     resto = 0;
                 else
                     resto = 11 - resto;
+
                 digito = resto.ToString();
                 tempCpf = tempCpf + digito;
+
                 soma = 0;
                 for (int i = 0; i < 10; i++)
                     soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+
                 resto = soma % 11;
                 if (resto < 2)
                     resto = 0;
@@ -225,7 +241,7 @@ namespace Class_Management_System.Forms
             try
             {
                 DataTable dtbCPF = new DataTable();
-                dtbCPF = dbService.BuscaDados(" CALL cms.SPVERIFICA_CPF (sCpfPessoa = '" + txtCpf.Text + "')");
+                dtbCPF = dbService.BuscaDados(" CALL cms.SPVERIFICA_CPF ('" + this.RemoverMascaraCpf(txtCpf.Text) + "')");
                 if (dtbCPF.Rows.Count > 0)
                 {
                     return true;
@@ -280,6 +296,7 @@ namespace Class_Management_System.Forms
                 this.TxtNome.Text = "nomeTeste";
                 this.txtSenha.Text = "senhateste";
                 this.txtConfirma.Text = "senhateste";
+                if (this.CmbPerfil.Items.Count > 0) this.CmbPerfil.SelectedIndex = 0;
             }
         }
     }

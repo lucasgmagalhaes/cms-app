@@ -120,7 +120,7 @@ namespace Class_Management_System.ServicesImpl
                 //sqlDtb.Fill(dtbResult);
                 foreach(DataRow linha in dtbResult.Rows)
                 {
-                    cmb.Items.Add(linha.Field<int>(0));
+                    cmb.Items.Add(linha.Field<int>(1));
                 }
             }
             catch (Exception)
