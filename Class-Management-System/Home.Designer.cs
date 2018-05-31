@@ -215,7 +215,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(261, 849);
+            this.panel1.Size = new System.Drawing.Size(261, 749);
             this.panel1.TabIndex = 5;
             // 
             // btnSobre
@@ -517,7 +517,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1412, 849);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.groupFiltro);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -529,6 +529,7 @@
             this.MaximizeBox = false;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Shown += new System.EventHandler(this.Home_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGrafo)).EndInit();

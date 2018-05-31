@@ -37,13 +37,16 @@ namespace Class_Management_System
             this.aulaService = DependencyFactory.Resolve<IAulaService>();
             this.dataBaseService = DependencyFactory.Resolve<IDataBaseService>();
 
-            Configuracoes.CarregarInfosArquivo();
-            this.IniciarConexaoBanco();
             this.periodos = new HashSet<string>();
             this.materias = new HashSet<string>();
             this.professores = new HashSet<string>();
             this.dias = new HashSet<string>();
             this.horarios = new HashSet<string>();
+        }
+        private void Home_Shown(object sender, EventArgs e)
+        {
+            Configuracoes.CarregarInfosArquivo();
+            this.IniciarConexaoBanco();
         }
 
         public void IniciarConexaoBanco()

@@ -32,12 +32,12 @@ namespace Class_Management_System.Forms
 
             if (dtbLogin.Rows.Count > 0)
             {
-                Session.usuario = EntidadesDatabase.InstancializarUsuario(dtbLogin);
+                Session.usuario = EntidadesDatabase.InstancializarUsuarioPorLogin(dtbLogin, txtLogin.Text, txtSenha.Text);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Login e/ou senha estão incorretos!");
+                MessageBox.Show("Login e/ou senha estão incorretos!", "Falha login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

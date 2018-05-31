@@ -37,7 +37,7 @@ namespace Class_Management_System.ServicesImpl
                 try
                 {
                     DataBaseConection.connection = new MySqlConnection(DataBaseConection.connectionString);
-                    connection.Open();
+                    DataBaseConection.connection.Open();
                 }
                 catch (MySqlException error)
                 {
@@ -54,7 +54,7 @@ namespace Class_Management_System.ServicesImpl
                             throw new Exception(DataBaseConection.sqlerromsg);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     DataBaseConection.sqlerromsg = "Servidor Offiline";
                     throw new Exception(DataBaseConection.sqlerromsg);
