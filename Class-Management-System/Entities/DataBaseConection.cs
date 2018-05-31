@@ -7,88 +7,23 @@ namespace Class_Management_System.Entities
     /// </summary>
     public static class DataBaseConection
     {
-        private static MySqlConnection connection;
-        private static string serverN;
-        private static string port;
-        private static string databaseN;
-        private static string uidN;
-        private static string pwdN;
-        private static string connectionString;
-        public static string sqlerromsg = null;
+        private static MySqlConnection _connection;
+        private static string _server;
+        private static string _port;
+        private static string _database;
+        private static string _user;
+        private static string _password;
+        private static string _connectionString;
+        private static string _sqlErrorMsg;
 
-        public static MySqlConnection GetConnection()
-        {
-            return connection;
-        }
+        public static MySqlConnection connection { get => _connection; set => _connection = value; }
+        public static string server { get => _server; set => _server = value; }
+        public static string port { get => _port; set => _port = value; }
+        public static string database { get => _database; set => _database = value; }
+        public static string user { get => _user; set => _user = value; }
+        public static string password { get => _password; set => _password = value; }
+        public static string connectionString { get => _connectionString; set => _connectionString = value; }
+        public static string sqlerromsg { get => _sqlErrorMsg; set => _sqlErrorMsg = value; }
 
-        /// <summary>
-        /// Nome do Servidor Pad = "Servidor"
-        /// </summary>
-        /// <param name="name"></param>
-        public static void ServerName(string name)
-        {
-            serverN = name;
-        }
-
-        public static string GetServerName()
-        {
-            return serverN;
-        }
-
-        /// <summary>
-        /// Porta usada Pad = "3306"
-        /// </summary>
-        /// <param name="porta"></param>
-        public static void Port(string porta)
-        {
-            port = porta;
-        }
-
-        public static string GetPort()
-        {
-            return port;
-        }
-
-        /// <summary>
-        /// Nome do banco de dados Pad="V11_Mafra"
-        /// </summary>
-        /// <param name="name"></param>
-        public static void DataBaseName(string name)
-        {
-            databaseN = name;
-        }
-
-        public static string GetDataBaseName()
-        {
-            return databaseN;
-        }
-
-        /// <summary>
-        /// Usuário para realizar o login Pad="root"
-        /// </summary>
-        /// <param name="user"></param>
-        public static void User(string user)
-        {
-            uidN = user;
-        }
-
-        public static string GetUser()
-        {
-            return uidN;
-        }
-
-        /// <summary>
-        /// Senha para realizar o login="mafra1045@"
-        /// </summary>
-        /// <param name="pass"></param>
-        public static void Password(string pass)
-        {
-            pwdN = pass;
-        }
-
-        public static string GetPassword()
-        {
-            return pwdN;
-        }
     }
 }

@@ -131,6 +131,7 @@
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />
     <Compile Include="Utils\DependencyFactory.cs" />
+    <Compile Include="Utils\EntidadesDatabase.cs" />
     <Compile Include="Utils\LeitorArquivo.cs" />
     <EmbeddedResource Include="Forms\BuscaUsuario.resx">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>

@@ -13,7 +13,7 @@ namespace Class_Management_System.ServicesImpl
     {
         public void Close()
         {
-            DataBaseConection.GetConnection().Close();
+            DataBaseConection.connection.Close();
         }
 
         /// <summary>
@@ -22,21 +22,21 @@ namespace Class_Management_System.ServicesImpl
         /// <returns></returns>
         public void Open()
         {
-            string server = DataBaseConection.GetServerName();
-            string port = DataBaseConection.GetPort();
-            string databaseName = DataBaseConection.GetDataBaseName();
-            string user = DataBaseConection.GetUser();
-            string password = DataBaseConection.GetPassword();
-            MySqlConnection connection = DataBaseConection.GetConnection();
+            string server = DataBaseConection.server;
+            string port = DataBaseConection.port;
+            string databaseName = DataBaseConection.database;
+            string user = DataBaseConection.user;
+            string password = DataBaseConection.password;
+            MySqlConnection connection = DataBaseConection.connection;
 
-            string connectionString = "SERVER=" + server + ";Port=" + port + ";DATABASE=" + databaseName + ";UID="
+            DataBaseConection.connectionString = "SERVER=" + server + ";Port=" + port + ";DATABASE=" + databaseName + ";UID="
                 + user + ";Pwd=" + password + "";
 
             if (server != "" && databaseName != "" && user != "" && password != "")
             {
                 try
                 {
-                    connection = new MySqlConnection(connectionString);
+                    DataBaseConection.connection = new MySqlConnection(DataBaseConection.connectionString);
                     connection.Open();
                 }
                 catch (MySqlException error)
@@ -73,13 +73,12 @@ namespace Class_Management_System.ServicesImpl
             {
                 MySqlCommand sQlCmd = new MySqlCommand(sSql); 
                 DataTable dtbResult = new DataTable();
-                MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
+                MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sSql, DataBaseConection.connection);
                 sqlDtb.Fill(dtbResult);
                 return dtbResult;
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
         }
@@ -124,7 +123,7 @@ namespace Class_Management_System.ServicesImpl
         }
         public ConnectionState State()
         {
-            return DataBaseConection.GetConnection().State;
+            return DataBaseConection.connection.State;
         }
     }
 }
