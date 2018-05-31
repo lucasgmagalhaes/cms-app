@@ -67,13 +67,13 @@ namespace Class_Management_System.Entities
             {
                 if (this.PkUsuario == 0) //NOVO USUARIO
                 { 
-                    srvUsuario.ExecutaQuery(" EXEC SPCRIA_ACESSO @sNome = '" + this.SNome + "',@sCpf ='" + this.SCPF + "',@sEmail = '" + this.SEmail + "',@sLoginUS = '" +
-                      this.SLogin + "', @sSenhaUS = '" + this.SSenha + "',@pkPerfilUS = " + this.ICodPerfil);
+                    srvUsuario.ExecutaQuery(" CALL SPCRIA_ACESSO ( sNome = '" + this.SNome + "',sCpf ='" + this.SCPF + "',sEmail = '" + this.SEmail + "',sLoginUS = '" +
+                      this.SLogin + "', sSenhaUS = '" + this.SSenha + "',pkPerfilUS = " + this.ICodPerfil + ")");
                 }
                 else
                 {
-                    srvUsuario.ExecutaQuery(" EXEC SPGRAVA_DADOS_USUARIO @sNome = '" + this.SNome + "',@sCpf ='" + this.SCPF + "',@sEmail = '" + this.SEmail + "',@sLoginUS = '" +
-                      this.SLogin + "', @sSenhaUS = '" + this.SSenha + "',@pkPerfilUS = " + this.ICodPerfil + ", @pkUsuario = " + PkUsuario);
+                    srvUsuario.ExecutaQuery(" CALL SPGRAVA_DADOS_USUARIO (sNome = '" + this.SNome + "',sCpf ='" + this.SCPF + "',sEmail = '" + this.SEmail + "',sLoginUS = '" +
+                      this.SLogin + "', sSenhaUS = '" + this.SSenha + "',pkPerfilUS = " + this.ICodPerfil + ", pkUsuario = " + PkUsuario + ")");
                 }
             }
             catch (Exception)
@@ -91,7 +91,7 @@ namespace Class_Management_System.Entities
             try
             {
                 DataTable dtbDados = new DataTable();
-                dtbDados = srvUsuario.BuscaDados(" EXEC SPCONSULTA_USUARIO  @pkUsuario = '" + pk + "'");
+                dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + pk + "' )");
                 foreach (DataRow dr in dtbDados.Rows)
                 {
                     //dr[X] X = NUMERO DA COLUNA NA CONSULTA
@@ -116,7 +116,7 @@ namespace Class_Management_System.Entities
             try
             {
                 DataTable dtbDados = new DataTable();
-                dtbDados = srvUsuario.BuscaDados(" EXEC SPCONSULTA_USUARIO  @pkUsuario = '" + this.PkUsuario + "'");
+                dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + this.PkUsuario + "' )");
                 foreach (DataRow dr in dtbDados.Rows)
                 {
                     //dr[X] X = NUMERO DA COLUNA NA CONSULTA
@@ -140,7 +140,7 @@ namespace Class_Management_System.Entities
         {
             try
             {
-                srvUsuario.ExecutaQuery(" EXEC SPDELETA_USUARIO @pkUsuario = " + this.PkUsuario);
+                srvUsuario.ExecutaQuery(" CALL SPDELETA_USUARIO (pkUsuario = " + this.PkUsuario + ")");
             }
             catch (System.Exception)
             {

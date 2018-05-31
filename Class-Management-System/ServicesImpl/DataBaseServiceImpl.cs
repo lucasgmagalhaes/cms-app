@@ -71,7 +71,7 @@ namespace Class_Management_System.ServicesImpl
         {
             try
             {
-                MySqlCommand sQlCmd = new MySqlCommand(sSql); 
+                MySqlCommand sQlCmd = new MySqlCommand(sSql);
                 DataTable dtbResult = new DataTable();
                 MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
                 sqlDtb.Fill(dtbResult);
@@ -106,21 +106,26 @@ namespace Class_Management_System.ServicesImpl
         {
             return DataBaseConection.sqlerromsg;
         }
-        public void CarregaCmb(System.Windows.Forms.ComboBox cmb,string sSql)
+        public void CarregaCmb(System.Windows.Forms.ComboBox cmb, string sSql)
         {
             try
             {
-                MySqlCommand sQlCmd = new MySqlCommand(sSql);
+                MySqlCommand sQlCmd = new MySqlCommand(sSql); 
                 DataTable dtbResult = new DataTable();
-                MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
-                sqlDtb.Fill(dtbResult);
+               // MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
+                using (MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd))
+                {
+                    sqlDtb.Fill(dtbResult);
+                }
+
+                //sqlDtb.Fill(dtbResult);
                 cmb.DataSource = dtbResult;
             }
             catch (Exception)
             {
 
                 throw;
-            } 
+            }
         }
         public ConnectionState State()
         {
