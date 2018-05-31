@@ -40,12 +40,28 @@ namespace Class_Management_System
             Configuracoes.CarregarInfosArquivo();
             this.IniciarConexaoBanco();
 
+            this.login = new Login();
+            this.sobre = new Sobre();
+            this.buscarUsuario = new BuscaUsuario();
+            this.cadastroUsuario = new FormUsuario(0);
+
+            this.login.FormClosed += Login_FormClosed;
             this.periodos = new HashSet<string>();
             this.materias = new HashSet<string>();
             this.professores = new HashSet<string>();
             this.dias = new HashSet<string>();
             this.horarios = new HashSet<string>();
         }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           if(Session.usuario != null)
+            {
+                this.lblusuario_logado.Visible = true;
+                this.lblusuario_logado.Text = "Bem vindo, " + Session.usuario.SNome;
+            }
+        }
+
         private void Home_Shown(object sender, EventArgs e)
         {
             Configuracoes.CarregarInfosArquivo();
@@ -66,7 +82,7 @@ namespace Class_Management_System
 
                 if(result == DialogResult.Yes)
                 {
-                    this.AbrirConfiguracoes();
+                    this.configuracoes.ShowDialog();
                 }
             }
         }
@@ -95,31 +111,6 @@ namespace Class_Management_System
         {
             if (this.buscarUsuario == null) this.buscarUsuario = new BuscaUsuario();
             this.buscarUsuario.ShowDialog();
-        }
-
-        private void AbrirSobre()
-        {
-            if (this.sobre == null) this.sobre = new Sobre();
-            this.sobre.ShowDialog();
-        }
-
-        private void AbrirConfiguracoes()
-        {
-            if (this.configuracoes == null) this.configuracoes = new Configuracoes();
-            this.configuracoes.ShowDialog();
-        }
-
-        private void AbrirLogin()
-        {
-            if (this.login == null) this.login = new Login();
-            this.login.ShowDialog();
-        }
-
-        private void AbrirCadastroUsuario()
-        {
-            //this.cadastroUsuario = new CadUsuario(Session.usuario.PkUsuario);
-            this.cadastroUsuario = new Forms.FormUsuario(0);
-            this.cadastroUsuario.ShowDialog();
         }
 
         /// <summary>
@@ -200,27 +191,27 @@ namespace Class_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.AbrirLogin();
+            this.login.ShowDialog();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            this.AbrirCadastroUsuario();
+            this.cadastroUsuario.ShowDialog();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            this.AbrirSobre();
+            this.sobre.ShowDialog();
         }
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            this.AbrirBuscarUsuario();
+            this.buscarUsuario.ShowDialog();
         }
 
         private void btnConfiguracoes_Click(object sender, EventArgs e)
         {
-            this.AbrirConfiguracoes();
+            this.configuracoes.ShowDialog();
         }
 
         /// <summary>

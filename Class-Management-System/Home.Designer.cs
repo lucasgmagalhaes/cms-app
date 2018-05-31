@@ -41,17 +41,22 @@
             this.btnGerarGrafo = new System.Windows.Forms.Button();
             this.txtFilePath = new System.Windows.Forms.TextBox();
             this.dataGridGrafo = new System.Windows.Forms.DataGridView();
+            this.periodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dia_semana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSobre = new System.Windows.Forms.Button();
             this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscarUsuario = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.lblusuario_logado = new System.Windows.Forms.Label();
             this.groupFiltro = new System.Windows.Forms.GroupBox();
             this.checkBoxSelecaoUnica = new System.Windows.Forms.CheckBox();
             this.btnResetar = new System.Windows.Forms.Button();
@@ -66,11 +71,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.periodo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dia_semana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGrafo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -125,7 +125,7 @@
             this.dataGridGrafo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -158,6 +158,57 @@
             this.dataGridGrafo.ShowRowErrors = false;
             this.dataGridGrafo.Size = new System.Drawing.Size(796, 585);
             this.dataGridGrafo.TabIndex = 4;
+            // 
+            // periodo
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.periodo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.periodo.HeaderText = "Período";
+            this.periodo.Name = "periodo";
+            this.periodo.ReadOnly = true;
+            this.periodo.Width = 150;
+            // 
+            // materia
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.materia.DefaultCellStyle = dataGridViewCellStyle3;
+            this.materia.HeaderText = "Matéria";
+            this.materia.Name = "materia";
+            this.materia.ReadOnly = true;
+            this.materia.Width = 200;
+            // 
+            // professor
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.professor.DefaultCellStyle = dataGridViewCellStyle4;
+            this.professor.HeaderText = "Professor";
+            this.professor.Name = "professor";
+            this.professor.ReadOnly = true;
+            this.professor.Width = 150;
+            // 
+            // horario
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.horario.DefaultCellStyle = dataGridViewCellStyle5;
+            this.horario.HeaderText = "Horário";
+            this.horario.Name = "horario";
+            this.horario.ReadOnly = true;
+            this.horario.Width = 150;
+            // 
+            // dia_semana
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dia_semana.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dia_semana.HeaderText = "Dia Semana";
+            this.dia_semana.Name = "dia_semana";
+            this.dia_semana.ReadOnly = true;
+            this.dia_semana.Width = 150;
             // 
             // panel1
             // 
@@ -251,35 +302,21 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // button6
+            // btnCadastrar
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(0, 501);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(261, 86);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Grafo";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(0, 420);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(261, 86);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Visualizar Perfil";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrar.FlatAppearance.BorderSize = 0;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCadastrar.Location = new System.Drawing.Point(0, 239);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(261, 100);
+            this.btnCadastrar.TabIndex = 0;
+            this.btnCadastrar.Text = "Cadastrar Usuário";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnBuscarUsuario
             // 
@@ -297,33 +334,48 @@
             this.btnBuscarUsuario.UseVisualStyleBackColor = true;
             this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
-            // btnCadastrar
+            // button3
             // 
-            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatAppearance.BorderSize = 0;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrar.Location = new System.Drawing.Point(0, 239);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(261, 100);
-            this.btnCadastrar.TabIndex = 0;
-            this.btnCadastrar.Text = "Cadastrar Usuário";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(0, 420);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(261, 86);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Visualizar Perfil";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // button6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(270, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 24);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Bem vindo, ";
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Location = new System.Drawing.Point(0, 501);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(261, 86);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "Grafo";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // lblusuario_logado
+            // 
+            this.lblusuario_logado.AutoSize = true;
+            this.lblusuario_logado.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblusuario_logado.ForeColor = System.Drawing.Color.White;
+            this.lblusuario_logado.Location = new System.Drawing.Point(270, 18);
+            this.lblusuario_logado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblusuario_logado.Name = "lblusuario_logado";
+            this.lblusuario_logado.Size = new System.Drawing.Size(131, 24);
+            this.lblusuario_logado.TabIndex = 6;
+            this.lblusuario_logado.Text = "Bem vindo, ";
+            this.lblusuario_logado.Visible = false;
             // 
             // groupFiltro
             // 
@@ -506,64 +558,13 @@
             this.cmbPeriodo.TabIndex = 0;
             this.cmbPeriodo.SelectedValueChanged += new System.EventHandler(this.cmbPeriodo_SelectedValueChanged);
             // 
-            // periodo
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.periodo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.periodo.HeaderText = "Período";
-            this.periodo.Name = "periodo";
-            this.periodo.ReadOnly = true;
-            this.periodo.Width = 150;
-            // 
-            // materia
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.materia.DefaultCellStyle = dataGridViewCellStyle3;
-            this.materia.HeaderText = "Matéria";
-            this.materia.Name = "materia";
-            this.materia.ReadOnly = true;
-            this.materia.Width = 200;
-            // 
-            // professor
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.professor.DefaultCellStyle = dataGridViewCellStyle4;
-            this.professor.HeaderText = "Professor";
-            this.professor.Name = "professor";
-            this.professor.ReadOnly = true;
-            this.professor.Width = 150;
-            // 
-            // horario
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.horario.DefaultCellStyle = dataGridViewCellStyle5;
-            this.horario.HeaderText = "Horário";
-            this.horario.Name = "horario";
-            this.horario.ReadOnly = true;
-            this.horario.Width = 150;
-            // 
-            // dia_semana
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dia_semana.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dia_semana.HeaderText = "Dia Semana";
-            this.dia_semana.Name = "dia_semana";
-            this.dia_semana.ReadOnly = true;
-            this.dia_semana.Width = 150;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1412, 849);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.groupFiltro);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblusuario_logado);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridGrafo);
             this.Controls.Add(this.groupBox1);
@@ -596,7 +597,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnBuscarUsuario;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblusuario_logado;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
