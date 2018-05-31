@@ -20,8 +20,8 @@ namespace Class_Management_System.Forms
         public Configuracoes()
         {
             InitializeComponent();
-            this.CarregarInfosDataBase();
             CarregarInfosArquivo();
+            this.CarregarInfosDataBase();
             this.databaseService = DependencyFactory.Resolve<IDataBaseService>();
         }
 
