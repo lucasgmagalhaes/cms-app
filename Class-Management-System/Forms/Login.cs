@@ -25,7 +25,7 @@ namespace Class_Management_System.Forms
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             DataTable dtbLogin = new DataTable();
-            dtbLogin = this.databaseService.BuscaDados("EXEC SPVERIFICA_LOGIN @sLogin= '" + txtLogin.Text + "',@sSenha ='" + txtSenha.Text + "'");
+            dtbLogin = this.databaseService.BuscaDados(" CALL SPVERIFICA_LOGIN (sLogin= '" + txtLogin.Text + "',sSenha ='" + txtSenha.Text + "')");
             if (dtbLogin.Rows.Count > 0)
             {
                 //login validado , direciona tela inicial 
