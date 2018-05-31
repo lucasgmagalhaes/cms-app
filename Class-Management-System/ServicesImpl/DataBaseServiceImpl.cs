@@ -111,7 +111,6 @@ namespace Class_Management_System.ServicesImpl
             {
                 MySqlCommand sQlCmd = new MySqlCommand(sSql); 
                 DataTable dtbResult = new DataTable();
-               // MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sQlCmd);
                 using (MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sSql, DataBaseConection.connection))
                 {
                     sqlDtb.Fill(dtbResult);

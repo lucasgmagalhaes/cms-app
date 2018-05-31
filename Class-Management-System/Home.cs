@@ -21,7 +21,7 @@ namespace Class_Management_System
         private Configuracoes configuracoes;
         private Sobre sobre;
         private BuscaUsuario buscarUsuario;
-        private Forms.FormUsuario cadastroUsuario;
+        private FormUsuario cadastroUsuario;
         private Login login;
 
         private HashSet<string> periodos;
@@ -36,6 +36,9 @@ namespace Class_Management_System
             this.grafoService = DependencyFactory.Resolve<IGrafoService>();
             this.aulaService = DependencyFactory.Resolve<IAulaService>();
             this.dataBaseService = DependencyFactory.Resolve<IDataBaseService>();
+
+            Configuracoes.CarregarInfosArquivo();
+            this.IniciarConexaoBanco();
 
             this.periodos = new HashSet<string>();
             this.materias = new HashSet<string>();

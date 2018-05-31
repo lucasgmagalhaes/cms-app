@@ -71,7 +71,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                dbService.CarregaCmb(CmbPerfil, "EXEC SPCARREGA_PERFIL");
+                dbService.CarregaCmb(CmbPerfil, "CALL "+ DataBaseConection.database+ ".SPCARREGA_PERFIL");
             }
             catch (Exception e)
             {
