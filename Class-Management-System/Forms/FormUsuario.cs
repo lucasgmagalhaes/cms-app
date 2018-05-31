@@ -49,7 +49,7 @@ namespace Class_Management_System.Forms
                 this.txtEmail.Text = this.user.SEmail;
                 this.txtSenha.Text = this.user.SSenha;
                 this.txtLogin.Text = this.user.SLogin;
-                this.CmbPerfil.SelectedValue = this.user.ICodPerfil;
+                this.CmbPerfil.SelectedValue = this.user.Perfil.GetDescricao();
             }
             catch (Exception e)
             {
@@ -172,7 +172,7 @@ namespace Class_Management_System.Forms
                 this.user.SNome = TxtNome.Text;
                 this.user.SCPF = txtCpf.Text;
                 this.user.SEmail = txtEmail.Text;
-                this.user.ICodPerfil = (int)CmbPerfil.SelectedValue;
+                this.user.Perfil.SetDescricao(CmbPerfil.SelectedValue.ToString());
                 this.user.SLogin = txtLogin.Text;
                 this.user.SSenha = txtSenha.Text;
             }

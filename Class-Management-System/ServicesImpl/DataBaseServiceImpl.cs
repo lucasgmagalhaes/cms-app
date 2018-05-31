@@ -56,7 +56,7 @@ namespace Class_Management_System.ServicesImpl
                 }
                 catch (Exception ex)
                 {
-                    DataBaseConection.sqlerromsg = "Servidor Offiline";
+                    DataBaseConection.sqlerromsg = "Servidor Offiline. Error " + ex.Message;
                     throw new Exception(DataBaseConection.sqlerromsg);
                 }
             }
