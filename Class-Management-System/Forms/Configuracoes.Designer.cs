@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracoes));
             this.label1 = new System.Windows.Forms.Label();
             this.btnTestarConexao = new System.Windows.Forms.Button();
             this.txtBanco = new System.Windows.Forms.TextBox();
@@ -45,21 +46,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(97, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 25);
+            this.label1.Size = new System.Drawing.Size(138, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Banco de dados";
             // 
             // btnTestarConexao
             // 
             this.btnTestarConexao.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnTestarConexao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTestarConexao.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.btnTestarConexao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTestarConexao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTestarConexao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestarConexao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTestarConexao.Location = new System.Drawing.Point(45, 353);
+            this.btnTestarConexao.Location = new System.Drawing.Point(38, 377);
             this.btnTestarConexao.Name = "btnTestarConexao";
             this.btnTestarConexao.Size = new System.Drawing.Size(146, 40);
             this.btnTestarConexao.TabIndex = 1;
@@ -86,11 +88,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
-            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(97, 141);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 25);
+            this.label2.Size = new System.Drawing.Size(66, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Usuário";
             // 
@@ -105,11 +107,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
-            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(97, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 25);
+            this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Senha";
             // 
@@ -124,11 +126,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
-            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(97, 273);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 25);
+            this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "Porta";
             // 
@@ -143,21 +145,22 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F);
-            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Location = new System.Drawing.Point(97, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 25);
+            this.label5.Size = new System.Drawing.Size(72, 21);
             this.label5.TabIndex = 9;
             this.label5.Text = "Servidor";
             // 
             // btnSalvarEFechar
             // 
             this.btnSalvarEFechar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnSalvarEFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvarEFechar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.btnSalvarEFechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvarEFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvarEFechar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvarEFechar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalvarEFechar.Location = new System.Drawing.Point(219, 353);
+            this.btnSalvarEFechar.Location = new System.Drawing.Point(212, 377);
             this.btnSalvarEFechar.Name = "btnSalvarEFechar";
             this.btnSalvarEFechar.Size = new System.Drawing.Size(150, 40);
             this.btnSalvarEFechar.TabIndex = 11;
@@ -169,7 +172,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 429);
+            this.BackColor = System.Drawing.Color.DodgerBlue;
+            this.ClientSize = new System.Drawing.Size(432, 449);
             this.Controls.Add(this.btnSalvarEFechar);
             this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.label5);
@@ -182,10 +186,12 @@
             this.Controls.Add(this.txtBanco);
             this.Controls.Add(this.btnTestarConexao);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Configuracoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Configurações";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuracoes_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

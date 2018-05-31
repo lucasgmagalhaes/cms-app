@@ -189,6 +189,11 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="DLL\MySql.Data.dll" />
+    <Content Include="Forms\Imagens\busca-ico.ico" />
+    <Content Include="Forms\Imagens\cad_user_ico.ico" />
+    <Content Include="Forms\Imagens\config-ico.ico" />
+    <Content Include="Forms\Imagens\main-ico.ico" />
+    <Content Include="Forms\Imagens\sobre-ico.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

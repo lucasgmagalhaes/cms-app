@@ -8,34 +8,34 @@ using Class_Management_System.Entities;
 
 namespace Class_Management_System.Forms
 {
-    public partial class FormUsuario : Form
+    public partial class CadUsuario : Form
     {
         private readonly IDataBaseService dbService;
-        private Usuario user = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
-
+        private Usuario User = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
+        
         /// <summary>
         /// Tela de Cadastro de Usuário
         /// </summary>
         /// <param name="pkUsuario">Parâmetro, se 0 cadastrando um novo usuário ou a PK de um usuário</param>
-        public FormUsuario(int pkUsuario)
+        public CadUsuario(int pkUsuario)
         {
             try
             {
                 InitializeComponent();
                 this.dbService = DependencyFactory.Resolve<IDataBaseService>();
-                this.CarregaPerfil();
+                CarregaPerfil();
                 if (pkUsuario > 0) //Entrando no cadastro de um usuário 
                 {
-                    this.user.PkUsuario = pkUsuario;
+                    this.User.PkUsuario = pkUsuario;
                     MostraRegistro();
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
-
+        
         /// <summary>
         /// Remove os caracteres especiais do cpf
         /// </summary>
@@ -53,33 +53,35 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                this.user.GetDados();
-                this.TxtNome.Text = this.user.SNome;
-                this.txtCpf.Text = this.user.SCPF;
-                this.txtEmail.Text = this.user.SEmail;
-                this.txtSenha.Text = this.user.SSenha;
-                this.txtLogin.Text = this.user.SLogin;
-                this.CmbPerfil.SelectedValue = this.user.Perfil.GetDescricao();
+                User.GetDados();
+                TxtNome.Text = this.User.SNome;
+                txtCpf.Text = this.User.SCPF;
+                txtEmail.Text = this.User.SEmail;
+                txtSenha.Text = this.User.SSenha;
+                txtLogin.Text = this.User.SLogin;
+                CmbPerfil.SelectedValue = this.User.ICodPerfil;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+       
         private void CarregaPerfil()
         {
             try
             {
-                this.dbService.CarregaCmb(CmbPerfil, " CALL cms.SPCARREGA_PERFIL()");
+                dbService.CarregaCmb(CmbPerfil, "EXEC SPCARREGA_PERFIL");
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+      
         private void BtnDeletar_Click(object sender, EventArgs e)
         {
-            if (this.user.PkUsuario == 0)
+            if (User.PkUsuario == 0)
             {
                 MessageBox.Show("Usuário não existe ou nenhum usuário selecionado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -88,12 +90,13 @@ namespace Class_Management_System.Forms
                 DialogResult resp = MessageBox.Show("Deseja apagar este usuário? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resp == DialogResult.Yes)
                 {
-                    this.user.Deleta();
-                    this.user = new Usuario();
+                    this.User.Deleta();
+                    this.User = new Usuario();
                     LimpaCampos();
                 }
             }
         }
+        
         private void BtnGravar_Click(object sender, EventArgs e)
         {
             try
@@ -107,9 +110,10 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+        
         private bool ValidaGravar()
         {
             try
@@ -171,6 +175,7 @@ namespace Class_Management_System.Forms
                 return false;
             }
         }
+        
         public void SetDadosUsuario()
         {
             try
@@ -184,9 +189,10 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+
         public bool ValidaCpf(string cpf)
         {
             try
@@ -236,6 +242,7 @@ namespace Class_Management_System.Forms
                 return false;
             }
         }
+        
         public bool VerificaCpfExist()
         {
             try
@@ -255,6 +262,7 @@ namespace Class_Management_System.Forms
                 return false;
             }
         }
+        
         public void LimpaCampos()
         {
             try
@@ -269,7 +277,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
 
@@ -277,7 +285,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                this.user = new Usuario();
+                this.User = new Usuario();
                 LimpaCampos();
             }
             catch (Exception ex)
