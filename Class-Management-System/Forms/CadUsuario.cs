@@ -271,7 +271,7 @@ namespace Class_Management_System.Forms
             {
                 MessageBox.Show("Erro BtnNovo_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
-        } 
+        }
     }
 }
 

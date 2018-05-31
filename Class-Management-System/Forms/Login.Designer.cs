@@ -39,15 +39,17 @@
             // BtnLogin
             // 
             this.BtnLogin.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLogin.FlatAppearance.BorderSize = 0;
-            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnLogin.Location = new System.Drawing.Point(200, 241);
+            this.BtnLogin.Location = new System.Drawing.Point(24, 277);
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(154, 42);
             this.BtnLogin.TabIndex = 0;
-            this.BtnLogin.Text = "LOG IN";
+            this.BtnLogin.Text = "Log in";
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
@@ -63,24 +65,24 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.White;
             this.lblLogin.Location = new System.Drawing.Point(20, 55);
             this.lblLogin.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(59, 25);
+            this.lblLogin.Size = new System.Drawing.Size(51, 21);
             this.lblLogin.TabIndex = 3;
             this.lblLogin.Text = "Login";
             // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblSenha.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblSenha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.ForeColor = System.Drawing.Color.White;
             this.lblSenha.Location = new System.Drawing.Point(20, 140);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(64, 25);
+            this.lblSenha.Size = new System.Drawing.Size(59, 21);
             this.lblSenha.TabIndex = 4;
             this.lblSenha.Text = "Senha";
             this.lblSenha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -97,18 +99,20 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnCancel.Location = new System.Drawing.Point(24, 241);
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(200, 277);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(154, 42);
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -116,6 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(377, 421);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
