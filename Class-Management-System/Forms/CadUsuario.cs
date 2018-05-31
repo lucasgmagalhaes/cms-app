@@ -58,8 +58,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                dbService.CarregaCmb(CmbPerfil, "EXEC SPCARREGA_PERFIL")
-;
+                dbService.CarregaCmb(CmbPerfil, " CALL SPCARREGA_PERFIL()");
             }
             catch (Exception e)
             {
@@ -228,7 +227,7 @@ namespace Class_Management_System.Forms
             try
             {
                 DataTable dtbCPF = new DataTable();
-                dtbCPF = dbService.BuscaDados(" EXEC SPVERIFICA_CPF @sCpfPessoa = '" + txtCpf.Text + "'");
+                dtbCPF = dbService.BuscaDados(" CALL SPVERIFICA_CPF (sCpfPessoa = '" + txtCpf.Text + "')");
                 if (dtbCPF.Rows.Count > 0)
                 {
                     return true;

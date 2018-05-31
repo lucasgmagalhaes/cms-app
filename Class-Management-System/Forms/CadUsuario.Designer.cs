@@ -87,7 +87,7 @@
             this.lblNome.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblNome.Location = new System.Drawing.Point(47, 32);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(67, 25);
+            this.lblNome.Size = new System.Drawing.Size(70, 25);
             this.lblNome.TabIndex = 7;
             this.lblNome.Text = "Nome:";
             // 
@@ -98,7 +98,7 @@
             this.lblCpf.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblCpf.Location = new System.Drawing.Point(377, 32);
             this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(48, 25);
+            this.lblCpf.Size = new System.Drawing.Size(50, 25);
             this.lblCpf.TabIndex = 8;
             this.lblCpf.Text = "CPF:";
             // 
@@ -109,7 +109,7 @@
             this.lblLogin.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblLogin.Location = new System.Drawing.Point(52, 111);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(63, 25);
+            this.lblLogin.Size = new System.Drawing.Size(64, 25);
             this.lblLogin.TabIndex = 9;
             this.lblLogin.Text = "Login:";
             // 
@@ -120,7 +120,7 @@
             this.lblEmail.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblEmail.Location = new System.Drawing.Point(377, 111);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(70, 25);
+            this.lblEmail.Size = new System.Drawing.Size(72, 25);
             this.lblEmail.TabIndex = 10;
             this.lblEmail.Text = "E-mail:";
             // 
@@ -131,7 +131,7 @@
             this.lblSenha.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblSenha.Location = new System.Drawing.Point(47, 204);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(68, 25);
+            this.lblSenha.Size = new System.Drawing.Size(69, 25);
             this.lblSenha.TabIndex = 11;
             this.lblSenha.Text = "Senha:";
             // 
@@ -142,7 +142,7 @@
             this.lblConfSenha.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblConfSenha.Location = new System.Drawing.Point(377, 204);
             this.lblConfSenha.Name = "lblConfSenha";
-            this.lblConfSenha.Size = new System.Drawing.Size(151, 25);
+            this.lblConfSenha.Size = new System.Drawing.Size(154, 25);
             this.lblConfSenha.TabIndex = 12;
             this.lblConfSenha.Text = "Confirma Senha:";
             // 
@@ -153,7 +153,7 @@
             this.lblPerfil.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblPerfil.Location = new System.Drawing.Point(47, 282);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(59, 25);
+            this.lblPerfil.Size = new System.Drawing.Size(61, 25);
             this.lblPerfil.TabIndex = 13;
             this.lblPerfil.Text = "Perfil:";
             // 
@@ -217,7 +217,7 @@
             this.BtnDeletar.Size = new System.Drawing.Size(159, 35);
             this.BtnDeletar.TabIndex = 18;
             this.BtnDeletar.Text = "DELETAR";
-            this.BtnDeletar.UseVisualStyleBackColor = false;
+            this.BtnDeletar.UseVisualStyleBackColor = false; 
             // 
             // BtnNovo
             // 

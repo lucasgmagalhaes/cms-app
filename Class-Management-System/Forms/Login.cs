@@ -23,7 +23,7 @@ namespace Class_Management_System.Forms
             DataTable dtbLogin = new DataTable();
             try
             {
-                dtbLogin = this.databaseService.BuscaDados("EXEC SPVERIFICA_LOGIN @sLogin= '" + txtLogin.Text + "',@sSenha ='" + txtSenha.Text + "'");
+                dtbLogin = this.databaseService.BuscaDados(" CALL SPVERIFICA_LOGIN (sLogin= '" + txtLogin.Text + "',sSenha ='" + txtSenha.Text + "')");
             }
             catch (Exception ex)
             {
@@ -31,6 +31,7 @@ namespace Class_Management_System.Forms
                     " Erro retornado: " + ex.Message,  "DataBase Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             if (dtbLogin.Rows.Count > 0)
             {
                 Session.usuario = EntidadesDatabase.InstancializarUsuario(dtbLogin);
