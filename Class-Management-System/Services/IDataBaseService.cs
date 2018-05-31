@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using Class_Management_System.Entities;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Class_Management_System.Services
 {
@@ -43,6 +45,10 @@ namespace Class_Management_System.Services
         /// <returns>Retorna quantidade de linhas afetadas</returns>
         int ExecutaQuery(string sSql);
 
-        void CarregaCmb(System.Windows.Forms.ComboBox cmb, string sSql);
+        /// <summary>
+        /// Busca a lista de perfis de usuário
+        /// </summary>
+        /// <returns></returns>
+        List<PerfilUsuario> BuscarPerfisUsuario();
     }
 }

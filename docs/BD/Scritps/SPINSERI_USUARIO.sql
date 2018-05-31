@@ -5,7 +5,7 @@ CREATE PROCEDURE SPINSERI_USUARIO(
    IN pkPerfilUS  VARCHAR(20) ,
    IN pkPessoaUS  INTEGER)
  BEGIN
-    INSERT  INTO dbo.USUARIO
+    INSERT  INTO USUARIO
             ( LOGIN ,
               SENHA ,
               COD_PERFIL_USUARIO ,

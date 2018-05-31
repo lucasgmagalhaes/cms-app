@@ -13,14 +13,12 @@ BEGIN
                                      WHERE  COD_CPF = @sCpf
                                    );
     IF (@PKPESSOA = 0) THEN 
-            CALL SPCRIA_PESSOA (sNomePessoa = sNome, sCpfPessoa = sCpf,
-                sEmailPessoa = sEmail);
+            CALL SPCRIA_PESSOA (sNome, sCpf, sEmail);
         END IF;
     SET @PKPESSOA = ( SELECT    COD_PESSOA
                       FROM      PESSOA
                       WHERE     COD_CPF = sCpf
                     );
-    CALL SPINSERI_USUARIO (sLogin = sLoginUS, sSenha = sSenhaUS,
-        pkPerfil = pkPerfilUS, pkPessoa = @PKPESSOA);
+    CALL SPINSERI_USUARIO (sLoginUS, sSenhaUS, pkPerfilUS, @PKPESSOA);
 END $$
 DELIMITER ;

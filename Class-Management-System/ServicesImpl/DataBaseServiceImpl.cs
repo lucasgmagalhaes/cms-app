@@ -2,6 +2,7 @@ using Class_Management_System.Entities;
 using Class_Management_System.Services;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Class_Management_System.ServicesImpl
@@ -92,42 +93,45 @@ namespace Class_Management_System.ServicesImpl
         {
             try
             {
-                MySqlCommand sQlCmd = new MySqlCommand(sSql);
+                MySqlCommand sQlCmd = new MySqlCommand(sSql, DataBaseConection.connection);
                 return sQlCmd.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception(ex.Message);
             }
         }
+
         public string GetErrorMessage()
         {
             return DataBaseConection.sqlerromsg;
         }
-        public void CarregaCmb(System.Windows.Forms.ComboBox cmb, string sSql)
+
+        public List<PerfilUsuario> BuscarPerfisUsuario()
         {
             try
             {
-                MySqlCommand sQlCmd = new MySqlCommand(sSql); 
+                List<PerfilUsuario> listaRetorno = new List<PerfilUsuario>();
+                string sql = "CALL " + DataBaseConection.database + ".SPCARREGA_PERFIL";
+                MySqlCommand sQlCmd = new MySqlCommand(sql); 
                 DataTable dtbResult = new DataTable();
-                using (MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sSql, DataBaseConection.connection))
+                using (MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sql, DataBaseConection.connection))
                 {
                     sqlDtb.Fill(dtbResult);
                 }
 
-                //sqlDtb.Fill(dtbResult);
                 foreach(DataRow linha in dtbResult.Rows)
                 {
-                    cmb.Items.Add(linha.Field<string>(1));
+                    listaRetorno.Add(new PerfilUsuario(linha.Field<int>(0), linha.Field<string>(1)));
                 }
+                return listaRetorno;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
         }
+
         public ConnectionState State()
         {
             return DataBaseConection.connection.State;

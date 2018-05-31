@@ -81,19 +81,20 @@ namespace Class_Management_System.Entities
             {
                 if (this.PkUsuario == 0) //NOVO USUARIO
                 { 
-                    srvUsuario.ExecutaQuery(" CALL SPCRIA_ACESSO ( sNome = '" + this.SNome + "',sCpf ='" + this.SCPF + "',sEmail = '" + this.SEmail + "',sLoginUS = '" +
-                      this.SLogin + "', sSenhaUS = '" + this.SSenha + "',pkPerfilUS = " + this.perfil.GetCodigo() + ")");
+                    srvUsuario.ExecutaQuery("CALL SPCRIA_ACESSO ('" + this.SNome + "','"
+                        + this.SCPF + "','" + this.SEmail + "','" + this.SLogin + "','" + this.SSenha +
+                        "'," + this.perfil.GetCodigo() + ")");
                 }
                 else
                 {
-                    srvUsuario.ExecutaQuery(" CALL SPGRAVA_DADOS_USUARIO (sNome = '" + this.SNome + "',sCpf ='" + this.SCPF + "',sEmail = '" + this.SEmail + "',sLoginUS = '" +
-                      this.SLogin + "', sSenhaUS = '" + this.SSenha + "',pkPerfilUS = " + this.perfil.GetCodigo() + ", pkUsuario = " + PkUsuario + ")");
+                    srvUsuario.ExecutaQuery("CALL " + DataBaseConection.database + ".SPGRAVA_DADOS_USUARIO ('" + this.SNome +
+                        "','" + this.SCPF + "','" + this.SEmail + "','" + this.SLogin +
+                        "', '" + this.SSenha + "'," + this.perfil.GetCodigo() + ", " + PkUsuario + ")");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception(ex.Message);
             }
         }
         /// <summary>

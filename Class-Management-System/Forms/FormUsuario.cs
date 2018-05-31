@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
 using Class_Management_System.Entities;
-
+using System.Collections.Generic;
 
 namespace Class_Management_System.Forms
 {
@@ -12,7 +12,7 @@ namespace Class_Management_System.Forms
     {
         private readonly IDataBaseService dbService;
         private Usuario user = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
-        
+        private List<PerfilUsuario> listaPerfis;
         /// <summary>
         /// Tela de Cadastro de Usuário
         /// </summary>
@@ -23,7 +23,7 @@ namespace Class_Management_System.Forms
             {
                 InitializeComponent();
                 this.dbService = DependencyFactory.Resolve<IDataBaseService>();
-                CarregaPerfil();
+                this.CarregaPerfil();
                 if (pkUsuario > 0) //Entrando no cadastro de um usuário 
                 {
                     this.user.PkUsuario = pkUsuario;
@@ -32,10 +32,10 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         /// <summary>
         /// Remove os caracteres especiais do cpf
         /// </summary>
@@ -63,22 +63,23 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         private void CarregaPerfil()
         {
             try
             {
-                dbService.CarregaCmb(CmbPerfil, "CALL "+ DataBaseConection.database+ ".SPCARREGA_PERFIL");
+                this.listaPerfis = dbService.BuscarPerfisUsuario();
+                this.listaPerfis.ForEach(perfil => this.CmbPerfil.Items.Add(perfil.GetDescricao()));
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-      
+
         private void BtnDeletar_Click(object sender, EventArgs e)
         {
             if (user.PkUsuario == 0)
@@ -96,7 +97,7 @@ namespace Class_Management_System.Forms
                 }
             }
         }
-        
+
         private void BtnGravar_Click(object sender, EventArgs e)
         {
             try
@@ -104,16 +105,24 @@ namespace Class_Management_System.Forms
                 if (this.ValidaGravar())
                 {
                     this.SetDadosUsuario();
-                    this.user.Gravar();
+                    try
+                    {
+                        this.user.Gravar();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Insert Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     this.user.GetDados();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private bool ValidaGravar()
         {
             try
@@ -175,7 +184,7 @@ namespace Class_Management_System.Forms
                 return false;
             }
         }
-        
+
         public void SetDadosUsuario()
         {
             try
@@ -183,14 +192,24 @@ namespace Class_Management_System.Forms
                 this.user.SNome = TxtNome.Text;
                 this.user.SCPF = this.RemoverMascaraCpf(txtCpf.Text);
                 this.user.SEmail = txtEmail.Text;
-                this.user.Perfil.SetDescricao(CmbPerfil.SelectedValue.ToString());
+                this.user.Perfil = this.BuscarPerfiSelecionado();
                 this.user.SLogin = txtLogin.Text;
                 this.user.SSenha = txtSenha.Text;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Retorna o PerfilUsuario que foi selecionado no combobox
+        /// </summary>
+        /// <returns></returns>
+        private PerfilUsuario BuscarPerfiSelecionado()
+        {
+            string descricao = this.CmbPerfil.SelectedItem.ToString();
+            return this.listaPerfis.Find(perfil => perfil.GetDescricao() == descricao);
         }
 
         public bool ValidaCpf(string cpf)
@@ -242,7 +261,7 @@ namespace Class_Management_System.Forms
                 return false;
             }
         }
-        
+
         public bool VerificaCpfExist()
         {
             try
@@ -262,7 +281,7 @@ namespace Class_Management_System.Forms
                 return false;
             }
         }
-        
+
         public void LimpaCampos()
         {
             try
@@ -277,7 +296,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -304,7 +323,10 @@ namespace Class_Management_System.Forms
                 this.TxtNome.Text = "nomeTeste";
                 this.txtSenha.Text = "senhateste";
                 this.txtConfirma.Text = "senhateste";
-                if (this.CmbPerfil.Items.Count > 0) this.CmbPerfil.SelectedIndex = 0;
+                if (this.CmbPerfil.Items.Count > 0)
+                {
+                    this.CmbPerfil.SelectedIndex = 0;
+                }
             }
         }
     }
