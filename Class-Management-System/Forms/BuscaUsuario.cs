@@ -105,7 +105,7 @@ namespace Class_Management_System.Forms
                 object value = dtgPesquisa.Rows[e.RowIndex].Cells[0].Value;
                 if (value is DBNull) { return; }
                 int pkUsuario = (int)value;
-                CadUsuario cadastro = new CadUsuario(pkUsuario);
+                FormUsuario cadastro = new FormUsuario(pkUsuario);
                 cadastro.ShowDialog();
             }
             catch (Exception ex)

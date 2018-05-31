@@ -21,7 +21,7 @@ namespace Class_Management_System
         private Configuracoes configuracoes;
         private Sobre sobre;
         private BuscaUsuario buscarUsuario;
-        private CadUsuario cadastroUsuario;
+        private Forms.FormUsuario cadastroUsuario;
         private Login login;
 
         private HashSet<string> periodos;
@@ -114,7 +114,8 @@ namespace Class_Management_System
 
         private void AbrirCadastroUsuario()
         {
-            this.cadastroUsuario = new CadUsuario(Session.usuario.PkUsuario);
+            //this.cadastroUsuario = new CadUsuario(Session.usuario.PkUsuario);
+            this.cadastroUsuario = new Forms.FormUsuario(0);
             this.cadastroUsuario.ShowDialog();
         }
 

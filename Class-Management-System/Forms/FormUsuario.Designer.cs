@@ -1,6 +1,6 @@
 ﻿namespace Class_Management_System.Forms
 {
-    partial class CadUsuario
+    partial class FormUsuario
     {
         /// <summary>
         /// Required designer variable.

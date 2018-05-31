@@ -8,24 +8,25 @@ using Class_Management_System.Entities;
 
 namespace Class_Management_System.Forms
 {
-    public partial class CadUsuario : Form
+    public partial class FormUsuario : Form
     {
         private readonly IDataBaseService dbService;
-        private Usuario User = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
+        private Usuario user = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
+       
         /// <summary>
         /// Tela de Cadastro de Usuário
         /// </summary>
         /// <param name="pkUsuario">Parâmetro, se 0 cadastrando um novo usuário ou a PK de um usuário</param>
-        public CadUsuario(int pkUsuario)
+        public FormUsuario(int pkUsuario)
         {
             try
             {
                 InitializeComponent();
                 this.dbService = DependencyFactory.Resolve<IDataBaseService>();
-                CarregaPerfil();
+                this.CarregaPerfil();
                 if (pkUsuario > 0) //Entrando no cadastro de um usuário 
                 {
-                    this.User.PkUsuario = pkUsuario;
+                    this.user.PkUsuario = pkUsuario;
                     MostraRegistro();
                 }
             }
@@ -34,6 +35,7 @@ namespace Class_Management_System.Forms
                 MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
+
         /// <summary>
         /// Mostra os dados do Usuário na tela
         /// </summary>
@@ -41,13 +43,13 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                User.GetDados();
-                TxtNome.Text = this.User.SNome;
-                txtCpf.Text = this.User.SCPF;
-                txtEmail.Text = this.User.SEmail;
-                txtSenha.Text = this.User.SSenha;
-                txtLogin.Text = this.User.SLogin;
-                CmbPerfil.SelectedValue = this.User.ICodPerfil;
+                this.user.GetDados();
+                this.TxtNome.Text = this.user.SNome;
+                this.txtCpf.Text = this.user.SCPF;
+                this.txtEmail.Text = this.user.SEmail;
+                this.txtSenha.Text = this.user.SSenha;
+                this.txtLogin.Text = this.user.SLogin;
+                this.CmbPerfil.SelectedValue = this.user.ICodPerfil;
             }
             catch (Exception e)
             {
@@ -58,7 +60,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                dbService.CarregaCmb(CmbPerfil, " CALL SPCARREGA_PERFIL()");
+                this.dbService.CarregaCmb(CmbPerfil, " CALL cms.SPCARREGA_PERFIL()");
             }
             catch (Exception e)
             {
@@ -67,7 +69,7 @@ namespace Class_Management_System.Forms
         }
         private void BtnDeletar_Click(object sender, EventArgs e)
         {
-            if (User.PkUsuario == 0)
+            if (this.user.PkUsuario == 0)
             {
                 MessageBox.Show("Usuário não existe ou nenhum usuário selecionado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -76,8 +78,8 @@ namespace Class_Management_System.Forms
                 DialogResult resp = MessageBox.Show("Deseja apagar este usuário? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resp == DialogResult.Yes)
                 {
-                    this.User.Deleta();
-                    this.User = new Usuario();
+                    this.user.Deleta();
+                    this.user = new Usuario();
                     LimpaCampos();
                 }
             }
@@ -92,8 +94,8 @@ namespace Class_Management_System.Forms
                     if (ValidaGravar())
                     {
                         SetDadosUsuario();
-                        this.User.Gravar();
-                        this.User.GetDados();
+                        this.user.Gravar();
+                        this.user.GetDados();
                     }
                 }
             }
@@ -124,7 +126,7 @@ namespace Class_Management_System.Forms
                     txtCpf.Focus();
                     return false;
                 }
-                if (this.User.PkUsuario == 0)
+                if (this.user.PkUsuario == 0)
                     if (VerificaCpfExist())
                     {
                         MessageBox.Show("Já existe um usuário com este CPF:" + txtCpf.Text);
@@ -167,12 +169,12 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                this.User.SNome = TxtNome.Text;
-                this.User.SCPF = txtCpf.Text;
-                this.User.SEmail = txtEmail.Text;
-                this.User.ICodPerfil = (int)CmbPerfil.SelectedValue;
-                this.User.SLogin = txtLogin.Text;
-                this.User.SSenha = txtSenha.Text;
+                this.user.SNome = TxtNome.Text;
+                this.user.SCPF = txtCpf.Text;
+                this.user.SEmail = txtEmail.Text;
+                this.user.ICodPerfil = (int)CmbPerfil.SelectedValue;
+                this.user.SLogin = txtLogin.Text;
+                this.user.SSenha = txtSenha.Text;
             }
             catch (Exception e)
             {
@@ -227,7 +229,7 @@ namespace Class_Management_System.Forms
             try
             {
                 DataTable dtbCPF = new DataTable();
-                dtbCPF = dbService.BuscaDados(" CALL SPVERIFICA_CPF (sCpfPessoa = '" + txtCpf.Text + "')");
+                dtbCPF = dbService.BuscaDados(" CALL cms.SPVERIFICA_CPF (sCpfPessoa = '" + txtCpf.Text + "')");
                 if (dtbCPF.Rows.Count > 0)
                 {
                     return true;
@@ -263,7 +265,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                this.User = new Usuario();
+                this.user = new Usuario();
                 LimpaCampos();
             }
             catch (Exception ex)
