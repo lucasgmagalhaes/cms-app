@@ -51,27 +51,28 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                string sSql = " EXEC SPCONSULTA_USUARIO ";
+                string sSql = " CALL SPCONSULTA_USUARIO ( ";
                 if (string.IsNullOrEmpty(txtPesquisa.Text) == false)
                 {
                     switch (CmbFiltro.SelectedItem.ToString())
                     {
                         case "ID":
-                            sSql += " @pkUsuario = '" + txtPesquisa.Text + "'";
+                            sSql += " pkUsuario = '" + txtPesquisa.Text + "'";
                             break;
                         case "LOGIN":
-                            sSql += " @sLogin = '" + txtPesquisa.Text + "'";
+                            sSql += " sLogin = '" + txtPesquisa.Text + "'";
                             break;
                         case "NOME":
-                            sSql += " @sNomePessoa = '" + txtPesquisa.Text + "'";
+                            sSql += " sNomePessoa = '" + txtPesquisa.Text + "'";
                             break;
                         case "CPF":
-                            sSql += " @sCpf = '" + txtPesquisa.Text + "'";
+                            sSql += " sCpf = '" + txtPesquisa.Text + "'";
                             break;
                         default:
                             break;
                     }
                 }
+                sSql += ")";
                 return dbService.BuscaDados(sSql);
             }
             catch (Exception e)
