@@ -1,4 +1,7 @@
 /* TI_BD_FISICO: */
+CREATE DATABASE cms;
+
+USE cms;
 
 CREATE TABLE USUARIO
     (
