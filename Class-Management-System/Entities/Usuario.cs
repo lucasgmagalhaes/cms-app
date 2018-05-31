@@ -6,22 +6,36 @@ using Class_Management_System.Utils;
 
 namespace Class_Management_System.Entities
 {
+    /// <summary>
+    /// Mapeado da tabela USUARIO
+    /// </summary>
     public class Usuario : Pessoa
     {
         protected readonly IDataBaseService srvUsuario;
-        private int iCodPerfil;
+        /// <summary>
+        /// COD_USUARIO
+        /// </summary>
         private int pkUsuario;
+        /// <summary>
+        /// LOGIN
+        /// </summary>
         private string sLogin;
+        /// <summary>
+        /// SENHA
+        /// </summary>
         private string sSenha;
+        /// <summary>
+        /// COD_PERFIL_USUARIO
+        /// </summary>
+        private PerfilUsuario perfil;
 
         public string SSenha { get => sSenha; set => sSenha = value; }
         public string SLogin { get => sLogin; set => sLogin = value; }
         public int PkUsuario { get => pkUsuario; set => pkUsuario = value; }
-        public int ICodPerfil { get => iCodPerfil; set => iCodPerfil = value; }
+        public PerfilUsuario Perfil { get => perfil; set => perfil = value; }
 
         public Usuario() : base()
         {
-            this.ICodPerfil = 0;
             this.PkUsuario = 0;
             this.SLogin = "";
             this.SSenha = "";
@@ -32,9 +46,9 @@ namespace Class_Management_System.Entities
             this.srvUsuario = DependencyFactory.Resolve<IDataBaseService>();
         }
 
-        public Usuario(int pkUsuario, int iCodPerfil, string sLogin, string sSenha, string nom, string email, string cpf, int pkPess) : base(nom, email, cpf, pkPess)
+        public Usuario(int pkUsuario, PerfilUsuario iCodPerfil, string sLogin, string sSenha, string nom, string email, string cpf, int pkPess) : base(nom, email, cpf, pkPess)
         {
-            this.ICodPerfil = iCodPerfil;
+            this.perfil = iCodPerfil;
             this.PkUsuario = pkUsuario;
             this.SLogin = sLogin;
             this.SSenha = sSenha;
@@ -44,9 +58,9 @@ namespace Class_Management_System.Entities
             this.PkPessoa = pkPess;
             this.srvUsuario = DependencyFactory.Resolve<IDataBaseService>();
         }
-        public Usuario(int pkUsuario, int iCodPerfil, string sLogin, string sSenha, string nom, string email, string cpf) : base(nom, email, cpf)
+        public Usuario(int pkUsuario, PerfilUsuario iCodPerfil, string sLogin, string sSenha, string nom, string email, string cpf) : base(nom, email, cpf)
         {
-            this.ICodPerfil = iCodPerfil;
+            this.perfil = iCodPerfil;
             this.PkUsuario = pkUsuario;
             this.SLogin = sLogin;
             this.SSenha = sSenha;
@@ -67,13 +81,13 @@ namespace Class_Management_System.Entities
             {
                 if (this.PkUsuario == 0) //NOVO USUARIO
                 { 
-                    srvUsuario.ExecutaQuery(" EXEC SPCRIA_ACESSO @sNome = '" + this.SNome + "',@sCpf ='" + this.SCPF + "',@sEmail = '" + this.SEmail + "',@sLoginUS = '" +
-                      this.SLogin + "', @sSenhaUS = '" + this.SSenha + "',@pkPerfilUS = " + this.ICodPerfil);
+                    srvUsuario.ExecutaQuery(" CALL SPCRIA_ACESSO ( sNome = '" + this.SNome + "',sCpf ='" + this.SCPF + "',sEmail = '" + this.SEmail + "',sLoginUS = '" +
+                      this.SLogin + "', sSenhaUS = '" + this.SSenha + "',pkPerfilUS = " + this.perfil.GetCodigo() + ")");
                 }
                 else
                 {
-                    srvUsuario.ExecutaQuery(" EXEC SPGRAVA_DADOS_USUARIO @sNome = '" + this.SNome + "',@sCpf ='" + this.SCPF + "',@sEmail = '" + this.SEmail + "',@sLoginUS = '" +
-                      this.SLogin + "', @sSenhaUS = '" + this.SSenha + "',@pkPerfilUS = " + this.ICodPerfil + ", @pkUsuario = " + PkUsuario);
+                    srvUsuario.ExecutaQuery(" CALL SPGRAVA_DADOS_USUARIO (sNome = '" + this.SNome + "',sCpf ='" + this.SCPF + "',sEmail = '" + this.SEmail + "',sLoginUS = '" +
+                      this.SLogin + "', sSenhaUS = '" + this.SSenha + "',pkPerfilUS = " + this.perfil.GetCodigo() + ", pkUsuario = " + PkUsuario + ")");
                 }
             }
             catch (Exception)
@@ -91,13 +105,13 @@ namespace Class_Management_System.Entities
             try
             {
                 DataTable dtbDados = new DataTable();
-                dtbDados = srvUsuario.BuscaDados(" EXEC SPCONSULTA_USUARIO  @pkUsuario = '" + pk + "'");
+                dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + pk + "' )");
                 foreach (DataRow dr in dtbDados.Rows)
                 {
                     //dr[X] X = NUMERO DA COLUNA NA CONSULTA
                     this.SNome = dr[3].ToString();
                     this.PkUsuario = (int)dr[0];
-                    this.ICodPerfil = (int)dr[7];
+                    //this.ICodPerfil = (int)dr[7];
                     this.SLogin = dr[1].ToString();
                     this.SSenha = dr[8].ToString();
                     this.SEmail = dr[5].ToString();
@@ -107,7 +121,6 @@ namespace Class_Management_System.Entities
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -116,13 +129,13 @@ namespace Class_Management_System.Entities
             try
             {
                 DataTable dtbDados = new DataTable();
-                dtbDados = srvUsuario.BuscaDados(" EXEC SPCONSULTA_USUARIO  @pkUsuario = '" + this.PkUsuario + "'");
+                dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + this.PkUsuario + "' )");
                 foreach (DataRow dr in dtbDados.Rows)
                 {
                     //dr[X] X = NUMERO DA COLUNA NA CONSULTA
                     this.SNome = dr[3].ToString();
                     this.PkUsuario = (int)dr[0];
-                    this.ICodPerfil = (int)dr[7];
+                    //this.ICodPerfil = (int)dr[7];
                     this.SLogin = dr[1].ToString();
                     this.SSenha = dr[8].ToString();
                     this.SEmail = dr[5].ToString();
@@ -140,7 +153,7 @@ namespace Class_Management_System.Entities
         {
             try
             {
-                srvUsuario.ExecutaQuery(" EXEC SPDELETA_USUARIO @pkUsuario = " + this.PkUsuario);
+                this.srvUsuario.ExecutaQuery(" CALL SPDELETA_USUARIO (pkUsuario = " + this.PkUsuario + ")");
             }
             catch (System.Exception)
             {
@@ -152,19 +165,19 @@ namespace Class_Management_System.Entities
         {
             var usuario = obj as Usuario;
             return usuario != null &&
-                   ICodPerfil == usuario.ICodPerfil &&
-                   PkUsuario == usuario.PkUsuario &&
-                   SLogin == usuario.SLogin &&
-                   SSenha == usuario.SSenha;
+                   this.perfil.GetCodigo() == usuario.perfil.GetCodigo() &&
+                   this.PkUsuario == usuario.PkUsuario &&
+                   this.SLogin == usuario.SLogin &&
+                   this.SSenha == usuario.SSenha;
         }
 
         public override int GetHashCode()
         {
             var hashCode = -1541256906;
-            hashCode = hashCode * -1521134295 + ICodPerfil.GetHashCode();
-            hashCode = hashCode * -1521134295 + PkUsuario.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(SLogin);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(SSenha);
+            hashCode = hashCode * -1521134295 + this.perfil.GetCodigo().GetHashCode();
+            hashCode = hashCode * -1521134295 + this.PkUsuario.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.SLogin);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(this.SSenha);
             return hashCode;
         }
     }

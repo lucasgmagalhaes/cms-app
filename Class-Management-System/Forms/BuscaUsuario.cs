@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Class_Management_System.Entities;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
-using Class_Management_System.Entities;
 
 namespace Class_Management_System.Forms
 {
@@ -51,27 +51,28 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                string sSql = " EXEC SPCONSULTA_USUARIO ";
+                string sSql = " CALL "+ DataBaseConection.database + ".SPCONSULTA_USUARIO ( ";
                 if (string.IsNullOrEmpty(txtPesquisa.Text) == false)
                 {
                     switch (CmbFiltro.SelectedItem.ToString())
                     {
                         case "ID":
-                            sSql += " @pkUsuario = '" + txtPesquisa.Text + "'";
+                            sSql += " pkUsuario = '" + txtPesquisa.Text + "'";
                             break;
                         case "LOGIN":
-                            sSql += " @sLogin = '" + txtPesquisa.Text + "'";
+                            sSql += " sLogin = '" + txtPesquisa.Text + "'";
                             break;
                         case "NOME":
-                            sSql += " @sNomePessoa = '" + txtPesquisa.Text + "'";
+                            sSql += " sNomePessoa = '" + txtPesquisa.Text + "'";
                             break;
                         case "CPF":
-                            sSql += " @sCpf = '" + txtPesquisa.Text + "'";
+                            sSql += " sCpf = '" + txtPesquisa.Text + "'";
                             break;
                         default:
                             break;
                     }
                 }
+                sSql += ")";
                 return dbService.BuscaDados(sSql);
             }
             catch (Exception e)
@@ -94,7 +95,6 @@ namespace Class_Management_System.Forms
             {
                 MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
-
         }
 
         private void DtgPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -104,7 +104,7 @@ namespace Class_Management_System.Forms
                 object value = dtgPesquisa.Rows[e.RowIndex].Cells[0].Value;
                 if (value is DBNull) { return; }
                 int pkUsuario = (int)value;
-                CadUsuario cadastro = new CadUsuario(pkUsuario);
+                FormUsuario cadastro = new FormUsuario(pkUsuario);
                 cadastro.ShowDialog();
             }
             catch (Exception ex)

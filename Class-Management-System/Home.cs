@@ -1,5 +1,6 @@
 ﻿using Class_Management_System.Entities;
 using Class_Management_System.Forms;
+using Class_Management_System.Global;
 using Class_Management_System.Interfaces;
 using Class_Management_System.Services;
 using Class_Management_System.Structures;
@@ -15,6 +16,14 @@ namespace Class_Management_System
     {
         private readonly IGrafoService grafoService;
         private readonly IAulaService aulaService;
+        private readonly IDataBaseService dataBaseService;
+
+        private Configuracoes configuracoes;
+        private Sobre sobre;
+        private BuscaUsuario buscarUsuario;
+        private Forms.FormUsuario cadastroUsuario;
+        private Login login;
+
         private HashSet<string> periodos;
         private HashSet<string> materias;
         private HashSet<string> professores;
@@ -26,7 +35,7 @@ namespace Class_Management_System
             InitializeComponent();
             this.grafoService = DependencyFactory.Resolve<IGrafoService>();
             this.aulaService = DependencyFactory.Resolve<IAulaService>();
-            Configuracoes.CarregarInfosArquivo();
+            this.dataBaseService = DependencyFactory.Resolve<IDataBaseService>();
 
             this.periodos = new HashSet<string>();
             this.materias = new HashSet<string>();
@@ -34,7 +43,30 @@ namespace Class_Management_System
             this.dias = new HashSet<string>();
             this.horarios = new HashSet<string>();
         }
+        private void Home_Shown(object sender, EventArgs e)
+        {
+            Configuracoes.CarregarInfosArquivo();
+            this.IniciarConexaoBanco();
+        }
 
+        public void IniciarConexaoBanco()
+        {
+            try
+            {
+                this.dataBaseService.Open();
+            }
+            catch
+            {
+               DialogResult result = MessageBox.Show("Não foi possível conectar com o banco de dados. " +
+                    "Deseja abrir a tela de configurações ?", "Banco de dados", MessageBoxButtons.YesNo, 
+                    MessageBoxIcon.Exclamation);
+
+                if(result == DialogResult.Yes)
+                {
+                    this.AbrirConfiguracoes();
+                }
+            }
+        }
         /// <summary>
         /// Limpa todos os componentes da tela relacionados ao grafo
         /// </summary>
@@ -54,6 +86,37 @@ namespace Class_Management_System
             this.cmbPeriodo.Items.Clear();
             this.cmbProfessor.Items.Clear();
             this.dataGridGrafo.Rows.Clear();
+        }
+
+        private void AbrirBuscarUsuario()
+        {
+            if (this.buscarUsuario == null) this.buscarUsuario = new BuscaUsuario();
+            this.buscarUsuario.ShowDialog();
+        }
+
+        private void AbrirSobre()
+        {
+            if (this.sobre == null) this.sobre = new Sobre();
+            this.sobre.ShowDialog();
+        }
+
+        private void AbrirConfiguracoes()
+        {
+            if (this.configuracoes == null) this.configuracoes = new Configuracoes();
+            this.configuracoes.ShowDialog();
+        }
+
+        private void AbrirLogin()
+        {
+            if (this.login == null) this.login = new Login();
+            this.login.ShowDialog();
+        }
+
+        private void AbrirCadastroUsuario()
+        {
+            //this.cadastroUsuario = new CadUsuario(Session.usuario.PkUsuario);
+            this.cadastroUsuario = new Forms.FormUsuario(0);
+            this.cadastroUsuario.ShowDialog();
         }
 
         /// <summary>
@@ -84,7 +147,6 @@ namespace Class_Management_System
                 this.groupFiltro.Enabled = true;
                 this.InserirResultadosNaTabela(grafo);
                 this.InserirListasNoComboBox();
-
             }
         }
 
@@ -135,32 +197,27 @@ namespace Class_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.ShowDialog();
+            this.AbrirLogin();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            CadUsuario cadastro = new CadUsuario(0);
-            cadastro.ShowDialog();
+            this.AbrirCadastroUsuario();
         }
 
         private void btnSobre_Click(object sender, EventArgs e)
         {
-            Sobre about = new Sobre();
-            about.ShowDialog();
+            this.AbrirSobre();
         }
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            BuscaUsuario usuario = new BuscaUsuario();
-            usuario.ShowDialog();
+            this.AbrirBuscarUsuario();
         }
 
         private void btnConfiguracoes_Click(object sender, EventArgs e)
         {
-            Configuracoes configs = new Configuracoes();
-            configs.ShowDialog();
+            this.AbrirConfiguracoes();
         }
 
         /// <summary>

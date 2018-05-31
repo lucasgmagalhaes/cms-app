@@ -20,7 +20,7 @@ namespace Class_Management_System.Forms
         public Configuracoes()
         {
             InitializeComponent();
-            CarregarInfosDataBase();
+            this.CarregarInfosDataBase();
             CarregarInfosArquivo();
             this.databaseService = DependencyFactory.Resolve<IDataBaseService>();
         }
@@ -30,11 +30,11 @@ namespace Class_Management_System.Forms
         /// </summary>
         private void CarregarInfosDataBase()
         {
-            this.txtBanco.Text = DataBaseConection.GetDataBaseName();
-            this.txtPorta.Text = DataBaseConection.GetPort();
-            this.txtSenha.Text = DataBaseConection.GetPassword();
-            this.txtServidor.Text = DataBaseConection.GetServerName();
-            this.txtUsuario.Text = DataBaseConection.GetUser();
+            this.txtBanco.Text = DataBaseConection.database;
+            this.txtPorta.Text = DataBaseConection.port;
+            this.txtSenha.Text = DataBaseConection.password;
+            this.txtServidor.Text = DataBaseConection.server;
+            this.txtUsuario.Text = DataBaseConection.user;
 
             this.backupDatabase = this.txtBanco.Text;
             this.backupPort = this.txtPorta.Text;
@@ -62,11 +62,11 @@ namespace Class_Management_System.Forms
 
                         if (infos.Length > 0)
                         {
-                            if (DataBaseConection.GetDataBaseName() == null) DataBaseConection.DataBaseName(infos[0]);
-                            if (DataBaseConection.GetPort() == null) DataBaseConection.Port(infos[1]);
-                            if (DataBaseConection.GetPassword() == null) DataBaseConection.Password(infos[2]);
-                            if (DataBaseConection.GetServerName() == null) DataBaseConection.ServerName(infos[3]);
-                            if (DataBaseConection.GetUser() == null) DataBaseConection.User(infos[4]);
+                            if (DataBaseConection.database == null) DataBaseConection.database = infos[0];
+                            if (DataBaseConection.port == null) DataBaseConection.port = infos[1];
+                            if (DataBaseConection.password == null) DataBaseConection.password = infos[2];
+                            if (DataBaseConection.server == null) DataBaseConection.server = infos[3];
+                            if (DataBaseConection.user == null) DataBaseConection.user = infos[4];
                         }
                     }
                     catch (Exception e)
@@ -96,11 +96,11 @@ namespace Class_Management_System.Forms
             {
                 escrever.Write(banco + ";" + porta + ";" + senha + ";" + servidor + ";" + usuario);
 
-                DataBaseConection.ServerName(servidor);
-                DataBaseConection.Port(porta);
-                DataBaseConection.User(usuario);
-                DataBaseConection.Password(senha);
-                DataBaseConection.DataBaseName(banco);
+                DataBaseConection.server = servidor;
+                DataBaseConection.port = porta;
+                DataBaseConection.user = usuario;
+                DataBaseConection.password = senha;
+                DataBaseConection.database = banco;
 
                 escrever.Close();
             }
@@ -113,11 +113,11 @@ namespace Class_Management_System.Forms
         /// <param name="e"></param>
         private void btnTestarConexao_Click(object sender, EventArgs e)
         {
-            DataBaseConection.ServerName(txtServidor.Text);
-            DataBaseConection.Port(txtPorta.Text);
-            DataBaseConection.User(txtUsuario.Text);
-            DataBaseConection.Password(txtSenha.Text);
-            DataBaseConection.DataBaseName(txtBanco.Text);
+            DataBaseConection.server = txtServidor.Text;
+            DataBaseConection.port = txtPorta.Text;
+            DataBaseConection.user = txtUsuario.Text;
+            DataBaseConection.password = txtSenha.Text;
+            DataBaseConection.database = txtBanco.Text;
 
             try
             {

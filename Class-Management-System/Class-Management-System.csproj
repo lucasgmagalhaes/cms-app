@@ -73,6 +73,7 @@
     <Compile Include="Entities\DiaSemana.cs" />
     <Compile Include="Entities\Disciplina.cs" />
     <Compile Include="Entities\Aula.cs" />
+    <Compile Include="Entities\PerfilUsuario.cs" />
     <Compile Include="Entities\Pessoa.cs" />
     <Compile Include="Entities\Professor.cs" />
     <Compile Include="Entities\Usuario.cs" />
@@ -86,11 +87,11 @@
     <Compile Include="Forms\BuscaUsuario.Designer.cs">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CadUsuario.cs">
+    <Compile Include="Forms\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CadUsuario.Designer.cs">
-      <DependentUpon>CadUsuario.cs</DependentUpon>
+    <Compile Include="Forms\FormUsuario.Designer.cs">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes.cs">
       <SubType>Form</SubType>
@@ -131,12 +132,13 @@
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />
     <Compile Include="Utils\DependencyFactory.cs" />
+    <Compile Include="Utils\EntidadesDatabase.cs" />
     <Compile Include="Utils\LeitorArquivo.cs" />
     <EmbeddedResource Include="Forms\BuscaUsuario.resx">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CadUsuario.resx">
-      <DependentUpon>CadUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormUsuario.resx">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>

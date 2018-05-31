@@ -1,10 +1,25 @@
 ﻿namespace Class_Management_System.Entities
 {
+    /// <summary>
+    /// Mapeado da tabela PESSOA
+    /// </summary>
    public class Pessoa
     {
+        /// <summary>
+        /// NOME_PESSOA
+        /// </summary>
         private string sNome;
+        /// <summary>
+        /// EMAIL
+        /// </summary>
         private string sEmail;
+        /// <summary>
+        /// COD_CPF
+        /// </summary>
         private string sCPF;
+        /// <summary>
+        /// COD_PESSOA
+        /// </summary>
         private int pkPessoa;
 
         public string SNome { get => sNome; set => sNome = value; }
