@@ -217,7 +217,7 @@
             this.BtnDeletar.Size = new System.Drawing.Size(159, 35);
             this.BtnDeletar.TabIndex = 18;
             this.BtnDeletar.Text = "DELETAR";
-            this.BtnDeletar.UseVisualStyleBackColor = false; 
+            this.BtnDeletar.UseVisualStyleBackColor = false;
             // 
             // BtnNovo
             // 
@@ -235,7 +235,7 @@
             this.BtnNovo.UseVisualStyleBackColor = false;
             this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
-            // CadUsuario
+            // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -258,12 +258,14 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.TxtNome);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "CadUsuario";
+            this.Name = "FormUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuário";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormUsuario_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Class_Management_System.Entities;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
-using Class_Management_System.Entities;
 
 namespace Class_Management_System.Forms
 {
@@ -51,7 +51,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                string sSql = " CALL SPCONSULTA_USUARIO ( ";
+                string sSql = " CALL "+ DataBaseConection.database + ".SPCONSULTA_USUARIO ( ";
                 if (string.IsNullOrEmpty(txtPesquisa.Text) == false)
                 {
                     switch (CmbFiltro.SelectedItem.ToString())
@@ -95,7 +95,6 @@ namespace Class_Management_System.Forms
             {
                 MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
-
         }
 
         private void DtgPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -12,7 +12,7 @@ namespace Class_Management_System.Forms
     {
         private readonly IDataBaseService dbService;
         private Usuario user = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
-       
+
         /// <summary>
         /// Tela de Cadastro de Usuário
         /// </summary>
@@ -32,7 +32,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro Load_CadUsuario - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -53,7 +53,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro MostraRegistro - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void CarregaPerfil()
@@ -64,7 +64,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro CarregaPerfil - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BtnDeletar_Click(object sender, EventArgs e)
@@ -88,20 +88,16 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                DialogResult resp = MessageBox.Show("Deseja gravar este usuário? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resp == DialogResult.Yes)
+                if (ValidaGravar())
                 {
-                    if (ValidaGravar())
-                    {
-                        SetDadosUsuario();
-                        this.user.Gravar();
-                        this.user.GetDados();
-                    }
+                    SetDadosUsuario();
+                    this.user.Gravar();
+                    this.user.GetDados();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro BtnGravar_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private bool ValidaGravar()
@@ -178,7 +174,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro - SetDadosUsuario " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public bool ValidaCpf(string cpf)
@@ -257,7 +253,7 @@ namespace Class_Management_System.Forms
             }
             catch (Exception e)
             {
-                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro LimpaCampos - " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -270,9 +266,22 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro BtnNovo_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro BtnNovo_Click - " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
+
+        private void FormUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                this.txtCpf.Text = "52337104044";
+                this.txtEmail.Text = "teste@gmail.com";
+                this.txtLogin.Text = "loginteste";
+                this.TxtNome.Text = "nomeTeste";
+                this.txtSenha.Text = "senhateste";
+                this.txtConfirma.Text = "senhateste";
+            }
+        }
     }
 }
 
