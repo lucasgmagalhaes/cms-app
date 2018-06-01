@@ -14,12 +14,10 @@ namespace Class_Management_System.Utils
         /// </summary>
         /// <param name="resultado_sql"></param>
         /// <returns></returns>
-        public static Usuario InstancializarUsuarioPorLogin(DataTable resultado_sql, string login, string senha)
+        public static Usuario InstancializarUsuarioPorLogin(int pk)
         {
             Usuario usuario = new Usuario();
-            usuario.PkUsuario = resultado_sql.Rows[0].Field<int>("COD_USUARIO");
-            usuario.SLogin = login;
-            usuario.SSenha = senha;
+            usuario.GetDados(pk);
             return usuario;
         }
     }

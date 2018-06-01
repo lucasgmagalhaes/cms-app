@@ -107,18 +107,17 @@ namespace Class_Management_System.Entities
             {
                 DataTable dtbDados = new DataTable();
                 dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + pk + "' )");
-                foreach (DataRow dr in dtbDados.Rows)
+                if (dtbDados.Rows.Count > 0)
                 {
-                    //dr[X] X = NUMERO DA COLUNA NA CONSULTA
-                    this.SNome = dr[3].ToString();
-                    this.PkUsuario = (int)dr[0];
-                    //this.ICodPerfil = (int)dr[7];
-                    this.SLogin = dr[1].ToString();
-                    this.SSenha = dr[8].ToString();
-                    this.SEmail = dr[5].ToString();
-                    this.SCPF = dr[4].ToString();
-                    this.PkPessoa = (int)dr[6];
-                }
+                    this.PkUsuario = dtbDados.Rows[0].Field<int>("ID");
+                    this.PkPessoa = dtbDados.Rows[0].Field<int>("COD_PESSOA");
+                    this.SLogin = dtbDados.Rows[0].Field<string>("LOGIN");
+                    this.SSenha = dtbDados.Rows[0].Field<string>("SENHA");
+                    this.SLogin = dtbDados.Rows[0].Field<string>("EMAIL");
+                    this.SSenha = dtbDados.Rows[0].Field<string>("COD_CPF");
+                    this.perfil.SetCodigo(dtbDados.Rows[0].Field<int>("COD_PERFIL_USUARIO"));
+                    this.perfil.SetDescricao(dtbDados.Rows[0].Field<string>("PERFIL"));
+                } 
             }
             catch (Exception)
             {
@@ -131,17 +130,15 @@ namespace Class_Management_System.Entities
             {
                 DataTable dtbDados = new DataTable();
                 dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + this.PkUsuario + "' )");
-                foreach (DataRow dr in dtbDados.Rows)
-                {
-                    //dr[X] X = NUMERO DA COLUNA NA CONSULTA
-                    this.SNome = dr[3].ToString();
-                    this.PkUsuario = (int)dr[0];
-                    //this.ICodPerfil = (int)dr[7];
-                    this.SLogin = dr[1].ToString();
-                    this.SSenha = dr[8].ToString();
-                    this.SEmail = dr[5].ToString();
-                    this.SCPF = dr[4].ToString();
-                    this.PkPessoa = (int)dr[6];
+                if (dtbDados.Rows.Count > 0)
+                { 
+                    this.PkPessoa = dtbDados.Rows[0].Field<int>("COD_PESSOA");
+                    this.SLogin = dtbDados.Rows[0].Field<string>("LOGIN");
+                    this.SSenha = dtbDados.Rows[0].Field<string>("SENHA");
+                    this.SLogin = dtbDados.Rows[0].Field<string>("EMAIL");
+                    this.SSenha = dtbDados.Rows[0].Field<string>("COD_CPF");
+                    this.perfil.SetCodigo(dtbDados.Rows[0].Field<int>("COD_PERFIL_USUARIO"));
+                    this.perfil.SetDescricao(dtbDados.Rows[0].Field<string>("PERFIL"));
                 }
             }
             catch (Exception)

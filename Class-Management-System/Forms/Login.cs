@@ -33,7 +33,7 @@ namespace Class_Management_System.Forms
 
             if (dtbLogin.Rows.Count > 0)
             {
-                Session.usuario = EntidadesDatabase.InstancializarUsuarioPorLogin(dtbLogin, txtLogin.Text, txtSenha.Text);
+                Session.usuario = EntidadesDatabase.InstancializarUsuarioPorLogin(dtbLogin.Rows[0].Field<int>("COD_USUARIO"));
                 this.Close();
             }
             else

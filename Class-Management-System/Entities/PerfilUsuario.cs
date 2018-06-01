@@ -37,6 +37,11 @@
             this.descricao = descricao;
         }
 
+        public void SetCodigo(int pk)
+        {
+            this.codigo = pk;
+        }
+
         public int GetCodigo()
         {
             return this.codigo;
