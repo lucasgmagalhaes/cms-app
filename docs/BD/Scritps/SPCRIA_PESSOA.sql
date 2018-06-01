@@ -1,16 +1,16 @@
+DROP PROCEDURE SPCRIA_PESSOA;
 DELIMITER $$
 CREATE  PROCEDURE  SPCRIA_PESSOA(
-   IN sNomePessoa VARCHAR(255),
-   IN	sCpfPessoa VARCHAR(255),
-   IN sEmailPessoa VARCHAR(255) 
+   IN sNomePessoa VARCHAR(100),
+   IN	sCpfPessoa VARCHAR(11),
+   IN sEmailPessoa VARCHAR(100)  
     )
 BEGIN
 		SET sEmailPessoa = IFNULL(sEmailPessoa, '');
 			INSERT INTO PESSOA
-					(COD_CPF ,
-					 NOME_PESSOA,
+					( NOME_PESSOA ,
+					 COD_CPF,
 					 EMAIL)
-				VALUES(sNomePessoa ,sCpfPessoa ,sEmailPessoa);
- #SET @PKPESSOA = (SELECT COD_PESSOA FROM PESSOA WHERE COD_CPF = sCpfPessoa);
+				VALUES(sNomePessoa ,sCpfPessoa ,sEmailPessoa); 
  END $$
 DELIMITER ;
