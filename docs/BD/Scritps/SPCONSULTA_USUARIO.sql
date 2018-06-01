@@ -1,7 +1,8 @@
+DROP PROCEDURE  SPCONSULTA_USUARIO;
 DELIMITER $$
 CREATE PROCEDURE  SPCONSULTA_USUARIO (  IN sLogin VARCHAR(20) ,   IN pkUsuario VARCHAR(4) ,    IN sNomePessoa VARCHAR(100) ,  IN sCpf VARCHAR(100)   )
 BEGIN
-	 SET pkUsuario = IFNULL(pkUsuario, '0');
+	 SET pkUsuario = IFNULL(pkUsuario, '');
 	 SET sLogin = IFNULL(sLogin, '');
 	 SET sNomePessoa = IFNULL(sNomePessoa, '');
 	 SET sCpf = IFNULL(sCpf, '');  
@@ -17,7 +18,7 @@ BEGIN
     FROM    USUARIO U
             LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO
             LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1=1 ';
-    IF (pkUsuario <> '0')  THEN 
+    IF (pkUsuario <> '')  THEN 
             SET @sSql = @sSql + ' AND U.COD_USUARIO = ' + pkUsuario; 	
          END IF;
     IF (sLogin <> '' ) THEN 
