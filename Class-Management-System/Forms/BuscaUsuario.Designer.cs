@@ -42,7 +42,7 @@
             this.lblPesquisa.AutoSize = true;
             this.lblPesquisa.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPesquisa.ForeColor = System.Drawing.Color.White;
-            this.lblPesquisa.Location = new System.Drawing.Point(135, 28);
+            this.lblPesquisa.Location = new System.Drawing.Point(62, 28);
             this.lblPesquisa.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPesquisa.Name = "lblPesquisa";
             this.lblPesquisa.Size = new System.Drawing.Size(99, 22);
@@ -52,7 +52,7 @@
             // txtPesquisa
             // 
             this.txtPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisa.Location = new System.Drawing.Point(139, 55);
+            this.txtPesquisa.Location = new System.Drawing.Point(66, 55);
             this.txtPesquisa.Margin = new System.Windows.Forms.Padding(5);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(546, 35);
@@ -65,7 +65,7 @@
             this.BtnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPesquisar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnPesquisar.Location = new System.Drawing.Point(821, 55);
+            this.BtnPesquisar.Location = new System.Drawing.Point(756, 55);
             this.BtnPesquisar.Margin = new System.Windows.Forms.Padding(5);
             this.BtnPesquisar.Name = "BtnPesquisar";
             this.BtnPesquisar.Size = new System.Drawing.Size(113, 38);
@@ -78,10 +78,10 @@
             // 
             this.dtgPesquisa.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dtgPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPesquisa.Location = new System.Drawing.Point(139, 116);
+            this.dtgPesquisa.Location = new System.Drawing.Point(66, 116);
             this.dtgPesquisa.Margin = new System.Windows.Forms.Padding(5);
             this.dtgPesquisa.Name = "dtgPesquisa";
-            this.dtgPesquisa.Size = new System.Drawing.Size(795, 523);
+            this.dtgPesquisa.Size = new System.Drawing.Size(747, 467);
             this.dtgPesquisa.TabIndex = 3;
             this.dtgPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgPesquisa_CellContentClick);
             // 
@@ -95,7 +95,7 @@
             "LOGIN",
             "NOME",
             "CPF"});
-            this.CmbFiltro.Location = new System.Drawing.Point(692, 52);
+            this.CmbFiltro.Location = new System.Drawing.Point(619, 52);
             this.CmbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.CmbFiltro.Name = "CmbFiltro";
             this.CmbFiltro.Size = new System.Drawing.Size(121, 38);
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1139, 674);
+            this.ClientSize = new System.Drawing.Size(943, 647);
             this.Controls.Add(this.CmbFiltro);
             this.Controls.Add(this.dtgPesquisa);
             this.Controls.Add(this.BtnPesquisar);
@@ -114,9 +114,11 @@
             this.Controls.Add(this.lblPesquisa);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Coral;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "BuscaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Usuário";
             ((System.ComponentModel.ISupportInitialize)(this.dtgPesquisa)).EndInit();
             this.ResumeLayout(false);

@@ -43,7 +43,6 @@ C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\bin\Debug\Class
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\bin\Debug\MySql.Data.dll
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.csprojResolveAssemblyReference.cache
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.BuscaUsuario.resources
-C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.CadUsuario.resources
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Configuracoes.resources
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Login.resources
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.Sobre.resources
@@ -55,3 +54,4 @@ C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.exe
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormUsuario.resources
+C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormUsuario.resources
