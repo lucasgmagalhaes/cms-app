@@ -18,7 +18,7 @@ namespace Class_Management_System
         private readonly IAulaService aulaService;
         private readonly IDataBaseService dataBaseService;
 
-        private Configuracoes configuracoes;
+        private Configuracoes configuracoes = new Configuracoes();
         private Sobre sobre;
         private BuscaUsuario buscarUsuario;
         private FormUsuario cadastroUsuario;

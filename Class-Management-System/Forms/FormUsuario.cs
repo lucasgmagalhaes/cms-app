@@ -329,6 +329,16 @@ namespace Class_Management_System.Forms
                 }
             }
         }
+
+        private void FormUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }
 
