@@ -51,22 +51,22 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                string sSql = " CALL "+ DataBaseConection.database + ".SPCONSULTA_USUARIO ( ";
+                string sSql = " CALL SPCONSULTA_USUARIO ( ";
                 if (string.IsNullOrEmpty(txtPesquisa.Text) == false)
                 {
                     switch (CmbFiltro.SelectedItem.ToString())
                     {
                         case "ID":
-                            sSql += " pkUsuario = '" + txtPesquisa.Text + "'";
+                            sSql += "  '" + txtPesquisa.Text + "', '', '', ''";
                             break;
                         case "LOGIN":
-                            sSql += " sLogin = '" + txtPesquisa.Text + "'";
+                            sSql += " '', '" + txtPesquisa.Text + "', '', ''";
                             break;
                         case "NOME":
-                            sSql += " sNomePessoa = '" + txtPesquisa.Text + "'";
+                            sSql += " '', '', '" + txtPesquisa.Text + "', ''";
                             break;
                         case "CPF":
-                            sSql += " sCpf = '" + txtPesquisa.Text + "'";
+                            sSql += " '','','', '" + txtPesquisa.Text + "'";
                             break;
                         default:
                             break;

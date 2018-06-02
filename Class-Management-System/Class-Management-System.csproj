@@ -119,6 +119,7 @@
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="ServicesImpl\AulaServiceImpl.cs" />
+    <Compile Include="ServicesImpl\ProcedureServiceImpl.cs" />
     <Compile Include="Services\IDataBaseService.cs" />
     <Compile Include="Interfaces\IDado.cs" />
     <Compile Include="Interfaces\IGrafo.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="ServicesImpl\GrafoServiceImpl.cs" />
     <Compile Include="Services\IAulaService.cs" />
     <Compile Include="Services\IGrafoService.cs" />
+    <Compile Include="Services\IProcedureService.cs" />
     <Compile Include="Structures\Aresta.cs" />
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />

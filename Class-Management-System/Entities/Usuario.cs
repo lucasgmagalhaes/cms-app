@@ -143,7 +143,6 @@ namespace Class_Management_System.Entities
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -155,7 +154,6 @@ namespace Class_Management_System.Entities
             }
             catch (System.Exception)
             {
-
                 throw;
             }
         } 

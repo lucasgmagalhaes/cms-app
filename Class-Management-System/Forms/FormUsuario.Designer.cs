@@ -124,6 +124,8 @@
             // 
             // CmbPerfil
             // 
+            this.CmbPerfil.BackColor = System.Drawing.SystemColors.Window;
+            this.CmbPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPerfil.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbPerfil.FormattingEnabled = true;
             this.CmbPerfil.Location = new System.Drawing.Point(51, 211);
