@@ -23,6 +23,7 @@ namespace Class_Management_System
         private BuscaUsuario buscarUsuario;
         private FormUsuario cadastroUsuario;
         private Login login;
+        private FormEditarUsuario editarUsuario;
 
         private HashSet<string> periodos;
         private HashSet<string> materias;
@@ -44,8 +45,10 @@ namespace Class_Management_System
             this.sobre = new Sobre();
             this.buscarUsuario = new BuscaUsuario();
             this.cadastroUsuario = new FormUsuario(0);
+            this.editarUsuario = new FormEditarUsuario();
 
             this.login.FormClosed += Login_FormClosed;
+            this.editarUsuario.FormClosed += EditarUsuario_FormClosed;
             this.periodos = new HashSet<string>();
             this.materias = new HashSet<string>();
             this.professores = new HashSet<string>();
@@ -53,12 +56,23 @@ namespace Class_Management_System
             this.horarios = new HashSet<string>();
         }
 
+        private void EditarUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Session.usuario_removido != null)
+            {
+                this.lblusuario_logado.Visible = false;
+                this.btnLogin.Text = "Login";
+                Session.usuario_removido = null;
+            }
+        }
+
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-           if(Session.usuario != null)
+            if (Session.usuario != null)
             {
                 this.lblusuario_logado.Visible = true;
                 this.lblusuario_logado.Text = "Bem vindo, " + Session.usuario.SNome;
+                this.btnLogin.Text = "Logout";
             }
         }
 
@@ -76,11 +90,11 @@ namespace Class_Management_System
             }
             catch
             {
-               DialogResult result = MessageBox.Show("Não foi possível conectar com o banco de dados. " +
-                    "Deseja abrir a tela de configurações ?", "Banco de dados", MessageBoxButtons.YesNo, 
-                    MessageBoxIcon.Exclamation);
+                DialogResult result = MessageBox.Show("Não foi possível conectar com o banco de dados. " +
+                     "Deseja abrir a tela de configurações ?", "Banco de dados", MessageBoxButtons.YesNo,
+                     MessageBoxIcon.Exclamation);
 
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     this.configuracoes.ShowDialog();
                 }
@@ -191,7 +205,16 @@ namespace Class_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.login.ShowDialog();
+            if (this.btnLogin.Text.Equals("Logout"))
+            {
+                Session.usuario = null;
+                this.lblusuario_logado.Visible = false;
+                this.btnLogin.Text = "Login";
+            }
+            else
+            {
+                this.login.ShowDialog();
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -258,7 +281,7 @@ namespace Class_Management_System
                 }
             }
         }
-        
+
         /// <summary>
         /// Limpa os valores do ComboBox exceto aquele que foi selecionado
         /// </summary>
@@ -308,6 +331,12 @@ namespace Class_Management_System
         private void btnResetar_Click(object sender, EventArgs e)
         {
             this.HabilitarLinhasDataGrid();
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            this.editarUsuario.DefinirUsuario(Session.usuario);
+            this.editarUsuario.ShowDialog();
         }
     }
 }

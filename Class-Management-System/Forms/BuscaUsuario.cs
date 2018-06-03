@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Class_Management_System.Entities;
+using Class_Management_System.Global;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
 
@@ -10,78 +12,55 @@ namespace Class_Management_System.Forms
     public partial class BuscaUsuario : Form
     {
         private readonly IDataBaseService dbService;
-        DataTable dtbPesquisa = new DataTable();
+        private readonly IProcedureService procedureService;
+        private DataTable dtbPesquisa = new DataTable();
+        private List<Usuario> usuariosPesquisa;
+        private FormEditarUsuario formEditar;
         public BuscaUsuario()
         {
             InitializeComponent();
+            this.formEditar = new FormEditarUsuario();
+            this.formEditar.FormClosed += FormEditar_FormClosed;
             this.dbService = DependencyFactory.Resolve<IDataBaseService>();
-            MontaDtb();
+            this.procedureService = DependencyFactory.Resolve<IProcedureService>();
+        }
+
+        private void FormEditar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Session.usuario_removido != null)
+            {
+                int index = this.usuariosPesquisa.FindIndex(usuario => usuario.Equals(Session.usuario_removido));
+                this.dtgPesquisa.Rows.RemoveAt(index);
+                Session.usuario_removido = null;
+            }
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             try
             {
-                dtbPesquisa = GeraDadosPesquisa();
-                dtgPesquisa.DataSource = dtbPesquisa;
+                this.usuariosPesquisa = this.procedureService.BuscarUsuarios(this.txtPesquisa.Text);
+                this.InserirResultadoNoDataGrid(this.usuariosPesquisa);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro - BtnPesquisar_Click " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }
-        }
-        public void MontaDtb()
-        {
-            try
-            {
-                dtbPesquisa.Columns.Add("ID", Type.GetType("System.Int32"));
-                dtbPesquisa.Columns.Add("LOGIN", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("NOME", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("CPF", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("E-MAIL", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("PERFIL", Type.GetType("System.String"));
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Erro - MontaDtb " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro - BtnPesquisar_Click " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public DataTable GeraDadosPesquisa()
+        private void InserirResultadoNoDataGrid(List<Usuario> usuarios)
         {
-            try
-            {
-                string sSql = " CALL "+ DataBaseConection.database + ".SPCONSULTA_USUARIO ( ";
-                if (string.IsNullOrEmpty(txtPesquisa.Text) == false)
-                {
-                    switch (CmbFiltro.SelectedItem.ToString())
-                    {
-                        case "ID":
-                            sSql += " pkUsuario = '" + txtPesquisa.Text + "'";
-                            break;
-                        case "LOGIN":
-                            sSql += " sLogin = '" + txtPesquisa.Text + "'";
-                            break;
-                        case "NOME":
-                            sSql += " sNomePessoa = '" + txtPesquisa.Text + "'";
-                            break;
-                        case "CPF":
-                            sSql += " sCpf = '" + txtPesquisa.Text + "'";
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                sSql += ")";
-                return dbService.BuscaDados(sSql);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Erro - MontaGrade " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
+            this.dtgPesquisa.Rows.Clear();
+            usuarios.ForEach(usuario => this.dtgPesquisa.Rows.Add(usuario.PkUsuario, usuario.SLogin, usuario.SNome, usuario.SCPF,
+                usuario.SEmail, usuario.Perfil.GetDescricao()));
         }
-        private void DtgPesquisa_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+
+        private void btnlimpar_Click(object sender, EventArgs e)
+        {
+            this.dtgPesquisa.Rows.Clear();
+        }
+
+        private void dtgPesquisa_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
             {
@@ -93,24 +72,14 @@ namespace Class_Management_System.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void DtgPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                object value = dtgPesquisa.Rows[e.RowIndex].Cells[0].Value;
-                if (value is DBNull) { return; }
-                int pkUsuario = (int)value;
-                FormUsuario cadastro = new FormUsuario(pkUsuario);
-                cadastro.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro - DtgPesquisa_CellContentClick " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-            }
+            this.formEditar.DefinirUsuario(this.usuariosPesquisa[e.RowIndex]);
+            this.formEditar.ShowDialog();
         }
     }
 }

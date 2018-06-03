@@ -44,11 +44,5 @@ namespace Class_Management_System.Services
         /// <param name="sSql"></param>
         /// <returns>Retorna quantidade de linhas afetadas</returns>
         int ExecutaQuery(string sSql);
-
-        /// <summary>
-        /// Busca a lista de perfis de usuário
-        /// </summary>
-        /// <returns></returns>
-        List<PerfilUsuario> BuscarPerfisUsuario();
     }
 }

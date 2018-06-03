@@ -87,6 +87,12 @@
     <Compile Include="Forms\BuscaUsuario.Designer.cs">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormEditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditarUsuario.Designer.cs">
+      <DependentUpon>FormEditarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,7 @@
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="ServicesImpl\AulaServiceImpl.cs" />
+    <Compile Include="ServicesImpl\ProcedureServiceImpl.cs" />
     <Compile Include="Services\IDataBaseService.cs" />
     <Compile Include="Interfaces\IDado.cs" />
     <Compile Include="Interfaces\IGrafo.cs" />
@@ -128,14 +135,19 @@
     <Compile Include="ServicesImpl\GrafoServiceImpl.cs" />
     <Compile Include="Services\IAulaService.cs" />
     <Compile Include="Services\IGrafoService.cs" />
+    <Compile Include="Services\IProcedureService.cs" />
     <Compile Include="Structures\Aresta.cs" />
     <Compile Include="Structures\Grafo.cs" />
     <Compile Include="Structures\Vertice.cs" />
     <Compile Include="Utils\DependencyFactory.cs" />
     <Compile Include="Utils\EntidadesDatabase.cs" />
     <Compile Include="Utils\LeitorArquivo.cs" />
+    <Compile Include="Utils\ValidadorCpf.cs" />
     <EmbeddedResource Include="Forms\BuscaUsuario.resx">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditarUsuario.resx">
+      <DependentUpon>FormEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>

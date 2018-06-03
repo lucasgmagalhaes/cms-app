@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
@@ -10,7 +9,7 @@ namespace Class_Management_System.Forms
 {
     public partial class FormUsuario : Form
     {
-        private readonly IDataBaseService dbService;
+        private readonly IProcedureService dbService;
         private Usuario user = new Usuario();//usuario que vai manipular na tela , sendo um novo ou um já cadastrado
         private List<PerfilUsuario> listaPerfis;
         /// <summary>
@@ -21,13 +20,12 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                InitializeComponent();
-                this.dbService = DependencyFactory.Resolve<IDataBaseService>();
-                this.CarregaPerfil();
+                this.dbService = DependencyFactory.Resolve<IProcedureService>();
+                this.Init();
                 if (pkUsuario > 0) //Entrando no cadastro de um usuário 
                 {
                     this.user.PkUsuario = pkUsuario;
-                    MostraRegistro();
+                    this.MostraRegistro();
                 }
             }
             catch (Exception e)
@@ -36,15 +34,20 @@ namespace Class_Management_System.Forms
             }
         }
 
-        /// <summary>
-        /// Remove os caracteres especiais do cpf
-        /// </summary>
-        /// <param name="cpf"></param>
-        /// <returns></returns>
-        private string RemoverMascaraCpf(string cpf)
+        public FormUsuario(Usuario usuario)
         {
-            return cpf.Replace(".", "").Replace("-", "").Replace(",", "");
+            this.dbService = DependencyFactory.Resolve<IProcedureService>();
+            this.Init();
+            this.user = usuario;
+            this.MostraRegistro();
         }
+
+        private void Init()
+        {
+            InitializeComponent();
+            this.CarregaPerfil();
+        }
+
 
         /// <summary>
         /// Mostra os dados do Usuário na tela
@@ -53,12 +56,12 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                user.GetDados();
                 TxtNome.Text = this.user.SNome;
                 txtCpf.Text = this.user.SCPF;
                 txtEmail.Text = this.user.SEmail;
                 txtSenha.Text = this.user.SSenha;
                 txtLogin.Text = this.user.SLogin;
+                CmbPerfil.SelectedItem = this.user.Perfil.GetDescricao();
                 CmbPerfil.SelectedValue = this.user.Perfil.GetDescricao();
             }
             catch (Exception e)
@@ -80,24 +83,6 @@ namespace Class_Management_System.Forms
             }
         }
 
-        private void BtnDeletar_Click(object sender, EventArgs e)
-        {
-            if (user.PkUsuario == 0)
-            {
-                MessageBox.Show("Usuário não existe ou nenhum usuário selecionado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                DialogResult resp = MessageBox.Show("Deseja apagar este usuário? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resp == DialogResult.Yes)
-                {
-                    this.user.Deleta();
-                    this.user = new Usuario();
-                    LimpaCampos();
-                }
-            }
-        }
-
         private void BtnGravar_Click(object sender, EventArgs e)
         {
             try
@@ -108,13 +93,14 @@ namespace Class_Management_System.Forms
                     try
                     {
                         this.user.Gravar();
+                        MessageBox.Show("Usuário inserido com sucesso!", "Cadastro usuário",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Insert Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    this.user.GetDados();
                 }
             }
             catch (Exception ex)
@@ -129,50 +115,57 @@ namespace Class_Management_System.Forms
             {
                 if (string.IsNullOrEmpty(TxtNome.Text))
                 {
-                    MessageBox.Show("Favor preencher o campo de Nome!");
+                    MessageBox.Show("Favor preencher o campo de Nome!", "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     TxtNome.Focus();
                     return false;
                 }
                 if (string.IsNullOrEmpty(txtCpf.Text))
                 {
-                    MessageBox.Show("Favor preencher o campo de CPF!");
+                    MessageBox.Show("Favor preencher o campo de CPF!", "Campo faltando",
+                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCpf.Focus();
                     return false;
                 }
-                if (ValidaCpf(txtCpf.Text) == false)
+                if (ValidadorCpf.ValidaCpf(txtCpf.Text) == false)
                 {
-                    MessageBox.Show("CPF Inválido : " + txtCpf.Text);
+                    MessageBox.Show("CPF Inválido : " + txtCpf.Text, "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCpf.Focus();
                     return false;
                 }
-                if (this.user.PkUsuario == 0)
-                    if (this.VerificaCpfExist())
-                    {
-                        MessageBox.Show("Já existe um usuário com este CPF:" + txtCpf.Text);
-                        txtCpf.Focus();
-                        return false;
-                    }
+                if (this.user.PkUsuario == 0 && this.VerificaCpfExist())
+                {
+                    MessageBox.Show("Já existe um usuário com este CPF:" + txtCpf.Text, "Campo faltando",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtCpf.Focus();
+                    return false;
+                }
                 if (string.IsNullOrEmpty(txtEmail.Text))
                 {
-                    MessageBox.Show("Favor preencher o campo de E-mail!");
+                    MessageBox.Show("Favor preencher o campo de E-mail!", "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtEmail.Focus();
                     return false;
                 }
                 if (CmbPerfil.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Favor selecionar um perfil!");
+                    MessageBox.Show("Favor selecionar um perfil!", "Campo faltando",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     CmbPerfil.Focus();
                     return false;
                 }
                 if ((string.IsNullOrEmpty(txtSenha.Text) && string.IsNullOrEmpty(txtConfirma.Text)))
                 {
-                    MessageBox.Show("Favor preencher o campo de senha e confirmar senha!");
+                    MessageBox.Show("Favor preencher o campo de senha e confirmar senha!", "Campo faltando",
+                      MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtSenha.Focus();
                     return false;
                 }
                 if (txtSenha.Text != txtConfirma.Text)
                 {
-                    MessageBox.Show("Os campos de senha e confirma senha estão diferentes!");
+                    MessageBox.Show("Os campos de senha e confirma senha estão diferentes!", "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtSenha.Focus();
                     return false;
                 }
@@ -190,7 +183,7 @@ namespace Class_Management_System.Forms
             try
             {
                 this.user.SNome = TxtNome.Text;
-                this.user.SCPF = this.RemoverMascaraCpf(txtCpf.Text);
+                this.user.SCPF = ValidadorCpf.RemoverMascaraCpf(txtCpf.Text);
                 this.user.SEmail = txtEmail.Text;
                 this.user.Perfil = this.BuscarPerfiSelecionado();
                 this.user.SLogin = txtLogin.Text;
@@ -212,68 +205,11 @@ namespace Class_Management_System.Forms
             return this.listaPerfis.Find(perfil => perfil.GetDescricao() == descricao);
         }
 
-        public bool ValidaCpf(string cpf)
-        {
-            try
-            {
-                int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-                int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-                string tempCpf;
-                string digito;
-                int soma;
-                int resto;
-
-                cpf = cpf.Trim();
-                cpf = this.RemoverMascaraCpf(cpf);
-
-                if (cpf.Length != 11)
-                    return false;
-                tempCpf = cpf.Substring(0, 9);
-                soma = 0;
-
-                for (int i = 0; i < 9; i++)
-                    soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
-                resto = soma % 11;
-
-                if (resto < 2)
-                    resto = 0;
-                else
-                    resto = 11 - resto;
-
-                digito = resto.ToString();
-                tempCpf = tempCpf + digito;
-
-                soma = 0;
-                for (int i = 0; i < 10; i++)
-                    soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
-
-                resto = soma % 11;
-                if (resto < 2)
-                    resto = 0;
-                else
-                    resto = 11 - resto;
-                digito = digito + resto.ToString();
-                return cpf.EndsWith(digito);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Erro - ValidaCpf " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
         public bool VerificaCpfExist()
         {
             try
             {
-                DataTable dtbCPF = new DataTable();
-                dtbCPF = dbService.BuscaDados(" CALL cms.SPVERIFICA_CPF ('" + this.RemoverMascaraCpf(txtCpf.Text) + "')");
-                if (dtbCPF.Rows.Count > 0)
-                {
-                    return true;
-                }
-                else
-                    return false;
+                return this.dbService.CpfCadastrado(ValidadorCpf.RemoverMascaraCpf(this.txtCpf.Text));
             }
             catch (Exception e)
             {
@@ -328,16 +264,6 @@ namespace Class_Management_System.Forms
                     this.CmbPerfil.SelectedIndex = 0;
                 }
             }
-        }
-
-        private void FormUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
     }
 }

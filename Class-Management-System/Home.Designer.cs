@@ -55,7 +55,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.lblusuario_logado = new System.Windows.Forms.Label();
             this.groupFiltro = new System.Windows.Forms.GroupBox();
             this.checkBoxSelecaoUnica = new System.Windows.Forms.CheckBox();
@@ -221,7 +221,7 @@
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Controls.Add(this.btnBuscarUsuario);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnPerfil);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -355,21 +355,22 @@
             this.btnBuscarUsuario.UseVisualStyleBackColor = false;
             this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
-            // button3
+            // btnPerfil
             // 
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(1, 356);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(228, 86);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Visualizar Perfil";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnPerfil.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnPerfil.Location = new System.Drawing.Point(1, 356);
+            this.btnPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(228, 86);
+            this.btnPerfil.TabIndex = 2;
+            this.btnPerfil.Text = "Visualizar Perfil";
+            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
             // lblusuario_logado
             // 
@@ -604,7 +605,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Button btnBuscarUsuario;
         private System.Windows.Forms.Label lblusuario_logado;
         private System.Windows.Forms.Button btnLogin;
