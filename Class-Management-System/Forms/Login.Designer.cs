@@ -131,10 +131,12 @@
             this.Controls.Add(this.BtnLogin);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

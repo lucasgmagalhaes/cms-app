@@ -182,5 +182,10 @@ namespace Class_Management_System.Forms
             formSQL sql = new formSQL();
             sql.ShowDialog();
         }
+
+        private void Configuracoes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) this.Close();
+        }
     }
 }

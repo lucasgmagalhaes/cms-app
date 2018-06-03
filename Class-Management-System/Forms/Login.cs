@@ -17,6 +17,16 @@ namespace Class_Management_System.Forms
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            this.AcaoLogin();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AcaoLogin()
+        {
             try
             {
                 int codigo = this.procedureService.BuscarCodigoUsuario(this.txtLogin.Text, this.txtSenha.Text);
@@ -37,17 +47,24 @@ namespace Class_Management_System.Forms
                 MessageBox.Show(ex.Message, "DataBase Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.txtLogin.Text = "";
             this.txtSenha.Text = "";
+        }
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.AcaoLogin();
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

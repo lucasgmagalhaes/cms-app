@@ -61,9 +61,11 @@
             this.Controls.Add(this.lbllinhas);
             this.Controls.Add(this.txtScript);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.Name = "formSQL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Script SQL ";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.formSQL_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

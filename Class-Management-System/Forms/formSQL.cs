@@ -25,5 +25,10 @@ namespace Class_Management_System.Forms
                 MessageBox.Show(e.Message, "Falha leitura", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void formSQL_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) this.Close();
+        }
     }
 }

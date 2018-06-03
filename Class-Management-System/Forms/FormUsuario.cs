@@ -264,6 +264,7 @@ namespace Class_Management_System.Forms
                     this.CmbPerfil.SelectedIndex = 0;
                 }
             }
+            else if (e.KeyCode == Keys.Escape) this.Close();
         }
     }
 }

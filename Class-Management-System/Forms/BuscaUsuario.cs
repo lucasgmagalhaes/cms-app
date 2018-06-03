@@ -81,5 +81,10 @@ namespace Class_Management_System.Forms
             this.formEditar.DefinirUsuario(this.usuariosPesquisa[e.RowIndex]);
             this.formEditar.ShowDialog();
         }
+
+        private void BuscaUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) this.Close();
+        }
     }
 }

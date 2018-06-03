@@ -183,12 +183,14 @@
             this.ForeColor = System.Drawing.Color.Coral;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BuscaUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Usuário";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BuscaUsuario_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPesquisa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

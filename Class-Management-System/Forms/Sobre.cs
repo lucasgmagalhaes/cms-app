@@ -101,5 +101,10 @@ namespace Class_Management_System.Forms
             }
         }
         #endregion
+
+        private void Sobre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) this.Close();
+        }
     }
 }

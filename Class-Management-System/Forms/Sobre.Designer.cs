@@ -173,12 +173,14 @@
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Sobre";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sobre";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Sobre_KeyDown);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

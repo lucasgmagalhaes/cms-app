@@ -245,9 +245,11 @@
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.TxtNome);
+            this.KeyPreview = true;
             this.Name = "FormEditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormEditarUsuario_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

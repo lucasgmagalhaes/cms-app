@@ -206,5 +206,10 @@ namespace Class_Management_System.Forms
                 }
             }
         }
+
+        private void FormEditarUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape) this.Close();
+        }
     }
 }
