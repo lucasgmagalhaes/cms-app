@@ -25,7 +25,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                List<Usuario> resultado = this.procedureService.BuscarUsuarios("");
+                List<Usuario> resultado = this.procedureService.BuscarUsuarios(this.txtPesquisa.Text);
                 this.InserirResultadoNoDataGrid(resultado);
             }
             catch (Exception ex)
