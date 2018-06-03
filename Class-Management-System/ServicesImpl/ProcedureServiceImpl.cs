@@ -19,10 +19,12 @@ namespace Class_Management_System.ServicesImpl
         public int BuscarCodigoUsuario(string login, string senha)
         {
             if ((login == null || login == "") && (senha == "" || senha == null))
+            {
                 throw new Exception("Login e senha inválido para busca");
+            }
             else if (login == null || login == "") throw new Exception("login inválido para busca");
             else if (senha == "" || senha == null) throw new Exception("senha inválida para busca");
-            return this.dataService.BuscaDados(" CALL SPVERIFICA_LOGIN ('" + login + "','" + senha + "')")
+            return this.dataService.BuscaDados("CALL SPVERIFICA_LOGIN ('" + login + "','" + senha + "')")
                  .Rows[0].Field<int>(0);
         }
 
@@ -38,22 +40,8 @@ namespace Class_Management_System.ServicesImpl
             if (id == 0) throw new Exception("ID inválido para busca de usuário");
             try
             {
-                DataTable dtbDados = new DataTable();
-                Usuario user = new Usuario();
-                dtbDados = this.dataService.BuscaDados(" CALL SPCONSULTA_USUARIO ('" + id + "' )");
-                if (dtbDados.Rows.Count > 0)
-                {
-                    user.PkUsuario = dtbDados.Rows[0].Field<int>("ID");
-                    user.PkPessoa = dtbDados.Rows[0].Field<int>("COD_PESSOA");
-                    user.SLogin = dtbDados.Rows[0].Field<string>("LOGIN");
-                    user.SSenha = dtbDados.Rows[0].Field<string>("SENHA");
-                    user.SLogin = dtbDados.Rows[0].Field<string>("EMAIL");
-                    user.SSenha = dtbDados.Rows[0].Field<string>("COD_CPF");
-                    user.Perfil.SetCodigo(dtbDados.Rows[0].Field<int>("COD_PERFIL_USUARIO"));
-                    user.Perfil = new PerfilUsuario(dtbDados.Rows[0].Field<int>("COD_PERFIL_USUARIO"),
-                        dtbDados.Rows[0].Field<string>("PERFIL"));
-                }
-                return user;
+                List<Usuario> resultado = this.BuscarUsuarios(id.ToString());
+                return resultado[0];
             }
             catch (Exception e)
             {
