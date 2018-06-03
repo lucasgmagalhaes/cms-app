@@ -61,7 +61,7 @@ namespace Class_Management_System
             if (Session.usuario_removido != null)
             {
                 this.lblusuario_logado.Visible = false;
-                this.btnLogin.Text = "Login";
+                this.AcoesLogout();
                 Session.usuario_removido = null;
             }
         }
@@ -72,8 +72,24 @@ namespace Class_Management_System
             {
                 this.lblusuario_logado.Visible = true;
                 this.lblusuario_logado.Text = "Bem vindo, " + Session.usuario.SNome;
-                this.btnLogin.Text = "Logout";
+                this.AcoesLogin();
             }
+        }
+
+        private void AcoesLogout()
+        {
+            this.btnLogin.Text = "Login";
+            this.btnCadastrar.Enabled = false;
+            this.btnBuscarUsuario.Enabled = false;
+            this.btnPerfil.Enabled = false;
+        }
+
+        private void AcoesLogin()
+        {
+            this.btnLogin.Text = "Logout";
+            this.btnCadastrar.Enabled = true;
+            this.btnBuscarUsuario.Enabled = true;
+            this.btnPerfil.Enabled = true;
         }
 
         private void Home_Shown(object sender, EventArgs e)
@@ -209,7 +225,7 @@ namespace Class_Management_System
             {
                 Session.usuario = null;
                 this.lblusuario_logado.Visible = false;
-                this.btnLogin.Text = "Login";
+                this.AcoesLogout();
             }
             else
             {
