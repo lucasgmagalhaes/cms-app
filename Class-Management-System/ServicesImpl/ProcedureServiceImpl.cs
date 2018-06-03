@@ -24,15 +24,17 @@ namespace Class_Management_System.ServicesImpl
             }
             else if (login == null || login == "") throw new Exception("login inválido para busca");
             else if (senha == "" || senha == null) throw new Exception("senha inválida para busca");
-            return this.dataService.BuscaDados("CALL SPVERIFICA_LOGIN ('" + login + "','" + senha + "')")
-                 .Rows[0].Field<int>(0);
+            DataTable result = this.dataService.BuscaDados("CALL SPVERIFICA_LOGIN ('" + login + "','" + senha + "')");
+            if (result.Rows.Count > 0) return result.Rows[0].Field<int>(0);
+            else return 0;
         }
 
         public int BuscarCodigoUsuario(int cpf)
         {
             if (cpf <= 0) throw new Exception("CPF inválido para busca");
-            return this.dataService.BuscaDados(" CALL SPVERIFICA_CPF ('" + cpf.ToString() + "')")
-               .Rows[0].Field<int>(0);
+            DataTable result = this.dataService.BuscaDados(" CALL SPVERIFICA_CPF ('" + cpf.ToString() + "')");
+            if (result.Rows.Count > 0) return result.Rows[0].Field<int>(0);
+            else return 0;
         }
 
         public Usuario BuscarUsuario(int id)

@@ -325,6 +325,7 @@
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrar.Enabled = false;
             this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -342,6 +343,7 @@
             // 
             this.btnBuscarUsuario.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBuscarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUsuario.Enabled = false;
             this.btnBuscarUsuario.FlatAppearance.BorderSize = 0;
             this.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -359,6 +361,7 @@
             // 
             this.btnPerfil.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPerfil.Enabled = false;
             this.btnPerfil.FlatAppearance.BorderSize = 0;
             this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -376,7 +379,7 @@
             // 
             this.lblusuario_logado.AutoSize = true;
             this.lblusuario_logado.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblusuario_logado.ForeColor = System.Drawing.Color.White;
+            this.lblusuario_logado.ForeColor = System.Drawing.Color.DimGray;
             this.lblusuario_logado.Location = new System.Drawing.Point(270, 18);
             this.lblusuario_logado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblusuario_logado.Name = "lblusuario_logado";

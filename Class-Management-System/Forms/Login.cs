@@ -43,5 +43,11 @@ namespace Class_Management_System.Forms
         {
             this.Close();
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.txtLogin.Text = "";
+            this.txtSenha.Text = "";
+        }
     }
 }
