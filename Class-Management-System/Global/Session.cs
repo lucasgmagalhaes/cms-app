@@ -7,6 +7,7 @@ namespace Class_Management_System.Global
     public static class Session
     {
         public static Usuario usuario;
+        public static Usuario usuario_removido;
         public const string configFilePath = "configs";
     }
 }

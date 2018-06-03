@@ -107,31 +107,6 @@ namespace Class_Management_System.ServicesImpl
             return DataBaseConection.sqlerromsg;
         }
 
-        public List<PerfilUsuario> BuscarPerfisUsuario()
-        {
-            try
-            {
-                List<PerfilUsuario> listaRetorno = new List<PerfilUsuario>();
-                string sql = "CALL " + DataBaseConection.database + ".SPCARREGA_PERFIL";
-                MySqlCommand sQlCmd = new MySqlCommand(sql); 
-                DataTable dtbResult = new DataTable();
-                using (MySqlDataAdapter sqlDtb = new MySqlDataAdapter(sql, DataBaseConection.connection))
-                {
-                    sqlDtb.Fill(dtbResult);
-                }
-
-                foreach(DataRow linha in dtbResult.Rows)
-                {
-                    listaRetorno.Add(new PerfilUsuario(linha.Field<int>(0), linha.Field<string>(1)));
-                }
-                return listaRetorno;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
         public ConnectionState State()
         {
             return DataBaseConection.connection.State;

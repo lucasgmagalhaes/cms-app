@@ -123,7 +123,7 @@
             this.dtgPesquisa.ShowRowErrors = false;
             this.dtgPesquisa.Size = new System.Drawing.Size(871, 430);
             this.dtgPesquisa.TabIndex = 3;
-            this.dtgPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgPesquisa_CellContentClick);
+            this.dtgPesquisa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPesquisa_CellClick);
             this.dtgPesquisa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtgPesquisa_CellFormatting_1);
             // 
             // col_ID

@@ -55,3 +55,4 @@ C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class-Management-System.pdb
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormUsuario.resources
 C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormUsuario.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormEditarUsuario.resources

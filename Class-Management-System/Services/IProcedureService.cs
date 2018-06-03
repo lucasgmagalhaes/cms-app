@@ -63,5 +63,18 @@ namespace Class_Management_System.Services
         /// <param name="filtro"></param>
         /// <returns></returns>
         List<Usuario> BuscarUsuarios(string filtro);
+
+        /// <summary>
+        /// Busca a lista de perfis de usuário
+        /// </summary>
+        /// <returns></returns>
+        List<PerfilUsuario> BuscarPerfisUsuario();
+
+        /// <summary>
+        /// Retorna se um cpf já está cadastrado
+        /// </summary>
+        /// <param name="cpf"></param>
+        /// <returns></returns>
+        bool CpfCadastrado(string cpf);
     }
 }
