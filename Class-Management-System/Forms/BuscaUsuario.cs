@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using Class_Management_System.Entities;
+using Class_Management_System.Global;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
 
@@ -12,21 +13,34 @@ namespace Class_Management_System.Forms
     {
         private readonly IDataBaseService dbService;
         private readonly IProcedureService procedureService;
-        DataTable dtbPesquisa = new DataTable();
+        private DataTable dtbPesquisa = new DataTable();
+        private List<Usuario> usuariosPesquisa;
+        private FormEditarUsuario formEditar;
         public BuscaUsuario()
         {
             InitializeComponent();
+            this.formEditar = new FormEditarUsuario();
+            this.formEditar.FormClosed += FormEditar_FormClosed;
             this.dbService = DependencyFactory.Resolve<IDataBaseService>();
             this.procedureService = DependencyFactory.Resolve<IProcedureService>();
-            //MontaDtb();
+        }
+
+        private void FormEditar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Session.usuario_removido != null)
+            {
+                int index = this.usuariosPesquisa.FindIndex(usuario => usuario.Equals(Session.usuario_removido));
+                this.dtgPesquisa.Rows.RemoveAt(index);
+                Session.usuario_removido = null;
+            }
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             try
             {
-                List<Usuario> resultado = this.procedureService.BuscarUsuarios(this.txtPesquisa.Text);
-                this.InserirResultadoNoDataGrid(resultado);
+                this.usuariosPesquisa = this.procedureService.BuscarUsuarios(this.txtPesquisa.Text);
+                this.InserirResultadoNoDataGrid(this.usuariosPesquisa);
             }
             catch (Exception ex)
             {
@@ -41,31 +55,9 @@ namespace Class_Management_System.Forms
                 usuario.SEmail, usuario.Perfil.GetDescricao()));
         }
 
-        public void MontaDtb()
-        {
-            try
-            {
-                dtbPesquisa.Columns.Add("ID", Type.GetType("System.Int32"));
-                dtbPesquisa.Columns.Add("LOGIN", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("NOME", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("CPF", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("E-MAIL", Type.GetType("System.String"));
-                dtbPesquisa.Columns.Add("PERFIL", Type.GetType("System.String"));
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Erro - MontaDtb " + e.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnlimpar_Click(object sender, EventArgs e)
         {
             this.dtgPesquisa.Rows.Clear();
-        }
-
-        private void DtgPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dtgPesquisa_CellFormatting_1(object sender, DataGridViewCellFormattingEventArgs e)
@@ -82,7 +74,12 @@ namespace Class_Management_System.Forms
             {
                 MessageBox.Show("Erro - DtgPesquisa_CellFormatting " + ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void dtgPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.formEditar.DefinirUsuario(this.usuariosPesquisa[e.RowIndex]);
+            this.formEditar.ShowDialog();
         }
     }
 }

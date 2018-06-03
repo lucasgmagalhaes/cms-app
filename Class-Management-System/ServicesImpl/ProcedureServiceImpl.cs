@@ -168,7 +168,7 @@ namespace Class_Management_System.ServicesImpl
                 }
                 else
                 {
-                    this.dataService.ExecutaQuery("CALL " + DataBaseConection.database + ".SPGRAVA_DADOS_USUARIO ('" + usuario.SNome +
+                    this.dataService.ExecutaQuery("CALL SPGRAVA_DADOS_USUARIO ('" + usuario.SNome +
                         "','" + usuario.SCPF + "','" + usuario.SEmail + "','" + usuario.SLogin +
                         "', '" + usuario.SSenha + "'," + usuario.Perfil.GetCodigo() + ", " + usuario.PkUsuario + ")");
                 }
@@ -186,6 +186,38 @@ namespace Class_Management_System.ServicesImpl
             try
             {
                 this.dataService.ExecutaQuery(" CALL SPDELETA_USUARIO (" + usuario.PkUsuario + ")");
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<PerfilUsuario> BuscarPerfisUsuario()
+        {
+            try
+            {
+                List<PerfilUsuario> listaRetorno = new List<PerfilUsuario>();
+                string sql = "CALL SPCARREGA_PERFIL";
+                DataTable dtbResult = this.dataService.BuscaDados(sql);
+
+                foreach (DataRow linha in dtbResult.Rows)
+                {
+                    listaRetorno.Add(new PerfilUsuario(linha.Field<int>(0), linha.Field<string>(1)));
+                }
+                return listaRetorno;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public bool CpfCadastrado(string cpf)
+        {
+            try
+            {
+                return this.dataService.BuscaDados(" CALL cms.SPVERIFICA_CPF ('" + cpf + "')").Rows.Count > 0;
             }
             catch (Exception e)
             {
