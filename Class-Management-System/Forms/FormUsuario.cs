@@ -108,13 +108,14 @@ namespace Class_Management_System.Forms
                     try
                     {
                         this.user.Gravar();
+                        MessageBox.Show("Usuário inserido com sucesso!", "Cadastro usuário",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Insert Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    this.user.GetDados();
                 }
             }
             catch (Exception ex)
@@ -129,50 +130,57 @@ namespace Class_Management_System.Forms
             {
                 if (string.IsNullOrEmpty(TxtNome.Text))
                 {
-                    MessageBox.Show("Favor preencher o campo de Nome!");
+                    MessageBox.Show("Favor preencher o campo de Nome!", "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     TxtNome.Focus();
                     return false;
                 }
                 if (string.IsNullOrEmpty(txtCpf.Text))
                 {
-                    MessageBox.Show("Favor preencher o campo de CPF!");
+                    MessageBox.Show("Favor preencher o campo de CPF!", "Campo faltando",
+                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCpf.Focus();
                     return false;
                 }
                 if (ValidaCpf(txtCpf.Text) == false)
                 {
-                    MessageBox.Show("CPF Inválido : " + txtCpf.Text);
+                    MessageBox.Show("CPF Inválido : " + txtCpf.Text, "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCpf.Focus();
                     return false;
                 }
-                if (this.user.PkUsuario == 0)
-                    if (this.VerificaCpfExist())
-                    {
-                        MessageBox.Show("Já existe um usuário com este CPF:" + txtCpf.Text);
-                        txtCpf.Focus();
-                        return false;
-                    }
+                if (this.user.PkUsuario == 0 && this.VerificaCpfExist())
+                {
+                    MessageBox.Show("Já existe um usuário com este CPF:" + txtCpf.Text, "Campo faltando",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtCpf.Focus();
+                    return false;
+                }
                 if (string.IsNullOrEmpty(txtEmail.Text))
                 {
-                    MessageBox.Show("Favor preencher o campo de E-mail!");
+                    MessageBox.Show("Favor preencher o campo de E-mail!", "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtEmail.Focus();
                     return false;
                 }
                 if (CmbPerfil.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Favor selecionar um perfil!");
+                    MessageBox.Show("Favor selecionar um perfil!", "Campo faltando",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     CmbPerfil.Focus();
                     return false;
                 }
                 if ((string.IsNullOrEmpty(txtSenha.Text) && string.IsNullOrEmpty(txtConfirma.Text)))
                 {
-                    MessageBox.Show("Favor preencher o campo de senha e confirmar senha!");
+                    MessageBox.Show("Favor preencher o campo de senha e confirmar senha!", "Campo faltando",
+                      MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtSenha.Focus();
                     return false;
                 }
                 if (txtSenha.Text != txtConfirma.Text)
                 {
-                    MessageBox.Show("Os campos de senha e confirma senha estão diferentes!");
+                    MessageBox.Show("Os campos de senha e confirma senha estão diferentes!", "Campo faltando",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtSenha.Focus();
                     return false;
                 }
@@ -328,16 +336,6 @@ namespace Class_Management_System.Forms
                     this.CmbPerfil.SelectedIndex = 0;
                 }
             }
-        }
-
-        private void FormUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
     }
 }

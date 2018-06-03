@@ -12,6 +12,7 @@ namespace Class_Management_System.Entities
     public class Usuario : Pessoa
     {
         protected readonly IDataBaseService srvUsuario;
+        protected readonly IProcedureService procedureService;
         /// <summary>
         /// COD_USUARIO
         /// </summary>
@@ -44,6 +45,7 @@ namespace Class_Management_System.Entities
             this.SCPF = "";
             this.PkPessoa = 0;
             this.srvUsuario = DependencyFactory.Resolve<IDataBaseService>();
+            this.procedureService = DependencyFactory.Resolve<IProcedureService>();
         }
 
         public Usuario(int pkUsuario, PerfilUsuario iCodPerfil, string sLogin, string sSenha, string nom, string email, string cpf, int pkPess) : base(nom, email, cpf, pkPess)
@@ -57,6 +59,7 @@ namespace Class_Management_System.Entities
             this.SCPF = cpf;
             this.PkPessoa = pkPess;
             this.srvUsuario = DependencyFactory.Resolve<IDataBaseService>();
+            this.procedureService = DependencyFactory.Resolve<IProcedureService>();
         }
         public Usuario(int pkUsuario, PerfilUsuario iCodPerfil, string sLogin, string sSenha, string nom, string email, string cpf) : base(nom, email, cpf)
         {
@@ -68,6 +71,7 @@ namespace Class_Management_System.Entities
             this.SEmail = email;
             this.SCPF = cpf;
             this.srvUsuario = DependencyFactory.Resolve<IDataBaseService>();
+            this.procedureService = DependencyFactory.Resolve<IProcedureService>();
         }
 
         public override string ToString()
@@ -77,25 +81,7 @@ namespace Class_Management_System.Entities
 
         public void Gravar()
         {
-            try
-            {
-                if (this.PkUsuario == 0) //NOVO USUARIO
-                { 
-                    srvUsuario.ExecutaQuery("CALL SPCRIA_ACESSO ('" + this.SNome + "','"
-                        + this.SCPF + "','" + this.SEmail + "','" + this.SLogin + "','" + this.SSenha +
-                        "'," + this.perfil.GetCodigo() + ")");
-                }
-                else
-                {
-                    srvUsuario.ExecutaQuery("CALL " + DataBaseConection.database + ".SPGRAVA_DADOS_USUARIO ('" + this.SNome +
-                        "','" + this.SCPF + "','" + this.SEmail + "','" + this.SLogin +
-                        "', '" + this.SSenha + "'," + this.perfil.GetCodigo() + ", " + PkUsuario + ")");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            this.procedureService.GravarOuAtualizarUsuario(this);
         }
         /// <summary>
         /// Metodo que busca os dados do Usuário no banco de Dados
@@ -103,26 +89,15 @@ namespace Class_Management_System.Entities
         /// <param name="pk">Codigo do Usuário</param>
         public void GetDados(int pk)
         {
-            try
-            {
-                DataTable dtbDados = new DataTable();
-                dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + pk + "' )");
-                if (dtbDados.Rows.Count > 0)
-                {
-                    this.PkUsuario = dtbDados.Rows[0].Field<int>("ID");
-                    this.PkPessoa = dtbDados.Rows[0].Field<int>("COD_PESSOA");
-                    this.SLogin = dtbDados.Rows[0].Field<string>("LOGIN");
-                    this.SSenha = dtbDados.Rows[0].Field<string>("SENHA");
-                    this.SLogin = dtbDados.Rows[0].Field<string>("EMAIL");
-                    this.SSenha = dtbDados.Rows[0].Field<string>("COD_CPF");
-                    this.perfil.SetCodigo(dtbDados.Rows[0].Field<int>("COD_PERFIL_USUARIO"));
-                    this.perfil.SetDescricao(dtbDados.Rows[0].Field<string>("PERFIL"));
-                } 
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Usuario infos = this.procedureService.BuscarUsuario(pk);
+            this.Perfil = infos.Perfil;
+            this.PkPessoa = infos.PkPessoa;
+            this.pkUsuario = infos.pkUsuario;
+            this.SCPF = infos.SCPF;
+            this.SEmail = infos.SEmail;
+            this.SLogin = infos.SLogin;
+            this.SNome = infos.SNome;
+            this.sSenha = infos.sSenha;
         }
         public void GetDados()
         {
