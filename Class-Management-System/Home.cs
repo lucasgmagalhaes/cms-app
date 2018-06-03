@@ -42,11 +42,6 @@ namespace Class_Management_System
             {
                 Configuracoes.CarregarInfosArquivo();
                 this.IniciarConexaoBanco();
-                this.login = new Login();
-                this.sobre = new Sobre();
-                this.buscarUsuario = new BuscaUsuario();
-                this.cadastroUsuario = new FormUsuario(0);
-                this.editarUsuario = new FormEditarUsuario();
             }
             catch
             {
@@ -59,6 +54,12 @@ namespace Class_Management_System
                 }
                 else return;
             }
+
+            this.login = new Login();
+            this.sobre = new Sobre();
+            this.buscarUsuario = new BuscaUsuario();
+            this.cadastroUsuario = new FormUsuario(0);
+            this.editarUsuario = new FormEditarUsuario();
 
             this.login.FormClosed += Login_FormClosed;
             this.editarUsuario.FormClosed += EditarUsuario_FormClosed;
