@@ -93,6 +93,12 @@
     <Compile Include="Forms\FormEditarUsuario.Designer.cs">
       <DependentUpon>FormEditarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\formSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\formSQL.Designer.cs">
+      <DependentUpon>formSQL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarUsuario.resx">
       <DependentUpon>FormEditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\formSQL.resx">
+      <DependentUpon>formSQL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
@@ -206,6 +215,23 @@
     <Content Include="Forms\Imagens\config-ico.ico" />
     <Content Include="Forms\Imagens\main-ico.ico" />
     <Content Include="Forms\Imagens\sobre-ico.ico" />
+    <Content Include="SQL\DropSPs.sql" />
+    <Content Include="SQL\script_completo.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQL\SCRIPT_CRIA_REGISTRO_PADRAO.sql" />
+    <Content Include="SQL\SCRIPT_CRIA_TABELAS.sql" />
+    <Content Include="SQL\SPCARREGA_PERFIL.sql" />
+    <Content Include="SQL\SPCONSULTA_USUARIO.sql" />
+    <Content Include="SQL\SPCRIA_ACESSO.sql" />
+    <Content Include="SQL\SPCRIA_PESSOA.sql" />
+    <Content Include="SQL\SPDELETA_PERFIL.sql" />
+    <Content Include="SQL\SPDELETA_USUARIO.sql" />
+    <Content Include="SQL\SPDROPA_TABLES.sql" />
+    <Content Include="SQL\SPGRAVA_DADOS_USUARIO.sql" />
+    <Content Include="SQL\SPINSERI_USUARIO.sql" />
+    <Content Include="SQL\SPVERIFICACPF.sql" />
+    <Content Include="SQL\SPVERIFICA_LOGIN.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

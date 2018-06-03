@@ -7,19 +7,16 @@ namespace Class_Management_System.Utils
     /// <summary>
     /// Classe auxiliar para leitura de arquivo padronizado para o TI
     /// </summary>
-    public class LeitorArquivo
+    public static class LeitorArquivo
     {
         /// <summary>
-        /// Lê o arquivo, validando suas linhas e retorna todo o arquivo em uma lista de strings
-        /// invoca a exceção IOException caso as linhas do arquivo não estejam divididas por ';' ou 
-        /// se a quantidade de itens divididos pelo ';' forem diferentes que 4. 
-        /// 
+        /// Lê o arquivo, validando suas linhas e retorna todo o arquivo em uma lista de strings 
         /// Invoca a exceção FileNotFoundException caso o caminho passado no parâmetro não seja de um arquivo
         /// válido
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<string> Ler(string path)
+        public static List<string> LerSemValidacao(string path)
         {
             List<string> retorno = new List<string>();
             if (File.Exists(path))
@@ -30,7 +27,39 @@ namespace Class_Management_System.Utils
 
                     while ((line = leitor.ReadLine()) != null)
                     {
-                        if (this.LinhaValida(line))
+                        retorno.Add(line);
+                    }
+                }
+            }
+            else
+            {
+                throw new FileNotFoundException("Arquivo não existe");
+            }
+            return retorno;
+        }
+
+        /// <summary>
+        /// Lê o arquivo, validando suas linhas e retorna todo o arquivo em uma lista de strings
+        /// invoca a exceção IOException caso as linhas do arquivo não estejam divididas por ';' ou 
+        /// se a quantidade de itens divididos pelo ';' forem diferentes que 4. 
+        /// 
+        /// Invoca a exceção FileNotFoundException caso o caminho passado no parâmetro não seja de um arquivo
+        /// válido
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static List<string> Ler(string path)
+        {
+            List<string> retorno = new List<string>();
+            if (File.Exists(path))
+            {
+                using (StreamReader leitor = new StreamReader(path))
+                {
+                    string line;
+
+                    while ((line = leitor.ReadLine()) != null)
+                    {
+                        if (LinhaValida(line))
                         {
                             retorno.Add(line);
                         }
@@ -54,7 +83,7 @@ namespace Class_Management_System.Utils
         /// </summary>
         /// <param name="line"></param>
         /// <returns></returns>
-        private bool LinhaValida(string line)
+        private static bool LinhaValida(string line)
         {
             try
             {

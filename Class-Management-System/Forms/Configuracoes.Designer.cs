@@ -41,6 +41,7 @@
             this.txtServidor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSalvarEFechar = new System.Windows.Forms.Button();
+            this.btnArquivoSql = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -168,12 +169,28 @@
             this.btnSalvarEFechar.UseVisualStyleBackColor = false;
             this.btnSalvarEFechar.Click += new System.EventHandler(this.btnSalvarEFechar_Click);
             // 
+            // btnArquivoSql
+            // 
+            this.btnArquivoSql.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnArquivoSql.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArquivoSql.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnArquivoSql.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArquivoSql.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnArquivoSql.Location = new System.Drawing.Point(322, 7);
+            this.btnArquivoSql.Name = "btnArquivoSql";
+            this.btnArquivoSql.Size = new System.Drawing.Size(98, 29);
+            this.btnArquivoSql.TabIndex = 12;
+            this.btnArquivoSql.Text = "Arquivo SQL";
+            this.btnArquivoSql.UseVisualStyleBackColor = false;
+            this.btnArquivoSql.Click += new System.EventHandler(this.btnArquivoSql_Click);
+            // 
             // Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(432, 449);
+            this.Controls.Add(this.btnArquivoSql);
             this.Controls.Add(this.btnSalvarEFechar);
             this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.label5);
@@ -213,5 +230,6 @@
         private System.Windows.Forms.TextBox txtServidor;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSalvarEFechar;
+        private System.Windows.Forms.Button btnArquivoSql;
     }
 }

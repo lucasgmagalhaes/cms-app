@@ -156,8 +156,7 @@ namespace Class_Management_System
                 FileInfo info = new FileInfo(openFile.FileName);
                 txtFilePath.Text = info.FullName;
 
-                LeitorArquivo leitor = new LeitorArquivo();
-                List<string> arquivo = leitor.Ler(info.FullName);
+                List<string> arquivo = LeitorArquivo.Ler(info.FullName);
 
                 this.LimparValoresTela();
 
