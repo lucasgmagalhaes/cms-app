@@ -38,14 +38,27 @@ namespace Class_Management_System
             this.aulaService = DependencyFactory.Resolve<IAulaService>();
             this.dataBaseService = DependencyFactory.Resolve<IDataBaseService>();
 
-            Configuracoes.CarregarInfosArquivo();
-            this.IniciarConexaoBanco();
-
-            this.login = new Login();
-            this.sobre = new Sobre();
-            this.buscarUsuario = new BuscaUsuario();
-            this.cadastroUsuario = new FormUsuario(0);
-            this.editarUsuario = new FormEditarUsuario();
+            try
+            {
+                Configuracoes.CarregarInfosArquivo();
+                this.IniciarConexaoBanco();
+                this.login = new Login();
+                this.sobre = new Sobre();
+                this.buscarUsuario = new BuscaUsuario();
+                this.cadastroUsuario = new FormUsuario(0);
+                this.editarUsuario = new FormEditarUsuario();
+            }
+            catch
+            {
+                DialogResult resultado = MessageBox.Show("Falha na leitura do arquivo de configuração. " +
+                    "Deseja abrir as configurações agora ?", "Config file", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    this.configuracoes.ShowDialog();
+                }
+                else return;
+            }
 
             this.login.FormClosed += Login_FormClosed;
             this.editarUsuario.FormClosed += EditarUsuario_FormClosed;

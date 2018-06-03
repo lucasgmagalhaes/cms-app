@@ -20,7 +20,6 @@ namespace Class_Management_System.Forms
         public Configuracoes()
         {
             InitializeComponent();
-            CarregarInfosArquivo();
             this.CarregarInfosDataBase();
             this.databaseService = DependencyFactory.Resolve<IDataBaseService>();
         }
@@ -66,19 +65,25 @@ namespace Class_Management_System.Forms
                             if (DataBaseConection.port == null) DataBaseConection.port = infos[1];
                             if (DataBaseConection.password == null) DataBaseConection.password = infos[2];
                             if (DataBaseConection.server == null) DataBaseConection.server = infos[3];
+                            if (DataBaseConection.server == null) DataBaseConection.server = infos[3];
                             if (DataBaseConection.user == null) DataBaseConection.user = infos[4];
+                            if (DataBaseConection.database == "" || DataBaseConection.port == "" || DataBaseConection.password == ""
+                                || DataBaseConection.server == "" || DataBaseConection.user == "")
+                            {
+                                throw new Exception("Arquivo vazio");
+                            }
                         }
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show("Falha na leitura do arquivo de configuração" + e.Message,
-                            "File Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw new Exception(e.Message);
                     }
                 }
             }
             else
             {
-                File.Create(Session.configFilePath);
+                FileStream file = File.Create(Session.configFilePath);
+                file.Close();
             }
         }
 
@@ -113,7 +118,13 @@ namespace Class_Management_System.Forms
         /// <param name="e"></param>
         private void btnTestarConexao_Click(object sender, EventArgs e)
         {
-            DataBaseConection.server = txtServidor.Text;
+            if (DataBaseConection.database == "" || DataBaseConection.port == "" || DataBaseConection.password == ""
+                               || DataBaseConection.server == "" || DataBaseConection.user == "")
+            {
+                MessageBox.Show("Conexão feita com sucesso!", "Sucesso",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+                DataBaseConection.server = txtServidor.Text;
             DataBaseConection.port = txtPorta.Text;
             DataBaseConection.user = txtUsuario.Text;
             DataBaseConection.password = txtSenha.Text;
