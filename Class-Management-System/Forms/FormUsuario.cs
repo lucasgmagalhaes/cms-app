@@ -83,24 +83,6 @@ namespace Class_Management_System.Forms
             }
         }
 
-        private void BtnDeletar_Click(object sender, EventArgs e)
-        {
-            if (user.PkUsuario == 0)
-            {
-                MessageBox.Show("Usuário não existe ou nenhum usuário selecionado!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                DialogResult resp = MessageBox.Show("Deseja apagar este usuário? ", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resp == DialogResult.Yes)
-                {
-                    this.user.Deleta();
-                    this.user = new Usuario();
-                    LimpaCampos();
-                }
-            }
-        }
-
         private void BtnGravar_Click(object sender, EventArgs e)
         {
             try

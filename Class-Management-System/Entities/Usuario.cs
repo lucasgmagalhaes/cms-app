@@ -99,39 +99,7 @@ namespace Class_Management_System.Entities
             this.SNome = infos.SNome;
             this.sSenha = infos.sSenha;
         }
-        public void GetDados()
-        {
-            try
-            {
-                DataTable dtbDados = new DataTable();
-                dtbDados = srvUsuario.BuscaDados(" CALL SPCONSULTA_USUARIO ( pkUsuario = '" + this.PkUsuario + "' )");
-                if (dtbDados.Rows.Count > 0)
-                { 
-                    this.PkPessoa = dtbDados.Rows[0].Field<int>("COD_PESSOA");
-                    this.SLogin = dtbDados.Rows[0].Field<string>("LOGIN");
-                    this.SSenha = dtbDados.Rows[0].Field<string>("SENHA");
-                    this.SLogin = dtbDados.Rows[0].Field<string>("EMAIL");
-                    this.SSenha = dtbDados.Rows[0].Field<string>("COD_CPF");
-                    this.perfil.SetCodigo(dtbDados.Rows[0].Field<int>("COD_PERFIL_USUARIO"));
-                    this.perfil.SetDescricao(dtbDados.Rows[0].Field<string>("PERFIL"));
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public void Deleta()
-        {
-            try
-            {
-                this.srvUsuario.ExecutaQuery(" CALL SPDELETA_USUARIO (pkUsuario = " + this.PkUsuario + ")");
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        } 
+
         public override bool Equals(object obj)
         {
             var usuario = obj as Usuario;

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button BtnGravar;
-            System.Windows.Forms.Button BtnDeletar;
             System.Windows.Forms.Button BtnNovo;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuario));
             this.TxtNome = new System.Windows.Forms.TextBox();
@@ -47,7 +46,6 @@
             this.txtSenha = new System.Windows.Forms.MaskedTextBox();
             this.txtConfirma = new System.Windows.Forms.MaskedTextBox();
             BtnGravar = new System.Windows.Forms.Button();
-            BtnDeletar = new System.Windows.Forms.Button();
             BtnNovo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -58,7 +56,7 @@
             BtnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             BtnGravar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             BtnGravar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            BtnGravar.Location = new System.Drawing.Point(13, 491);
+            BtnGravar.Location = new System.Drawing.Point(85, 493);
             BtnGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             BtnGravar.Name = "BtnGravar";
             BtnGravar.Size = new System.Drawing.Size(159, 35);
@@ -67,21 +65,6 @@
             BtnGravar.UseVisualStyleBackColor = false;
             BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
-            // BtnDeletar
-            // 
-            BtnDeletar.BackColor = System.Drawing.SystemColors.Highlight;
-            BtnDeletar.FlatAppearance.BorderSize = 0;
-            BtnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            BtnDeletar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            BtnDeletar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            BtnDeletar.Location = new System.Drawing.Point(347, 491);
-            BtnDeletar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            BtnDeletar.Name = "BtnDeletar";
-            BtnDeletar.Size = new System.Drawing.Size(159, 35);
-            BtnDeletar.TabIndex = 18;
-            BtnDeletar.Text = "Deletar";
-            BtnDeletar.UseVisualStyleBackColor = false;
-            // 
             // BtnNovo
             // 
             BtnNovo.BackColor = System.Drawing.SystemColors.Highlight;
@@ -89,7 +72,7 @@
             BtnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             BtnNovo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             BtnNovo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            BtnNovo.Location = new System.Drawing.Point(180, 491);
+            BtnNovo.Location = new System.Drawing.Point(262, 493);
             BtnNovo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             BtnNovo.Name = "BtnNovo";
             BtnNovo.Size = new System.Drawing.Size(159, 35);
@@ -248,7 +231,6 @@
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(520, 542);
             this.Controls.Add(BtnNovo);
-            this.Controls.Add(BtnDeletar);
             this.Controls.Add(BtnGravar);
             this.Controls.Add(this.txtConfirma);
             this.Controls.Add(this.txtSenha);
