@@ -1,4 +1,5 @@
 ﻿using Class_Management_System.Entities;
+using System.Collections.Generic;
 
 namespace Class_Management_System.Services
 {
@@ -53,5 +54,14 @@ namespace Class_Management_System.Services
         /// <param name="descricao"></param>
         /// <returns></returns>
         int BuscarIdPerfilUsuarioPorDescicao(string descricao);
+
+        /// <summary>
+        /// Busca por usuários através de um filtro. Se o filtro for vazio ou nulo,
+        /// é buscado todos os usuários cadastrados. se não, a busca é feita pelo nome,
+        /// cpf, ou id do usuário.
+        /// </summary>
+        /// <param name="filtro"></param>
+        /// <returns></returns>
+        List<Usuario> BuscarUsuarios(string filtro);
     }
 }

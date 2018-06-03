@@ -2,6 +2,7 @@
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Class_Management_System.ServicesImpl
@@ -82,6 +83,72 @@ namespace Class_Management_System.ServicesImpl
                     return resultado.Rows[0].Field<int>(0);
                 }
                 return 0;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Usuario> BuscarUsuarios(string filtro)
+        {
+            string sql = "";
+            if (filtro == "" || filtro == null)
+            {
+                sql = "SELECT U.COD_USUARIO ID , U.LOGIN LOGIN, PU.DSC_PERFIL_USUARIO PERFIL, " +
+                    "P.NOME_PESSOA, P.COD_CPF, P.EMAIL, P.COD_PESSOA, PU.COD_PERFIL_USUARIO, U.SENHA " +
+                    "FROM USUARIO U LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO " +
+                    " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1";
+            }
+            else
+            {
+                try
+                {
+                    long cpf = long.Parse(filtro);
+                    if (filtro.Length == 11)
+                    {
+                        sql = "SELECT U.COD_USUARIO ID , U.LOGIN LOGIN, PU.DSC_PERFIL_USUARIO PERFIL, " +
+                              "P.NOME_PESSOA, P.COD_CPF, P.EMAIL, P.COD_PESSOA, PU.COD_PERFIL_USUARIO, U.SENHA " +
+                              "FROM USUARIO U LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO " +
+                              " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND P.COD_CPF = '" + filtro + "'";
+                    }
+                    else
+                    {
+                        sql = "SELECT U.COD_USUARIO ID , U.LOGIN LOGIN, PU.DSC_PERFIL_USUARIO PERFIL, " +
+                              "P.NOME_PESSOA, P.COD_CPF, P.EMAIL, P.COD_PESSOA, PU.COD_PERFIL_USUARIO, U.SENHA " +
+                              "FROM USUARIO U LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO " +
+                              " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND U.COD_USUARIO = '" + filtro + "'";
+                    }
+                }
+                catch
+                {
+                    sql = "SELECT U.COD_USUARIO ID , U.LOGIN LOGIN, PU.DSC_PERFIL_USUARIO PERFIL, " +
+                          " P.NOME_PESSOA, P.COD_CPF, P.EMAIL, P.COD_PESSOA, PU.COD_PERFIL_USUARIO, U.SENHA " +
+                          " FROM USUARIO U LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO " +
+                          " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND P.NOME_PESSOA = '" + filtro + "'";
+                }
+            }
+
+            Usuario usuario;
+            List<Usuario> usuarios = new List<Usuario>();
+            try
+            {
+                DataTable result = this.dataService.BuscaDados(sql);
+
+                foreach (DataRow linha in result.Rows)
+                {
+                    usuario = new Usuario();
+                    usuario.PkUsuario = linha.Field<int>("ID");
+                    usuario.SLogin = linha.Field<string>("LOGIN");
+                    usuario.Perfil = new PerfilUsuario(linha.Field<int>("COD_PERFIL_USUARIO"), linha.Field<string>("PERFIL"));
+                    usuario.PkPessoa = linha.Field<int>("COD_PESSOA");
+                    usuario.SNome = linha.Field<string>("NOME_PESSOA");
+                    usuario.SCPF = linha.Field<string>("COD_CPF");
+                    usuario.SEmail = linha.Field<string>("EMAIL");
+                    usuario.SSenha = linha.Field<string>("SENHA");
+                    usuarios.Add(usuario);
+                }
+                return usuarios;
             }
             catch (Exception e)
             {
