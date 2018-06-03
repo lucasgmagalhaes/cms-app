@@ -107,7 +107,7 @@ namespace Class_Management_System.ServicesImpl
                         sql = "SELECT U.COD_USUARIO ID , U.LOGIN LOGIN, PU.DSC_PERFIL_USUARIO PERFIL, " +
                               "P.NOME_PESSOA, P.COD_CPF, P.EMAIL, P.COD_PESSOA, PU.COD_PERFIL_USUARIO, U.SENHA " +
                               "FROM USUARIO U LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO " +
-                              " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND U.COD_USUARIO = '" + filtro + "'";
+                              " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND U.COD_USUARIO = " + filtro ;
                     }
                 }
                 catch
