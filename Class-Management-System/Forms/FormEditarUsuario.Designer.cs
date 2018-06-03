@@ -246,6 +246,8 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.TxtNome);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
