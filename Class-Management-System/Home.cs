@@ -55,19 +55,28 @@ namespace Class_Management_System
                 else return;
             }
 
-            this.login = new Login();
-            this.sobre = new Sobre();
-            this.buscarUsuario = new BuscaUsuario();
-            this.cadastroUsuario = new FormUsuario(0);
-            this.editarUsuario = new FormEditarUsuario();
+            try
+            {
+                this.login = new Login();
+                this.sobre = new Sobre();
+                this.buscarUsuario = new BuscaUsuario();
+                this.cadastroUsuario = new FormUsuario(0);
+                this.editarUsuario = new FormEditarUsuario();
 
-            this.login.FormClosed += Login_FormClosed;
-            this.editarUsuario.FormClosed += EditarUsuario_FormClosed;
-            this.periodos = new HashSet<string>();
-            this.materias = new HashSet<string>();
-            this.professores = new HashSet<string>();
-            this.dias = new HashSet<string>();
-            this.horarios = new HashSet<string>();
+                this.login.FormClosed += Login_FormClosed;
+                this.editarUsuario.FormClosed += EditarUsuario_FormClosed;
+                this.periodos = new HashSet<string>();
+                this.materias = new HashSet<string>();
+                this.professores = new HashSet<string>();
+                this.dias = new HashSet<string>();
+                this.horarios = new HashSet<string>();
+            }
+            catch
+            {
+                DialogResult resultado = MessageBox.Show("Houve um problema na abertura do sistema. conecte ao banco e abra o aplicativo novamente", "Config file", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Question);
+                this.Close();
+            }
         }
 
         private void EditarUsuario_FormClosed(object sender, FormClosedEventArgs e)

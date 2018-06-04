@@ -20,7 +20,6 @@ namespace Class_Management_System.Forms
         public Configuracoes()
         {
             InitializeComponent();
-            this.CarregarInfosDataBase();
             this.databaseService = DependencyFactory.Resolve<IDataBaseService>();
         }
 
@@ -84,6 +83,7 @@ namespace Class_Management_System.Forms
             {
                 FileStream file = File.Create(Session.configFilePath);
                 file.Close();
+                throw new Exception("Arquivo criado com sucesso, porém está vazio");
             }
         }
 
@@ -118,13 +118,7 @@ namespace Class_Management_System.Forms
         /// <param name="e"></param>
         private void btnTestarConexao_Click(object sender, EventArgs e)
         {
-            if (DataBaseConection.database == "" || DataBaseConection.port == "" || DataBaseConection.password == ""
-                               || DataBaseConection.server == "" || DataBaseConection.user == "")
-            {
-                MessageBox.Show("Conexão feita com sucesso!", "Sucesso",
-                  MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-                DataBaseConection.server = txtServidor.Text;
+            DataBaseConection.server = txtServidor.Text;
             DataBaseConection.port = txtPorta.Text;
             DataBaseConection.user = txtUsuario.Text;
             DataBaseConection.password = txtSenha.Text;
@@ -197,6 +191,11 @@ namespace Class_Management_System.Forms
         private void Configuracoes_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) this.Close();
+        }
+
+        private void Configuracoes_Shown(object sender, EventArgs e)
+        {
+            this.CarregarInfosDataBase();
         }
     }
 }

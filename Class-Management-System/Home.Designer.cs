@@ -52,7 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnConfiguracoes = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.btnPerfil = new System.Windows.Forms.Button();
@@ -218,7 +217,6 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnConfiguracoes);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Controls.Add(this.btnBuscarUsuario);
             this.panel1.Controls.Add(this.btnPerfil);
@@ -238,7 +236,7 @@
             this.btnSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSobre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSobre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSobre.Location = new System.Drawing.Point(5, 588);
+            this.btnSobre.Location = new System.Drawing.Point(4, 516);
             this.btnSobre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSobre.Name = "btnSobre";
             this.btnSobre.Size = new System.Drawing.Size(224, 73);
@@ -279,7 +277,7 @@
             this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracoes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracoes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfiguracoes.Location = new System.Drawing.Point(5, 508);
+            this.btnConfiguracoes.Location = new System.Drawing.Point(4, 437);
             this.btnConfiguracoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConfiguracoes.Name = "btnConfiguracoes";
             this.btnConfiguracoes.Size = new System.Drawing.Size(224, 80);
@@ -305,22 +303,6 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(4, 431);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(225, 84);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Grafo";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -330,7 +312,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrar.Location = new System.Drawing.Point(1, 206);
+            this.btnCadastrar.Location = new System.Drawing.Point(1, 204);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(228, 72);
@@ -348,7 +330,7 @@
             this.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarUsuario.Location = new System.Drawing.Point(1, 279);
+            this.btnBuscarUsuario.Location = new System.Drawing.Point(1, 275);
             this.btnBuscarUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscarUsuario.Name = "btnBuscarUsuario";
             this.btnBuscarUsuario.Size = new System.Drawing.Size(228, 78);
@@ -366,7 +348,7 @@
             this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPerfil.Location = new System.Drawing.Point(1, 356);
+            this.btnPerfil.Location = new System.Drawing.Point(1, 352);
             this.btnPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPerfil.Name = "btnPerfil";
             this.btnPerfil.Size = new System.Drawing.Size(228, 86);
@@ -607,7 +589,6 @@
         private System.Windows.Forms.DataGridView dataGridGrafo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Button btnBuscarUsuario;
         private System.Windows.Forms.Label lblusuario_logado;

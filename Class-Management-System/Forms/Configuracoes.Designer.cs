@@ -34,7 +34,6 @@
             this.txtBanco = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSenha = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPorta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnSalvarEFechar = new System.Windows.Forms.Button();
             this.btnArquivoSql = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +65,7 @@
             this.btnTestarConexao.Location = new System.Drawing.Point(38, 377);
             this.btnTestarConexao.Name = "btnTestarConexao";
             this.btnTestarConexao.Size = new System.Drawing.Size(146, 40);
-            this.btnTestarConexao.TabIndex = 1;
+            this.btnTestarConexao.TabIndex = 5;
             this.btnTestarConexao.Text = "TESTAR CONEXÃO";
             this.btnTestarConexao.UseVisualStyleBackColor = false;
             this.btnTestarConexao.Click += new System.EventHandler(this.btnTestarConexao_Click);
@@ -76,7 +76,7 @@
             this.txtBanco.Location = new System.Drawing.Point(100, 101);
             this.txtBanco.Name = "txtBanco";
             this.txtBanco.Size = new System.Drawing.Size(178, 33);
-            this.txtBanco.TabIndex = 2;
+            this.txtBanco.TabIndex = 1;
             // 
             // txtUsuario
             // 
@@ -84,7 +84,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(100, 169);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(178, 33);
-            this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.TabIndex = 2;
             // 
             // label2
             // 
@@ -96,14 +96,6 @@
             this.label2.Size = new System.Drawing.Size(66, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Usuário";
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(100, 233);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(178, 33);
-            this.txtSenha.TabIndex = 6;
             // 
             // label3
             // 
@@ -122,7 +114,7 @@
             this.txtPorta.Location = new System.Drawing.Point(100, 301);
             this.txtPorta.Name = "txtPorta";
             this.txtPorta.Size = new System.Drawing.Size(178, 33);
-            this.txtPorta.TabIndex = 8;
+            this.txtPorta.TabIndex = 4;
             // 
             // label4
             // 
@@ -141,7 +133,7 @@
             this.txtServidor.Location = new System.Drawing.Point(100, 37);
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(178, 33);
-            this.txtServidor.TabIndex = 10;
+            this.txtServidor.TabIndex = 0;
             // 
             // label5
             // 
@@ -164,7 +156,7 @@
             this.btnSalvarEFechar.Location = new System.Drawing.Point(212, 377);
             this.btnSalvarEFechar.Name = "btnSalvarEFechar";
             this.btnSalvarEFechar.Size = new System.Drawing.Size(150, 40);
-            this.btnSalvarEFechar.TabIndex = 11;
+            this.btnSalvarEFechar.TabIndex = 6;
             this.btnSalvarEFechar.Text = "SALVAR E FECHAR";
             this.btnSalvarEFechar.UseVisualStyleBackColor = false;
             this.btnSalvarEFechar.Click += new System.EventHandler(this.btnSalvarEFechar_Click);
@@ -184,19 +176,29 @@
             this.btnArquivoSql.UseVisualStyleBackColor = false;
             this.btnArquivoSql.Click += new System.EventHandler(this.btnArquivoSql_Click);
             // 
+            // txtSenha
+            // 
+            this.txtSenha.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(100, 236);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(178, 33);
+            this.txtSenha.TabIndex = 3;
+            this.txtSenha.UseSystemPasswordChar = true;
+            // 
             // Configuracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(432, 449);
+            this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.btnArquivoSql);
             this.Controls.Add(this.btnSalvarEFechar);
             this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPorta);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
@@ -212,6 +214,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configuracoes_FormClosing);
+            this.Shown += new System.EventHandler(this.Configuracoes_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Configuracoes_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,7 +228,6 @@
         private System.Windows.Forms.TextBox txtBanco;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPorta;
         private System.Windows.Forms.Label label4;
@@ -233,5 +235,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSalvarEFechar;
         private System.Windows.Forms.Button btnArquivoSql;
+        private System.Windows.Forms.MaskedTextBox txtSenha;
     }
 }
