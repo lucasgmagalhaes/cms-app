@@ -386,7 +386,7 @@
             this.groupFiltro.Controls.Add(this.cmbPeriodo);
             this.groupFiltro.Enabled = false;
             this.groupFiltro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupFiltro.ForeColor = System.Drawing.Color.White;
+            this.groupFiltro.ForeColor = System.Drawing.Color.Gray;
             this.groupFiltro.Location = new System.Drawing.Point(1050, 56);
             this.groupFiltro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupFiltro.Name = "groupFiltro";
@@ -401,6 +401,7 @@
             this.checkBoxSelecaoUnica.AutoSize = true;
             this.checkBoxSelecaoUnica.Checked = true;
             this.checkBoxSelecaoUnica.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxSelecaoUnica.ForeColor = System.Drawing.Color.Gray;
             this.checkBoxSelecaoUnica.Location = new System.Drawing.Point(116, 29);
             this.checkBoxSelecaoUnica.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBoxSelecaoUnica.Name = "checkBoxSelecaoUnica";
@@ -430,7 +431,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.Color.Gray;
             this.label8.Location = new System.Drawing.Point(33, 469);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -455,7 +456,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.ForeColor = System.Drawing.Color.Gray;
             this.label7.Location = new System.Drawing.Point(33, 377);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -480,7 +481,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Gray;
             this.label6.Location = new System.Drawing.Point(33, 282);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -505,7 +506,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Gray;
             this.label5.Location = new System.Drawing.Point(33, 203);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -530,7 +531,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Gray;
             this.label4.Location = new System.Drawing.Point(33, 117);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
