@@ -42,10 +42,23 @@ namespace Class_Management_System.Services
         void GravarOuAtualizarUsuario(Usuario usuario);
 
         /// <summary>
-        /// Grava um PerfilUsuario no banco
+        /// Cria um PerfilUsuario no banco
         /// </summary>
         /// <param name="perfil"></param>
         void CriarPerfil(PerfilUsuario perfil);
+
+
+        /// <summary>
+        ///  Altera um PerfilUsuario no banco
+        /// </summary>
+        /// <param name="perfil"></param>
+        void GravaPerfil(PerfilUsuario perfil);
+
+        /// <summary>
+        /// Deleta um perfil
+        /// </summary>
+        /// <param name="perfil"></param>
+        void DeletaPerfil(PerfilUsuario perfil);
 
         /// <summary>
         /// Busca o id de um perfil usuário pela descrição do mesmo
