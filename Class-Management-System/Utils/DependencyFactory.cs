@@ -30,7 +30,7 @@ namespace Class_Management_System.Utils
                     if (!tipo.IsInterface) return (T)Activator.CreateInstance(tipo); 
                 }
             }
-            throw new NullReferenceException("Não existem implemeñtações da interface para incialização de objeto");
+            throw new NullReferenceException("Não existem implementações da interface para incialização de objeto");
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Class_Management_System.Utils
                     if (!tipo.IsInterface) return (T)Activator.CreateInstance(tipo);
                 }
             }
-            throw new NullReferenceException("Não existem implemeñtações da interface para incialização de objeto");
+            throw new NullReferenceException("Não existem implementações da interface para incialização de objeto");
         }
     }
 }
