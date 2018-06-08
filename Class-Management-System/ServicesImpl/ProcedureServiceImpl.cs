@@ -55,11 +55,37 @@ namespace Class_Management_System.ServicesImpl
         {
             try
             {
-                this.dataService.ExecutaQuery("INSERT INTO PERFIL_USUARIO(DSC_PERFIL_USUARIO) VALUES('" + perfil.GetDescricao() + "'");
+                this.dataService.ExecutaQuery("INSERT INTO PERFIL_USUARIO(DSC_PERFIL_USUARIO) VALUES ('" + perfil.GetDescricao() + "');");
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+        public void GravaPerfil(PerfilUsuario perfil)
+        {
+            try
+            {
+                this.dataService.ExecutaQuery(" UPDATE PERFIL_USUARIO  SET DSC_PERFIL_USUARIO = '" + perfil.GetDescricao() + "'" +
+                    " WHERE COD_PERFIL_USUARIO = " + perfil.GetCodigo() + ";");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void DeletaPerfil(PerfilUsuario perfil)
+        {
+            try
+            {
+                this.dataService.ExecutaQuery(" SPDELETA_PERFIL (" + perfil.GetCodigo() + ");" );
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         public int BuscarIdPerfilUsuarioPorDescicao(string descricao)
@@ -67,7 +93,7 @@ namespace Class_Management_System.ServicesImpl
             try
             {
                 DataTable resultado = this.dataService.BuscaDados("SELECT COD_PERFIL_USUARIO FROM PERFIL_USUARIO " +
-                    "WHERE DSC_PERFIL_USUARIO = '" + descricao + "'");
+                    " WHERE DSC_PERFIL_USUARIO = '" + descricao + "';");
                 if (resultado.Rows.Count > 0)
                 {
                     return resultado.Rows[0].Field<int>(0);
