@@ -18,6 +18,13 @@ namespace Class_Management_System.Entities
         private string descricao; 
         protected readonly IProcedureService procedureService;
 
+        public PerfilUsuario( )
+        {
+            this.codigo = 0;
+            this.descricao = "";
+            this.procedureService = DependencyFactory.Resolve<IProcedureService>();
+        }
+
         //Usado para um novo perfil
         public PerfilUsuario(string descricao)
         {
