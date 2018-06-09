@@ -1,5 +1,6 @@
 ﻿using Class_Management_System.Entities;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Class_Management_System.Services
 {
@@ -40,6 +41,14 @@ namespace Class_Management_System.Services
         /// </summary>
         /// <param name="usuario"></param>
         void GravarOuAtualizarUsuario(Usuario usuario);
+
+
+        /// <summary>
+        /// Pesquisa perfis cadastrados no banco de dados
+        /// </summary>
+        /// <param name="filtro">Descrição do perfil que está buscando</param>
+        /// <returns></returns>
+        DataTable BuscaPerfil(string filtro);
 
         /// <summary>
         /// Cria um PerfilUsuario no banco
