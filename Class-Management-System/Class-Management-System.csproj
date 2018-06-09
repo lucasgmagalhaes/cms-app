@@ -81,11 +81,23 @@
     <Compile Include="Enums\DiaLetivo.cs" />
     <Compile Include="Enums\Horario.cs" />
     <Compile Include="Enums\Periodo.cs" />
+    <Compile Include="Forms\BuscarPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BuscarPerfil.Designer.cs">
+      <DependentUpon>BuscarPerfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BuscaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BuscaUsuario.Designer.cs">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormEditarPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditarPerfil.Designer.cs">
+      <DependentUpon>FormEditarPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormEditarUsuario.cs">
       <SubType>Form</SubType>
@@ -98,6 +110,12 @@
     </Compile>
     <Compile Include="Forms\formSQL.Designer.cs">
       <DependentUpon>formSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPerfil.Designer.cs">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormUsuario.cs">
       <SubType>Form</SubType>
@@ -149,14 +167,23 @@
     <Compile Include="Utils\EntidadesDatabase.cs" />
     <Compile Include="Utils\LeitorArquivo.cs" />
     <Compile Include="Utils\ValidadorCpf.cs" />
+    <EmbeddedResource Include="Forms\BuscarPerfil.resx">
+      <DependentUpon>BuscarPerfil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BuscaUsuario.resx">
       <DependentUpon>BuscaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormEditarPerfil.resx">
+      <DependentUpon>FormEditarPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarUsuario.resx">
       <DependentUpon>FormEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\formSQL.resx">
       <DependentUpon>formSQL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPerfil.resx">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>

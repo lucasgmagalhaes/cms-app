@@ -7,6 +7,7 @@ using Class_Management_System.Structures;
 using Class_Management_System.Utils;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -30,6 +31,10 @@ namespace Class_Management_System
         private HashSet<string> professores;
         private HashSet<string> dias;
         private HashSet<string> horarios;
+
+        private int reps;
+        private bool expanded = false;
+        private int expand_size = 31;
 
         public Home()
         {
@@ -73,10 +78,14 @@ namespace Class_Management_System
             }
             catch
             {
-                DialogResult resultado = MessageBox.Show("Houve um problema na abertura do sistema. conecte ao banco e abra o aplicativo novamente", "Config file", 
+                DialogResult resultado = MessageBox.Show("Houve um problema na abertura do sistema. conecte ao banco e abra o aplicativo novamente", "Config file",
                     MessageBoxButtons.OK, MessageBoxIcon.Question);
                 this.Close();
             }
+
+            this.btnCadastrar.Visible = false;
+            this.btnBuscarUsuario.Visible = false;
+            this.btnPerfil.Visible = false;
         }
 
         private void EditarUsuario_FormClosed(object sender, FormClosedEventArgs e)
@@ -375,6 +384,67 @@ namespace Class_Management_System
         {
             this.editarUsuario.DefinirUsuario(Session.usuario);
             this.editarUsuario.ShowDialog();
+        }
+
+        private void DisplayTimer_Tick(object sender, EventArgs e)
+        {
+            if (this.expanded == false)
+            {
+                if (reps == 5)
+                {
+                    this.DisplayTimer.Enabled = false;
+                    this.expanded = true;
+                    this.reps = 0;
+                }
+                else
+                {
+                    reps++;
+                    this.expanded = false;
+                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y + expand_size);
+                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y + expand_size);
+                }
+            }
+            else
+            {
+                if (reps == 5)
+                {
+                    this.DisplayTimer.Enabled = false;
+                    this.expanded = false;
+                    this.reps = 0;
+                }
+                else
+                {
+                    reps++;
+                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y - expand_size);
+                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y - expand_size);
+                }
+            }
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            if(this.buscarUsuario.Visible == false)
+            {
+                this.btnCadastrar.Visible = true;
+                this.btnBuscarUsuario.Visible = true;
+                this.btnPerfil.Visible = true;
+            }
+            this.DisplayTimer.Enabled = true;
+        }
+
+        private void btnOpcoesPerfil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCadastrarPerfil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarPerfil_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

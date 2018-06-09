@@ -209,12 +209,26 @@ namespace Class_Management_System.ServicesImpl
             }
         }
 
-        public List<PerfilUsuario> BuscarPerfisUsuario()
+        public List<PerfilUsuario> BuscarPerfisUsuario(string filtro)
         {
             try
             {
                 List<PerfilUsuario> listaRetorno = new List<PerfilUsuario>();
-                string sql = "CALL SPCARREGA_PERFIL";
+                int id;
+                string sql;
+                if (int.TryParse(filtro, out id))
+                {
+                    sql = "SELECT * FROM PERFIL_USUARIO WHERE ID = " + id;
+                }
+                else if(filtro != null || filtro.Trim() != "")
+                {
+                    sql = "SELECT * FROM PERFIL_USUARIO WHERE DSC_PERFIL_USUARIO = '" + filtro + "'";
+                }
+                else
+                {
+                    sql = "SELECT * FROM PERFIL_USUARIO";
+                }
+               
                 DataTable dtbResult = this.dataService.BuscaDados(sql);
 
                 foreach (DataRow linha in dtbResult.Rows)

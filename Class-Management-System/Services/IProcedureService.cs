@@ -81,7 +81,7 @@ namespace Class_Management_System.Services
         /// Busca a lista de perfis de usuário
         /// </summary>
         /// <returns></returns>
-        List<PerfilUsuario> BuscarPerfisUsuario();
+        List<PerfilUsuario> BuscarPerfisUsuario(string filtro);
 
         /// <summary>
         /// Retorna se um cpf já está cadastrado
