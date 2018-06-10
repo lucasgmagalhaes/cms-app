@@ -98,9 +98,10 @@ namespace Class_Management_System.ServicesImp
                             verticeDia.AddAresta(aresta);
                             verticeAula.AddAresta(aresta);
                             ((DiaSemana)verticeDia.GetDado()).AdicionarAula((Aula)verticeAula.GetDado());
+                            aula.SetAulaAlocada(true);
                         }
                     }
-                    else aulasVazias.Add(aula);
+                    else if(!aula.GetAulaAlocada()) aulasVazias.Add(aula);
                     aula.DiminuirAulasPorSemanasRestante();
                 });
                 totalDiasRestantes = this.GetTotalDiasRestantesAulas(aulas);

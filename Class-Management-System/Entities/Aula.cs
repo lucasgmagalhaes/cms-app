@@ -10,6 +10,7 @@ namespace Class_Management_System.Entities
         private Disciplina disciplina;
         private int aulasSemana;
         private int aulasSemanaRestante;
+        private bool aulaAlocada;
         public Aula(Professor professor, Disciplina disciplina, int aulasSemana)
         {
             this.professor = professor;
@@ -106,6 +107,16 @@ namespace Class_Management_System.Entities
         public object Clone()
         {
             return (Aula)this.MemberwiseClone();
+        }
+
+        public bool GetAulaAlocada()
+        {
+            return this.aulaAlocada;
+        }
+
+        public void SetAulaAlocada(bool aulaAlocada)
+        {
+            this.aulaAlocada = aulaAlocada;
         }
     }
 }

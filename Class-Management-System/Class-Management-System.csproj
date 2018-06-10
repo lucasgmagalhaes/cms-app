@@ -105,6 +105,12 @@
     <Compile Include="Forms\FormEditarUsuario.Designer.cs">
       <DependentUpon>FormEditarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormMateriasSemAula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMateriasSemAula.Designer.cs">
+      <DependentUpon>FormMateriasSemAula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\formSQL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormEditarUsuario.resx">
       <DependentUpon>FormEditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMateriasSemAula.resx">
+      <DependentUpon>FormMateriasSemAula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\formSQL.resx">
       <DependentUpon>formSQL.cs</DependentUpon>

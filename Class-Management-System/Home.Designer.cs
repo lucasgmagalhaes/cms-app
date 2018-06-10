@@ -48,17 +48,17 @@
             this.dia_semana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSobre = new System.Windows.Forms.Button();
-            this.btnConfiguracoes = new System.Windows.Forms.Button();
-            this.btnCadastrarPerfil = new System.Windows.Forms.Button();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
-            this.btnOpcoesPerfil = new System.Windows.Forms.Button();
+            this.btnConfiguracoes = new System.Windows.Forms.Button();
+            this.btnCadastrarPerfil = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnOpcoesPerfil = new System.Windows.Forms.Button();
+            this.btnBuscarPerfil = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
-            this.btnBuscarPerfil = new System.Windows.Forms.Button();
             this.lblusuario_logado = new System.Windows.Forms.Label();
             this.groupFiltro = new System.Windows.Forms.GroupBox();
             this.checkBoxSelecaoUnica = new System.Windows.Forms.CheckBox();
@@ -76,10 +76,17 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DisplayTimer = new System.Windows.Forms.Timer(this.components);
             this.DisplayPerfil = new System.Windows.Forms.Timer(this.components);
+            this.btnMateriasSemHorario = new System.Windows.Forms.Button();
+            this.lblaulas_semana = new System.Windows.Forms.Label();
+            this.lblProfessores = new System.Windows.Forms.Label();
+            this.lblMaterias = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTotalAulasArquivo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGrafo)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupFiltro.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,11 +94,11 @@
             this.groupBox1.Controls.Add(this.btnGerarGrafo);
             this.groupBox1.Controls.Add(this.txtFilePath);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(246, 66);
+            this.groupBox1.Location = new System.Drawing.Point(246, 47);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(796, 97);
+            this.groupBox1.Size = new System.Drawing.Size(796, 83);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
@@ -102,7 +109,7 @@
             this.btnGerarGrafo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGerarGrafo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGerarGrafo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGerarGrafo.Location = new System.Drawing.Point(468, 26);
+            this.btnGerarGrafo.Location = new System.Drawing.Point(520, 27);
             this.btnGerarGrafo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGerarGrafo.Name = "btnGerarGrafo";
             this.btnGerarGrafo.Size = new System.Drawing.Size(268, 38);
@@ -118,7 +125,7 @@
             this.txtFilePath.Location = new System.Drawing.Point(28, 29);
             this.txtFilePath.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(414, 35);
+            this.txtFilePath.Size = new System.Drawing.Size(484, 35);
             this.txtFilePath.TabIndex = 0;
             // 
             // dataGridGrafo
@@ -152,7 +159,7 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridGrafo.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridGrafo.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridGrafo.Location = new System.Drawing.Point(246, 173);
+            this.dataGridGrafo.Location = new System.Drawing.Point(246, 184);
             this.dataGridGrafo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridGrafo.MultiSelect = false;
             this.dataGridGrafo.Name = "dataGridGrafo";
@@ -161,7 +168,7 @@
             this.dataGridGrafo.ShowCellErrors = false;
             this.dataGridGrafo.ShowCellToolTips = false;
             this.dataGridGrafo.ShowRowErrors = false;
-            this.dataGridGrafo.Size = new System.Drawing.Size(796, 490);
+            this.dataGridGrafo.Size = new System.Drawing.Size(796, 465);
             this.dataGridGrafo.TabIndex = 4;
             // 
             // periodo
@@ -255,40 +262,6 @@
             this.btnSobre.UseVisualStyleBackColor = false;
             this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
             // 
-            // btnConfiguracoes
-            // 
-            this.btnConfiguracoes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnConfiguracoes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
-            this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfiguracoes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfiguracoes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfiguracoes.Location = new System.Drawing.Point(1, 300);
-            this.btnConfiguracoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnConfiguracoes.Name = "btnConfiguracoes";
-            this.btnConfiguracoes.Size = new System.Drawing.Size(228, 54);
-            this.btnConfiguracoes.TabIndex = 9;
-            this.btnConfiguracoes.Text = "Configurações";
-            this.btnConfiguracoes.UseVisualStyleBackColor = false;
-            this.btnConfiguracoes.Click += new System.EventHandler(this.btnConfiguracoes_Click);
-            // 
-            // btnCadastrarPerfil
-            // 
-            this.btnCadastrarPerfil.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnCadastrarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarPerfil.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrarPerfil.Location = new System.Drawing.Point(-1, 300);
-            this.btnCadastrarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCadastrarPerfil.Name = "btnCadastrarPerfil";
-            this.btnCadastrarPerfil.Size = new System.Drawing.Size(228, 54);
-            this.btnCadastrarPerfil.TabIndex = 13;
-            this.btnCadastrarPerfil.Text = "Cadastrar Perfil";
-            this.btnCadastrarPerfil.UseVisualStyleBackColor = false;
-            this.btnCadastrarPerfil.Click += new System.EventHandler(this.btnCadastrarPerfil_Click);
-            // 
             // btnPerfil
             // 
             this.btnPerfil.BackColor = System.Drawing.Color.SteelBlue;
@@ -324,22 +297,39 @@
             this.btnUsuario.UseVisualStyleBackColor = false;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
-            // btnOpcoesPerfil
+            // btnConfiguracoes
             // 
-            this.btnOpcoesPerfil.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnOpcoesPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcoesPerfil.FlatAppearance.BorderSize = 0;
-            this.btnOpcoesPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcoesPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcoesPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOpcoesPerfil.Location = new System.Drawing.Point(1, 247);
-            this.btnOpcoesPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOpcoesPerfil.Name = "btnOpcoesPerfil";
-            this.btnOpcoesPerfil.Size = new System.Drawing.Size(228, 54);
-            this.btnOpcoesPerfil.TabIndex = 12;
-            this.btnOpcoesPerfil.Text = "Perfil";
-            this.btnOpcoesPerfil.UseVisualStyleBackColor = false;
-            this.btnOpcoesPerfil.Click += new System.EventHandler(this.btnOpcoesPerfil_Click);
+            this.btnConfiguracoes.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnConfiguracoes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracoes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracoes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConfiguracoes.Location = new System.Drawing.Point(1, 300);
+            this.btnConfiguracoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnConfiguracoes.Name = "btnConfiguracoes";
+            this.btnConfiguracoes.Size = new System.Drawing.Size(228, 54);
+            this.btnConfiguracoes.TabIndex = 9;
+            this.btnConfiguracoes.Text = "Configurações";
+            this.btnConfiguracoes.UseVisualStyleBackColor = false;
+            this.btnConfiguracoes.Click += new System.EventHandler(this.btnConfiguracoes_Click);
+            // 
+            // btnCadastrarPerfil
+            // 
+            this.btnCadastrarPerfil.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCadastrarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrarPerfil.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCadastrarPerfil.Location = new System.Drawing.Point(-1, 300);
+            this.btnCadastrarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCadastrarPerfil.Name = "btnCadastrarPerfil";
+            this.btnCadastrarPerfil.Size = new System.Drawing.Size(228, 54);
+            this.btnCadastrarPerfil.TabIndex = 13;
+            this.btnCadastrarPerfil.Text = "Cadastrar Perfil";
+            this.btnCadastrarPerfil.UseVisualStyleBackColor = false;
+            this.btnCadastrarPerfil.Click += new System.EventHandler(this.btnCadastrarPerfil_Click);
             // 
             // label3
             // 
@@ -382,6 +372,40 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnOpcoesPerfil
+            // 
+            this.btnOpcoesPerfil.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnOpcoesPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcoesPerfil.FlatAppearance.BorderSize = 0;
+            this.btnOpcoesPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcoesPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcoesPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOpcoesPerfil.Location = new System.Drawing.Point(1, 247);
+            this.btnOpcoesPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpcoesPerfil.Name = "btnOpcoesPerfil";
+            this.btnOpcoesPerfil.Size = new System.Drawing.Size(228, 54);
+            this.btnOpcoesPerfil.TabIndex = 12;
+            this.btnOpcoesPerfil.Text = "Perfil";
+            this.btnOpcoesPerfil.UseVisualStyleBackColor = false;
+            this.btnOpcoesPerfil.Click += new System.EventHandler(this.btnOpcoesPerfil_Click);
+            // 
+            // btnBuscarPerfil
+            // 
+            this.btnBuscarPerfil.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBuscarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarPerfil.FlatAppearance.BorderSize = 0;
+            this.btnBuscarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarPerfil.Location = new System.Drawing.Point(0, 352);
+            this.btnBuscarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBuscarPerfil.Name = "btnBuscarPerfil";
+            this.btnBuscarPerfil.Size = new System.Drawing.Size(228, 54);
+            this.btnBuscarPerfil.TabIndex = 14;
+            this.btnBuscarPerfil.Text = "Buscar Perfil";
+            this.btnBuscarPerfil.UseVisualStyleBackColor = false;
+            this.btnBuscarPerfil.Click += new System.EventHandler(this.btnBuscarPerfil_Click);
+            // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.SteelBlue;
@@ -418,23 +442,6 @@
             this.btnBuscarUsuario.UseVisualStyleBackColor = false;
             this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
-            // btnBuscarPerfil
-            // 
-            this.btnBuscarPerfil.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnBuscarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarPerfil.FlatAppearance.BorderSize = 0;
-            this.btnBuscarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarPerfil.Location = new System.Drawing.Point(0, 352);
-            this.btnBuscarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBuscarPerfil.Name = "btnBuscarPerfil";
-            this.btnBuscarPerfil.Size = new System.Drawing.Size(228, 54);
-            this.btnBuscarPerfil.TabIndex = 14;
-            this.btnBuscarPerfil.Text = "Buscar Perfil";
-            this.btnBuscarPerfil.UseVisualStyleBackColor = false;
-            this.btnBuscarPerfil.Click += new System.EventHandler(this.btnBuscarPerfil_Click);
-            // 
             // lblusuario_logado
             // 
             this.lblusuario_logado.AutoSize = true;
@@ -465,11 +472,11 @@
             this.groupFiltro.Enabled = false;
             this.groupFiltro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupFiltro.ForeColor = System.Drawing.Color.Gray;
-            this.groupFiltro.Location = new System.Drawing.Point(1050, 56);
+            this.groupFiltro.Location = new System.Drawing.Point(1050, 184);
             this.groupFiltro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupFiltro.Name = "groupFiltro";
             this.groupFiltro.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupFiltro.Size = new System.Drawing.Size(278, 607);
+            this.groupFiltro.Size = new System.Drawing.Size(274, 465);
             this.groupFiltro.TabIndex = 7;
             this.groupFiltro.TabStop = false;
             this.groupFiltro.Text = "Filtros";
@@ -480,7 +487,7 @@
             this.checkBoxSelecaoUnica.Checked = true;
             this.checkBoxSelecaoUnica.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSelecaoUnica.ForeColor = System.Drawing.Color.Gray;
-            this.checkBoxSelecaoUnica.Location = new System.Drawing.Point(116, 29);
+            this.checkBoxSelecaoUnica.Location = new System.Drawing.Point(102, 31);
             this.checkBoxSelecaoUnica.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBoxSelecaoUnica.Name = "checkBoxSelecaoUnica";
             this.checkBoxSelecaoUnica.Size = new System.Drawing.Size(143, 25);
@@ -496,10 +503,10 @@
             this.btnResetar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnResetar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnResetar.Location = new System.Drawing.Point(116, 65);
+            this.btnResetar.Location = new System.Drawing.Point(27, 64);
             this.btnResetar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnResetar.Name = "btnResetar";
-            this.btnResetar.Size = new System.Drawing.Size(146, 35);
+            this.btnResetar.Size = new System.Drawing.Size(221, 35);
             this.btnResetar.TabIndex = 8;
             this.btnResetar.Text = "Limpar Filtro";
             this.btnResetar.UseVisualStyleBackColor = false;
@@ -510,7 +517,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(33, 469);
+            this.label8.Location = new System.Drawing.Point(22, 357);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 21);
@@ -522,7 +529,7 @@
             this.cmbDiaSemana.BackColor = System.Drawing.Color.White;
             this.cmbDiaSemana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDiaSemana.FormattingEnabled = true;
-            this.cmbDiaSemana.Location = new System.Drawing.Point(38, 505);
+            this.cmbDiaSemana.Location = new System.Drawing.Point(27, 383);
             this.cmbDiaSemana.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbDiaSemana.Name = "cmbDiaSemana";
             this.cmbDiaSemana.Size = new System.Drawing.Size(222, 29);
@@ -535,7 +542,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(33, 377);
+            this.label7.Location = new System.Drawing.Point(23, 297);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 21);
@@ -547,7 +554,7 @@
             this.cmbHorario.BackColor = System.Drawing.Color.White;
             this.cmbHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHorario.FormattingEnabled = true;
-            this.cmbHorario.Location = new System.Drawing.Point(38, 412);
+            this.cmbHorario.Location = new System.Drawing.Point(26, 321);
             this.cmbHorario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbHorario.Name = "cmbHorario";
             this.cmbHorario.Size = new System.Drawing.Size(222, 29);
@@ -560,7 +567,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(33, 282);
+            this.label6.Location = new System.Drawing.Point(23, 237);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 21);
@@ -572,7 +579,7 @@
             this.cmbProfessor.BackColor = System.Drawing.Color.White;
             this.cmbProfessor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProfessor.FormattingEnabled = true;
-            this.cmbProfessor.Location = new System.Drawing.Point(38, 317);
+            this.cmbProfessor.Location = new System.Drawing.Point(26, 263);
             this.cmbProfessor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbProfessor.Name = "cmbProfessor";
             this.cmbProfessor.Size = new System.Drawing.Size(222, 29);
@@ -585,7 +592,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(33, 203);
+            this.label5.Location = new System.Drawing.Point(22, 177);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 21);
@@ -597,7 +604,7 @@
             this.cmbMateria.BackColor = System.Drawing.Color.White;
             this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Location = new System.Drawing.Point(38, 238);
+            this.cmbMateria.Location = new System.Drawing.Point(26, 203);
             this.cmbMateria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(222, 29);
@@ -610,7 +617,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(33, 117);
+            this.label4.Location = new System.Drawing.Point(22, 117);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 21);
@@ -622,7 +629,7 @@
             this.cmbPeriodo.BackColor = System.Drawing.Color.White;
             this.cmbPeriodo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPeriodo.FormattingEnabled = true;
-            this.cmbPeriodo.Location = new System.Drawing.Point(38, 152);
+            this.cmbPeriodo.Location = new System.Drawing.Point(26, 143);
             this.cmbPeriodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbPeriodo.Name = "cmbPeriodo";
             this.cmbPeriodo.Size = new System.Drawing.Size(222, 29);
@@ -640,11 +647,93 @@
             this.DisplayPerfil.Interval = 28;
             this.DisplayPerfil.Tick += new System.EventHandler(this.DisplayPerfil_Tick);
             // 
+            // btnMateriasSemHorario
+            // 
+            this.btnMateriasSemHorario.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnMateriasSemHorario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMateriasSemHorario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMateriasSemHorario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMateriasSemHorario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMateriasSemHorario.Location = new System.Drawing.Point(847, 136);
+            this.btnMateriasSemHorario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMateriasSemHorario.Name = "btnMateriasSemHorario";
+            this.btnMateriasSemHorario.Size = new System.Drawing.Size(187, 38);
+            this.btnMateriasSemHorario.TabIndex = 2;
+            this.btnMateriasSemHorario.Text = "Matérias sem horário";
+            this.btnMateriasSemHorario.UseVisualStyleBackColor = false;
+            this.btnMateriasSemHorario.Visible = false;
+            this.btnMateriasSemHorario.Click += new System.EventHandler(this.btnMateriasSemHorario_Click);
+            // 
+            // lblaulas_semana
+            // 
+            this.lblaulas_semana.AutoSize = true;
+            this.lblaulas_semana.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblaulas_semana.ForeColor = System.Drawing.Color.DimGray;
+            this.lblaulas_semana.Location = new System.Drawing.Point(3, 31);
+            this.lblaulas_semana.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblaulas_semana.Name = "lblaulas_semana";
+            this.lblaulas_semana.Size = new System.Drawing.Size(189, 24);
+            this.lblaulas_semana.TabIndex = 8;
+            this.lblaulas_semana.Text = "Aulas semanais: 0";
+            // 
+            // lblProfessores
+            // 
+            this.lblProfessores.AutoSize = true;
+            this.lblProfessores.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfessores.ForeColor = System.Drawing.Color.DimGray;
+            this.lblProfessores.Location = new System.Drawing.Point(3, 88);
+            this.lblProfessores.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProfessores.Name = "lblProfessores";
+            this.lblProfessores.Size = new System.Drawing.Size(144, 24);
+            this.lblProfessores.TabIndex = 9;
+            this.lblProfessores.Text = "Professores: 0";
+            // 
+            // lblMaterias
+            // 
+            this.lblMaterias.AutoSize = true;
+            this.lblMaterias.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaterias.ForeColor = System.Drawing.Color.DimGray;
+            this.lblMaterias.Location = new System.Drawing.Point(2, 118);
+            this.lblMaterias.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaterias.Name = "lblMaterias";
+            this.lblMaterias.Size = new System.Drawing.Size(118, 24);
+            this.lblMaterias.TabIndex = 10;
+            this.lblMaterias.Text = "Matérias: 0";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblTotalAulasArquivo);
+            this.groupBox2.Controls.Add(this.lblProfessores);
+            this.groupBox2.Controls.Add(this.lblMaterias);
+            this.groupBox2.Controls.Add(this.lblaulas_semana);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.groupBox2.ForeColor = System.Drawing.Color.Gray;
+            this.groupBox2.Location = new System.Drawing.Point(1050, 18);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(274, 158);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Informações grade";
+            // 
+            // lblTotalAulasArquivo
+            // 
+            this.lblTotalAulasArquivo.AutoSize = true;
+            this.lblTotalAulasArquivo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAulasArquivo.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalAulasArquivo.Location = new System.Drawing.Point(3, 58);
+            this.lblTotalAulasArquivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalAulasArquivo.Name = "lblTotalAulasArquivo";
+            this.lblTotalAulasArquivo.Size = new System.Drawing.Size(225, 24);
+            this.lblTotalAulasArquivo.TabIndex = 11;
+            this.lblTotalAulasArquivo.Text = "Total Aulas arquivo: 0";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1318, 663);
+            this.ClientSize = new System.Drawing.Size(1337, 663);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnMateriasSemHorario);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupFiltro);
             this.Controls.Add(this.lblusuario_logado);
@@ -666,6 +755,8 @@
             this.panel1.PerformLayout();
             this.groupFiltro.ResumeLayout(false);
             this.groupFiltro.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -711,6 +802,12 @@
         private System.Windows.Forms.Button btnCadastrarPerfil;
         private System.Windows.Forms.Button btnBuscarPerfil;
         private System.Windows.Forms.Timer DisplayPerfil;
+        private System.Windows.Forms.Button btnMateriasSemHorario;
+        private System.Windows.Forms.Label lblaulas_semana;
+        private System.Windows.Forms.Label lblProfessores;
+        private System.Windows.Forms.Label lblMaterias;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTotalAulasArquivo;
     }
 }
 

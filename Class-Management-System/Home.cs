@@ -27,12 +27,14 @@ namespace Class_Management_System
         private FormEditarUsuario editarUsuario;
         private BuscarPerfil buscarPerfil;
         private FormEditarPerfil formperfil;
+        private FormMateriasSemAula formMateriasSemAula;
 
         private HashSet<string> periodos;
         private HashSet<string> materias;
         private HashSet<string> professores;
         private HashSet<string> dias;
         private HashSet<string> horarios;
+        private List<Aula> aulasSemHorario;
 
         private int reps;
         private bool expanded = false;
@@ -207,21 +209,48 @@ namespace Class_Management_System
                     this.LimparValoresTela();
 
                     List<Aula> aulas = this.aulaService.CriarListaDeAulas(arquivo);
+                    this.lblTotalAulasArquivo.Text = "Total Aulas arquivo: " + this.CalcularTotalAulasArquivo(aulas);
                     List<IDado> dadosAula = new List<IDado>();
 
                     dadosAula.AddRange(aulas);
-                    List<Aula> aulasSemHorario;
-                    List<string> grafo = this.grafoService.GerarHorariosFormatados(Vertice.ConverterParaVertice(dadosAula), out aulasSemHorario);
+                    List<string> grafo = this.grafoService.GerarHorariosFormatados(Vertice.ConverterParaVertice(dadosAula), out this.aulasSemHorario);
                     this.groupFiltro.Enabled = true;
                     this.InserirResultadosNaTabela(grafo);
                     this.InserirListasNoComboBox();
+                    this.PreencherValoresLabel(grafo.Count);
                 }
                 catch (Exception error)
                 {
                     MessageBox.Show("Houve um problema na leitura do arquivo. Erro retornado: " + error.Message,
                         "Falha leitura arquivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                if(this.aulasSemHorario.Count > 0)
+                {
+                    DialogResult resultado = MessageBox.Show("Existem aulas que não foram encaixadas em um horário. Deseja ve-las agora ?",
+                        "Aulas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(resultado == DialogResult.Yes)
+                    {
+                        this.btnMateriasSemHorario.Visible = true;
+                        this.formMateriasSemAula = new FormMateriasSemAula(this.aulasSemHorario);
+                        this.formMateriasSemAula.ShowDialog();
+                    }
+                }
             }
+        }
+
+        private int CalcularTotalAulasArquivo(List<Aula> aulas)
+        {
+            int total = 0;
+            aulas.ForEach(aula => total += aula.GetAulasPorSemana());
+            return total;
+        }
+
+        private void PreencherValoresLabel(int totalResultados)
+        {
+            this.lblaulas_semana.Text = "Aulas semanais: " + totalResultados;
+            this.lblProfessores.Text = "Professores: " + this.professores.Count;
+            this.lblMaterias.Text = "Matérias: " + this.materias.Count;
         }
 
         /// <summary>
@@ -515,6 +544,11 @@ namespace Class_Management_System
                     this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y - EXPAND_SIZE_PERFIL);
                 }
             }
+        }
+
+        private void btnMateriasSemHorario_Click(object sender, EventArgs e)
+        {
+            this.formMateriasSemAula.ShowDialog();
         }
     }
 }
