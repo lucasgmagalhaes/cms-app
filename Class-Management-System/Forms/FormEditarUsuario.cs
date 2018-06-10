@@ -40,7 +40,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                this.listaPerfis = this.procedureService.BuscarPerfisUsuario();
+                this.listaPerfis = this.procedureService.BuscarPerfisUsuario("");
                 this.listaPerfis.ForEach(perfil => this.CmbPerfil.Items.Add(perfil.GetDescricao()));
             }
             catch (Exception e)

@@ -74,7 +74,7 @@ namespace Class_Management_System.Forms
         {
             try
             {
-                this.listaPerfis = dbService.BuscarPerfisUsuario();
+                this.listaPerfis = dbService.BuscarPerfisUsuario("");
                 this.listaPerfis.ForEach(perfil => this.CmbPerfil.Items.Add(perfil.GetDescricao()));
             }
             catch (Exception e)

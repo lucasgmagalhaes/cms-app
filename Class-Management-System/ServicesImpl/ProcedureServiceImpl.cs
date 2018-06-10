@@ -239,7 +239,7 @@ namespace Class_Management_System.ServicesImpl
                 {
                     sql = "SELECT * FROM PERFIL_USUARIO WHERE ID = " + id;
                 }
-                else if(filtro != null || filtro.Trim() != "")
+                else if(filtro != null && filtro.Trim() != "")
                 {
                     sql = "SELECT * FROM PERFIL_USUARIO WHERE DSC_PERFIL_USUARIO = '" + filtro + "'";
                 }

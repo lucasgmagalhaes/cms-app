@@ -10,5 +10,6 @@ namespace Class_Management_System.Global
         public static Usuario usuario_removido;
         public const string configFilePath = "configs";
         public const string scriptFilePath = "SQL\\script_completo.sql";
+        public static PerfilUsuario perfil_removido;
     }
 }

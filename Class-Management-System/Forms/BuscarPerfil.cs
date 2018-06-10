@@ -14,7 +14,7 @@ namespace Class_Management_System.Forms
         private readonly IDataBaseService dbService;
         private readonly IProcedureService procedureService;
         private DataTable dtbPesquisa = new DataTable();
-        private List<PerfilUsuario> usuariosPesquisa;
+        private List<PerfilUsuario> listaPerfil;
         private FormEditarPerfil formEditar;
         public BuscarPerfil()
         {
@@ -27,20 +27,17 @@ namespace Class_Management_System.Forms
 
         private void FormEditar_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (Session.usuario_removido != null)
-            {
-                int index = this.usuariosPesquisa.FindIndex(usuario => usuario.Equals(Session.usuario_removido));
-                this.dtgPesquisa.Rows.RemoveAt(index);
-                Session.usuario_removido = null;
-            }
+            int index = this.listaPerfil.FindIndex(usuario => usuario.Equals(Session.usuario_removido));
+            this.dtgPesquisa.Rows.RemoveAt(index);
+            Session.usuario_removido = null;
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             try
             {
-                this.usuariosPesquisa = this.procedureService.BuscarPerfisUsuario(this.txtPesquisa.Text);
-                this.InserirResultadoNoDataGrid(this.usuariosPesquisa);
+                this.listaPerfil = this.procedureService.BuscarPerfisUsuario(this.txtPesquisa.Text);
+                this.InserirResultadoNoDataGrid(this.listaPerfil);
             }
             catch (Exception ex)
             {
@@ -77,7 +74,7 @@ namespace Class_Management_System.Forms
 
         private void dtgPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.formEditar.DefinirUsuario(this.usuariosPesquisa[e.RowIndex]);
+            this.formEditar.DefinirPerfil(this.listaPerfil[e.RowIndex]);
             this.formEditar.ShowDialog();
         }
 

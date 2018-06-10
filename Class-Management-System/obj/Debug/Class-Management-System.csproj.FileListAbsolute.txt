@@ -58,3 +58,6 @@ C:\Users\arthur\Documents\GitHub\cms-app\Class-Management-System\obj\Debug\Class
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormEditarUsuario.resources
 D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.formSQL.resources
 D:\Git\cms-app\Class-Management-System\bin\Debug\SQL\script_completo.sql
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.BuscarPerfil.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormEditarPerfil.resources
+D:\Git\cms-app\Class-Management-System\obj\Debug\Class_Management_System.Forms.FormPerfil.resources

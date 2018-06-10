@@ -25,6 +25,8 @@ namespace Class_Management_System
         private FormUsuario cadastroUsuario;
         private Login login;
         private FormEditarUsuario editarUsuario;
+        private BuscarPerfil buscarPerfil;
+        private FormEditarPerfil formperfil;
 
         private HashSet<string> periodos;
         private HashSet<string> materias;
@@ -67,6 +69,8 @@ namespace Class_Management_System
                 this.buscarUsuario = new BuscaUsuario();
                 this.cadastroUsuario = new FormUsuario(0);
                 this.editarUsuario = new FormEditarUsuario();
+                this.buscarPerfil = new BuscarPerfil();
+                this.formperfil = new FormEditarPerfil();
 
                 this.login.FormClosed += Login_FormClosed;
                 this.editarUsuario.FormClosed += EditarUsuario_FormClosed;
@@ -439,12 +443,12 @@ namespace Class_Management_System
 
         private void btnCadastrarPerfil_Click(object sender, EventArgs e)
         {
-
+            this.formperfil.ShowDialog();
         }
 
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
-
+            this.buscarPerfil.ShowDialog();
         }
     }
 }
