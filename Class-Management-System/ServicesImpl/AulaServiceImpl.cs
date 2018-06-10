@@ -1,5 +1,6 @@
 ﻿using Class_Management_System.Entities;
 using Class_Management_System.Enums;
+using Class_Management_System.Global;
 using Class_Management_System.Services;
 using System.Collections.Generic;
 
@@ -18,7 +19,7 @@ namespace Class_Management_System.ServicesImpl
 
             arquivo.ForEach(linha =>
             {
-                partes = linha.Split(';');
+                partes = linha.Split(Session.separador_arquivo);
 
                 aula_ = this.BuscarAulaPorNomeProfessor(aulas, partes[1]);
                 if (aula_ == null) professor = new Professor(partes[1]);

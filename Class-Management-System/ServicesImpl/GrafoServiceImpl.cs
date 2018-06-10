@@ -38,16 +38,16 @@ namespace Class_Management_System.ServicesImp
         /// </summary>
         /// <param name="vertices"></param>
         /// <returns></returns>
-        public Grafo GerarHorarios(List<Vertice> vertices)
+        public Grafo GerarHorarios(List<Vertice> vertices, out List<Aula> aulasVazias)
         {
-            return this.GerarGrafoBase(vertices);
+            return this.GerarGrafoBase(vertices, out aulasVazias);
         }
 
-        public List<string> GerarHorariosFormatados(List<Vertice> vertices)
+        public List<string> GerarHorariosFormatados(List<Vertice> vertices, out List<Aula> aulasVazias)
         {
             List<string> horarios = new List<string>();
             StringBuilder builder = new StringBuilder();
-            Grafo grafo = this.GerarGrafoBase(vertices);
+            Grafo grafo = this.GerarGrafoBase(vertices, out aulasVazias);
 
             this.BuscarVerticesDiaSemana(grafo).ForEach(dia =>
             {
@@ -63,8 +63,10 @@ namespace Class_Management_System.ServicesImp
             return horarios;
         }
 
-        private Grafo GerarGrafoBase(List<Vertice> vertices)
+        private Grafo GerarGrafoBase(List<Vertice> vertices, out List<Aula> aulasSemHorario)
         {
+            aulasSemHorario = new List<Aula>();
+            List<Aula> aulasVazias = new List<Aula>();
             if (vertices == null) return new Grafo();
             Grafo grafo = new Grafo();
             List<DiaSemana> dias = this.GerarDiasDaSemana();
@@ -96,12 +98,14 @@ namespace Class_Management_System.ServicesImp
                             verticeDia.AddAresta(aresta);
                             verticeAula.AddAresta(aresta);
                             ((DiaSemana)verticeDia.GetDado()).AdicionarAula((Aula)verticeAula.GetDado());
-                            aula.DiminuirAulasPorSemanasRestante();
                         }
                     }
+                    else aulasVazias.Add(aula);
+                    aula.DiminuirAulasPorSemanasRestante();
                 });
                 totalDiasRestantes = this.GetTotalDiasRestantesAulas(aulas);
             }
+            aulasSemHorario = aulasVazias;
             return grafo;
         }
 
@@ -124,7 +128,8 @@ namespace Class_Management_System.ServicesImp
                 diasIguais = this.GetDiaSemanaPorDescricaoDia(dia.GetDia(), dias_);
                 if (diasIguais.Count > 0) return diasIguais[0];
             }
-            return dias_[0];
+            if (dias_.Count > 0) return dias_[0];
+            else return null;
         }
 
         public List<DiaSemana> GetDiaSemanaPorDescricaoDia(DiaLetivo dia, List<DiaSemana> dias)

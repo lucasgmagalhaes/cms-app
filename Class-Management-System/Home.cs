@@ -201,20 +201,26 @@ namespace Class_Management_System
                 FileInfo info = new FileInfo(openFile.FileName);
                 txtFilePath.Text = info.FullName;
 
-                List<string> arquivo = LeitorArquivo.Ler(info.FullName);
+                try
+                {
+                    List<string> arquivo = LeitorArquivo.Ler(info.FullName);
+                    this.LimparValoresTela();
 
-                this.LimparValoresTela();
+                    List<Aula> aulas = this.aulaService.CriarListaDeAulas(arquivo);
+                    List<IDado> dadosAula = new List<IDado>();
 
-                List<Aula> aulas = this.aulaService.CriarListaDeAulas(arquivo);
-                List<IDado> dadosAula = new List<IDado>();
-
-                dadosAula.AddRange(aulas);
-
-                List<string> grafo = this.grafoService
-                    .GerarHorariosFormatados(Vertice.ConverterParaVertice(dadosAula));
-                this.groupFiltro.Enabled = true;
-                this.InserirResultadosNaTabela(grafo);
-                this.InserirListasNoComboBox();
+                    dadosAula.AddRange(aulas);
+                    List<Aula> aulasSemHorario;
+                    List<string> grafo = this.grafoService.GerarHorariosFormatados(Vertice.ConverterParaVertice(dadosAula), out aulasSemHorario);
+                    this.groupFiltro.Enabled = true;
+                    this.InserirResultadosNaTabela(grafo);
+                    this.InserirListasNoComboBox();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Houve um problema na leitura do arquivo. Erro retornado: " + error.Message,
+                        "Falha leitura arquivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -255,12 +261,15 @@ namespace Class_Management_System
         {
             string[] divisao;
 
-            resultados.ForEach(resultado =>
+            if (resultados != null && resultados.Count > 0)
             {
-                divisao = resultado.Split(';');
-                this.dataGridGrafo.Rows.Add(divisao[0], divisao[1], divisao[2], divisao[3], divisao[4]);
-                this.CarregarListaValores(divisao[0], divisao[1], divisao[2], divisao[3], divisao[4]);
-            });
+                resultados.ForEach(resultado =>
+                {
+                    divisao = resultado.Split(';');
+                    this.dataGridGrafo.Rows.Add(divisao[0], divisao[1], divisao[2], divisao[3], divisao[4]);
+                    this.CarregarListaValores(divisao[0], divisao[1], divisao[2], divisao[3], divisao[4]);
+                });
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -445,7 +454,7 @@ namespace Class_Management_System
 
         private void btnUsuario_Click(object sender, EventArgs e)
         {
-            if(this.buscarUsuario.Visible == false)
+            if (this.buscarUsuario.Visible == false)
             {
                 this.btnCadastrar.Visible = true;
                 this.btnBuscarUsuario.Visible = true;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Class_Management_System.Global;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -53,19 +54,20 @@ namespace Class_Management_System.Utils
             List<string> retorno = new List<string>();
             if (File.Exists(path))
             {
+                int lineCount = 0;
                 using (StreamReader leitor = new StreamReader(path))
                 {
                     string line;
-
                     while ((line = leitor.ReadLine()) != null)
                     {
+                        lineCount++;
                         if (LinhaValida(line))
                         {
                             retorno.Add(line);
                         }
                         else
                         {
-                            throw new IOException("Arquivo de leitura não é válido");
+                            throw new IOException("Arquivo de leitura não é válido. Problema na linha " + line +", número " + lineCount);
                         }
                     }
                 }
@@ -88,7 +90,16 @@ namespace Class_Management_System.Utils
             try
             {
                 string[] divisao = line.Split(';');
-                if (divisao.Length == 4) return true;
+                if (divisao.Length == 4)
+                {
+                    Session.separador_arquivo = ';';
+                    return true;
+                }
+                else if ((line.Split(' ')).Length == 4)
+                {
+                    Session.separador_arquivo = ' ';
+                    return true;
+                }
                 return false;
 
             }

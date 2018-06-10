@@ -16,7 +16,7 @@ namespace Class_Management_System.Services
         /// </summary>
         /// <param name="arquivo"></param>
         /// <returns></returns>
-        Grafo GerarHorarios(List<Vertice> vertices);
+        Grafo GerarHorarios(List<Vertice> vertices, out List<Aula> aulasVazias);
 
         /// <summary>
         /// Gera um dia da semana(segunda, terça, quarta, quinta e sexta)
@@ -55,7 +55,7 @@ namespace Class_Management_System.Services
         /// </summary>
         /// <param name="vertices"></param>
         /// <returns></returns>
-        List<string> GerarHorariosFormatados(List<Vertice> vertices);
+        List<string> GerarHorariosFormatados(List<Vertice> vertices, out List<Aula> aulasVazias);
 
         /// <summary>
         /// Busca todos os vértices do tipo 'DiaSemana'

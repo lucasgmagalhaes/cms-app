@@ -250,6 +250,9 @@
     <Content Include="SQL\SPINSERI_USUARIO.sql" />
     <Content Include="SQL\SPVERIFICACPF.sql" />
     <Content Include="SQL\SPVERIFICA_LOGIN.sql" />
+    <Content Include="Utils\Aulas.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
