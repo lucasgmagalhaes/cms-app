@@ -36,8 +36,11 @@ namespace Class_Management_System
 
         private int reps;
         private bool expanded = false;
-        private int expand_size = 31;
+        private const int EXPAND_SIZE = 31;
 
+        private const int EXPAND_SIZE_PERFIL = 26;
+        private int reps_perfil;
+        private bool expanded_perfil;
         public Home()
         {
             InitializeComponent();
@@ -79,6 +82,8 @@ namespace Class_Management_System
                 this.professores = new HashSet<string>();
                 this.dias = new HashSet<string>();
                 this.horarios = new HashSet<string>();
+
+                this.AcoesLogout();
             }
             catch
             {
@@ -118,6 +123,8 @@ namespace Class_Management_System
             this.btnCadastrar.Enabled = false;
             this.btnBuscarUsuario.Enabled = false;
             this.btnPerfil.Enabled = false;
+            this.btnBuscarPerfil.Enabled = false;
+            this.btnCadastrarPerfil.Enabled = false;
         }
 
         private void AcoesLogin()
@@ -126,6 +133,8 @@ namespace Class_Management_System
             this.btnCadastrar.Enabled = true;
             this.btnBuscarUsuario.Enabled = true;
             this.btnPerfil.Enabled = true;
+            this.btnBuscarPerfil.Enabled = true;
+            this.btnCadastrarPerfil.Enabled = true;
         }
 
         private void Home_Shown(object sender, EventArgs e)
@@ -404,8 +413,14 @@ namespace Class_Management_System
                 {
                     reps++;
                     this.expanded = false;
-                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y + expand_size);
-                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y + expand_size);
+
+                    this.btnOpcoesPerfil.BringToFront();
+
+                    this.btnOpcoesPerfil.Location = new Point(this.btnOpcoesPerfil.Location.X, this.btnOpcoesPerfil.Location.Y + EXPAND_SIZE);
+                    this.btnCadastrarPerfil.Location = new Point(this.btnCadastrarPerfil.Location.X, this.btnCadastrarPerfil.Location.Y + EXPAND_SIZE);
+                    this.btnBuscarPerfil.Location = new Point(this.btnBuscarPerfil.Location.X, this.btnBuscarPerfil.Location.Y + EXPAND_SIZE);
+                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y + EXPAND_SIZE);
+                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y + EXPAND_SIZE);
                 }
             }
             else
@@ -419,8 +434,11 @@ namespace Class_Management_System
                 else
                 {
                     reps++;
-                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y - expand_size);
-                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y - expand_size);
+                    this.btnOpcoesPerfil.Location = new Point(this.btnOpcoesPerfil.Location.X, this.btnOpcoesPerfil.Location.Y - EXPAND_SIZE);
+                    this.btnCadastrarPerfil.Location = new Point(this.btnCadastrarPerfil.Location.X, this.btnCadastrarPerfil.Location.Y - EXPAND_SIZE);
+                    this.btnBuscarPerfil.Location = new Point(this.btnBuscarPerfil.Location.X, this.btnBuscarPerfil.Location.Y - EXPAND_SIZE);
+                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y - EXPAND_SIZE);
+                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y - EXPAND_SIZE);
                 }
             }
         }
@@ -438,7 +456,7 @@ namespace Class_Management_System
 
         private void btnOpcoesPerfil_Click(object sender, EventArgs e)
         {
-
+            this.DisplayPerfil.Enabled = true;
         }
 
         private void btnCadastrarPerfil_Click(object sender, EventArgs e)
@@ -449,6 +467,45 @@ namespace Class_Management_System
         private void btnBuscarPerfil_Click(object sender, EventArgs e)
         {
             this.buscarPerfil.ShowDialog();
+        }
+
+        private void DisplayPerfil_Tick(object sender, EventArgs e)
+        {
+            if (this.expanded_perfil == false)
+            {
+                if (this.reps_perfil == 4)
+                {
+                    this.DisplayPerfil.Enabled = false;
+                    this.expanded_perfil = true;
+                    this.reps_perfil = 0;
+                }
+                else
+                {
+                    this.reps_perfil++;
+                    this.expanded_perfil = false;
+
+                    this.btnConfiguracoes.BringToFront();
+                    this.btnSobre.BringToFront();
+
+                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y + EXPAND_SIZE_PERFIL);
+                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y + EXPAND_SIZE_PERFIL);
+                }
+            }
+            else
+            {
+                if (this.reps_perfil == 4)
+                {
+                    this.DisplayPerfil.Enabled = false;
+                    this.expanded_perfil = false;
+                    this.reps_perfil = 0;
+                }
+                else
+                {
+                    this.reps_perfil++;
+                    this.btnConfiguracoes.Location = new Point(this.btnConfiguracoes.Location.X, this.btnConfiguracoes.Location.Y - EXPAND_SIZE_PERFIL);
+                    this.btnSobre.Location = new Point(this.btnSobre.Location.X, this.btnSobre.Location.Y - EXPAND_SIZE_PERFIL);
+                }
+            }
         }
     }
 }

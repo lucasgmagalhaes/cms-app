@@ -54,7 +54,7 @@ namespace Class_Management_System.Services
         /// Cria um PerfilUsuario no banco
         /// </summary>
         /// <param name="perfil"></param>
-        void CriarPerfil(PerfilUsuario perfil);
+        int CriarPerfil(PerfilUsuario perfil);
 
 
         /// <summary>

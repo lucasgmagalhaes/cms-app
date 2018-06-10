@@ -1,5 +1,6 @@
 ﻿using Class_Management_System.Services;
 using Class_Management_System.Utils;
+using System;
 
 namespace Class_Management_System.Entities
 {
@@ -66,16 +67,16 @@ namespace Class_Management_System.Entities
             {
                 if (this.codigo == 0)
                 {
-                    this.procedureService.CriarPerfil(this);
+                   this.codigo = this.procedureService.CriarPerfil(this);
                 }
                 else
                 {
                     this.procedureService.GravaPerfil(this);
                 }
             }
-            catch (System.Exception)
+            catch (Exception e)
             { 
-                throw;
+                throw new Exception(e.Message);
             }
           
         }
@@ -85,9 +86,9 @@ namespace Class_Management_System.Entities
             {
                 this.procedureService.DeletaPerfil(this);
             }
-            catch (System.Exception)
+            catch (Exception e)
             { 
-                throw;
+                throw new Exception(e.Message);
             }
         }
     }

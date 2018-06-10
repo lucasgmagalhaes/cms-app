@@ -27,9 +27,11 @@ namespace Class_Management_System.Forms
 
         private void FormEditar_FormClosed(object sender, FormClosedEventArgs e)
         {
-            int index = this.listaPerfil.FindIndex(usuario => usuario.Equals(Session.usuario_removido));
-            this.dtgPesquisa.Rows.RemoveAt(index);
-            Session.usuario_removido = null;
+            if (Session.perfil_removido != null) {
+                int index = this.listaPerfil.FindIndex(perfil => perfil.Equals(Session.perfil_removido));
+                this.dtgPesquisa.Rows.RemoveAt(index);
+                Session.perfil_removido = null;
+               }
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)

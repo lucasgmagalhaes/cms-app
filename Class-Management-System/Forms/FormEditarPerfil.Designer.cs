@@ -121,6 +121,7 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -111,12 +111,6 @@
     <Compile Include="Forms\formSQL.Designer.cs">
       <DependentUpon>formSQL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormPerfil.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormPerfil.Designer.cs">
-      <DependentUpon>FormPerfil.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\formSQL.resx">
       <DependentUpon>formSQL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormPerfil.resx">
-      <DependentUpon>FormPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>

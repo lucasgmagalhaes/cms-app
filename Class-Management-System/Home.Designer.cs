@@ -49,13 +49,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSobre = new System.Windows.Forms.Button();
             this.btnConfiguracoes = new System.Windows.Forms.Button();
+            this.btnCadastrarPerfil = new System.Windows.Forms.Button();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
+            this.btnOpcoesPerfil = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
+            this.btnBuscarPerfil = new System.Windows.Forms.Button();
             this.lblusuario_logado = new System.Windows.Forms.Label();
             this.groupFiltro = new System.Windows.Forms.GroupBox();
             this.checkBoxSelecaoUnica = new System.Windows.Forms.CheckBox();
@@ -72,9 +75,7 @@
             this.cmbPeriodo = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DisplayTimer = new System.Windows.Forms.Timer(this.components);
-            this.btnOpcoesPerfil = new System.Windows.Forms.Button();
-            this.btnCadastrarPerfil = new System.Windows.Forms.Button();
-            this.btnBuscarPerfil = new System.Windows.Forms.Button();
+            this.DisplayPerfil = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridGrafo)).BeginInit();
             this.panel1.SuspendLayout();
@@ -218,12 +219,15 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel1.Controls.Add(this.btnSobre);
-            this.panel1.Controls.Add(this.btnConfiguracoes);
             this.panel1.Controls.Add(this.btnPerfil);
             this.panel1.Controls.Add(this.btnUsuario);
+            this.panel1.Controls.Add(this.btnConfiguracoes);
+            this.panel1.Controls.Add(this.btnCadastrarPerfil);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.btnOpcoesPerfil);
+            this.panel1.Controls.Add(this.btnBuscarPerfil);
             this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Controls.Add(this.btnBuscarUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -238,11 +242,11 @@
             // 
             this.btnSobre.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSobre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSobre.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSobre.FlatAppearance.BorderSize = 0;
             this.btnSobre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSobre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSobre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSobre.Location = new System.Drawing.Point(0, 299);
+            this.btnSobre.Location = new System.Drawing.Point(1, 353);
             this.btnSobre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSobre.Name = "btnSobre";
             this.btnSobre.Size = new System.Drawing.Size(228, 54);
@@ -255,11 +259,11 @@
             // 
             this.btnConfiguracoes.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfiguracoes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfiguracoes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConfiguracoes.FlatAppearance.BorderSize = 0;
             this.btnConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracoes.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguracoes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnConfiguracoes.Location = new System.Drawing.Point(0, 246);
+            this.btnConfiguracoes.Location = new System.Drawing.Point(1, 300);
             this.btnConfiguracoes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConfiguracoes.Name = "btnConfiguracoes";
             this.btnConfiguracoes.Size = new System.Drawing.Size(228, 54);
@@ -268,21 +272,38 @@
             this.btnConfiguracoes.UseVisualStyleBackColor = false;
             this.btnConfiguracoes.Click += new System.EventHandler(this.btnConfiguracoes_Click);
             // 
+            // btnCadastrarPerfil
+            // 
+            this.btnCadastrarPerfil.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCadastrarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrarPerfil.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCadastrarPerfil.Location = new System.Drawing.Point(-1, 300);
+            this.btnCadastrarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCadastrarPerfil.Name = "btnCadastrarPerfil";
+            this.btnCadastrarPerfil.Size = new System.Drawing.Size(228, 54);
+            this.btnCadastrarPerfil.TabIndex = 13;
+            this.btnCadastrarPerfil.Text = "Cadastrar Perfil";
+            this.btnCadastrarPerfil.UseVisualStyleBackColor = false;
+            this.btnCadastrarPerfil.Click += new System.EventHandler(this.btnCadastrarPerfil_Click);
+            // 
             // btnPerfil
             // 
-            this.btnPerfil.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnPerfil.BackColor = System.Drawing.Color.SteelBlue;
             this.btnPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPerfil.Enabled = false;
-            this.btnPerfil.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
             this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPerfil.Location = new System.Drawing.Point(0, 299);
+            this.btnPerfil.Location = new System.Drawing.Point(-1, 353);
             this.btnPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPerfil.Name = "btnPerfil";
             this.btnPerfil.Size = new System.Drawing.Size(228, 54);
             this.btnPerfil.TabIndex = 2;
-            this.btnPerfil.Text = "Visualizar Perfil";
+            this.btnPerfil.Text = "Visualizar Perfil Pessoa";
             this.btnPerfil.UseVisualStyleBackColor = false;
             this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
@@ -290,7 +311,7 @@
             // 
             this.btnUsuario.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsuario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -302,6 +323,23 @@
             this.btnUsuario.Text = "Usuário";
             this.btnUsuario.UseVisualStyleBackColor = false;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
+            // 
+            // btnOpcoesPerfil
+            // 
+            this.btnOpcoesPerfil.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnOpcoesPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpcoesPerfil.FlatAppearance.BorderSize = 0;
+            this.btnOpcoesPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcoesPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcoesPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOpcoesPerfil.Location = new System.Drawing.Point(1, 247);
+            this.btnOpcoesPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpcoesPerfil.Name = "btnOpcoesPerfil";
+            this.btnOpcoesPerfil.Size = new System.Drawing.Size(228, 54);
+            this.btnOpcoesPerfil.TabIndex = 12;
+            this.btnOpcoesPerfil.Text = "Perfil";
+            this.btnOpcoesPerfil.UseVisualStyleBackColor = false;
+            this.btnOpcoesPerfil.Click += new System.EventHandler(this.btnOpcoesPerfil_Click);
             // 
             // label3
             // 
@@ -331,7 +369,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -346,14 +384,14 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCadastrar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.Enabled = false;
-            this.btnCadastrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrar.Location = new System.Drawing.Point(0, 246);
+            this.btnCadastrar.Location = new System.Drawing.Point(0, 247);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(228, 54);
@@ -364,14 +402,14 @@
             // 
             // btnBuscarUsuario
             // 
-            this.btnBuscarUsuario.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscarUsuario.BackColor = System.Drawing.Color.SteelBlue;
             this.btnBuscarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarUsuario.Enabled = false;
-            this.btnBuscarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscarUsuario.FlatAppearance.BorderSize = 0;
             this.btnBuscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarUsuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarUsuario.Location = new System.Drawing.Point(0, 352);
+            this.btnBuscarUsuario.Location = new System.Drawing.Point(0, 300);
             this.btnBuscarUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscarUsuario.Name = "btnBuscarUsuario";
             this.btnBuscarUsuario.Size = new System.Drawing.Size(228, 54);
@@ -379,6 +417,23 @@
             this.btnBuscarUsuario.Text = "Buscar Usuário";
             this.btnBuscarUsuario.UseVisualStyleBackColor = false;
             this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
+            // 
+            // btnBuscarPerfil
+            // 
+            this.btnBuscarPerfil.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBuscarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarPerfil.FlatAppearance.BorderSize = 0;
+            this.btnBuscarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscarPerfil.Location = new System.Drawing.Point(0, 352);
+            this.btnBuscarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBuscarPerfil.Name = "btnBuscarPerfil";
+            this.btnBuscarPerfil.Size = new System.Drawing.Size(228, 54);
+            this.btnBuscarPerfil.TabIndex = 14;
+            this.btnBuscarPerfil.Text = "Buscar Perfil";
+            this.btnBuscarPerfil.UseVisualStyleBackColor = false;
+            this.btnBuscarPerfil.Click += new System.EventHandler(this.btnBuscarPerfil_Click);
             // 
             // lblusuario_logado
             // 
@@ -580,67 +635,18 @@
             this.DisplayTimer.Interval = 28;
             this.DisplayTimer.Tick += new System.EventHandler(this.DisplayTimer_Tick);
             // 
-            // btnOpcoesPerfil
+            // DisplayPerfil
             // 
-            this.btnOpcoesPerfil.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnOpcoesPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpcoesPerfil.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnOpcoesPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcoesPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcoesPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOpcoesPerfil.Location = new System.Drawing.Point(412, 305);
-            this.btnOpcoesPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOpcoesPerfil.Name = "btnOpcoesPerfil";
-            this.btnOpcoesPerfil.Size = new System.Drawing.Size(228, 54);
-            this.btnOpcoesPerfil.TabIndex = 12;
-            this.btnOpcoesPerfil.Text = "Perfil";
-            this.btnOpcoesPerfil.UseVisualStyleBackColor = false;
-            this.btnOpcoesPerfil.Click += new System.EventHandler(this.btnOpcoesPerfil_Click);
-            // 
-            // btnCadastrarPerfil
-            // 
-            this.btnCadastrarPerfil.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCadastrarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrarPerfil.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnCadastrarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrarPerfil.Location = new System.Drawing.Point(412, 359);
-            this.btnCadastrarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCadastrarPerfil.Name = "btnCadastrarPerfil";
-            this.btnCadastrarPerfil.Size = new System.Drawing.Size(228, 54);
-            this.btnCadastrarPerfil.TabIndex = 13;
-            this.btnCadastrarPerfil.Text = "Cadastrar Perfil";
-            this.btnCadastrarPerfil.UseVisualStyleBackColor = false;
-            this.btnCadastrarPerfil.Click += new System.EventHandler(this.btnCadastrarPerfil_Click);
-            // 
-            // btnBuscarPerfil
-            // 
-            this.btnBuscarPerfil.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnBuscarPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarPerfil.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnBuscarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarPerfil.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBuscarPerfil.Location = new System.Drawing.Point(412, 416);
-            this.btnBuscarPerfil.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBuscarPerfil.Name = "btnBuscarPerfil";
-            this.btnBuscarPerfil.Size = new System.Drawing.Size(228, 54);
-            this.btnBuscarPerfil.TabIndex = 14;
-            this.btnBuscarPerfil.Text = "Buscar Perfil";
-            this.btnBuscarPerfil.UseVisualStyleBackColor = false;
-            this.btnBuscarPerfil.Click += new System.EventHandler(this.btnBuscarPerfil_Click);
+            this.DisplayPerfil.Interval = 28;
+            this.DisplayPerfil.Tick += new System.EventHandler(this.DisplayPerfil_Tick);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1318, 663);
-            this.Controls.Add(this.btnBuscarPerfil);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnCadastrarPerfil);
             this.Controls.Add(this.groupFiltro);
-            this.Controls.Add(this.btnOpcoesPerfil);
             this.Controls.Add(this.lblusuario_logado);
             this.Controls.Add(this.dataGridGrafo);
             this.Controls.Add(this.groupBox1);
@@ -704,6 +710,7 @@
         private System.Windows.Forms.Button btnOpcoesPerfil;
         private System.Windows.Forms.Button btnCadastrarPerfil;
         private System.Windows.Forms.Button btnBuscarPerfil;
+        private System.Windows.Forms.Timer DisplayPerfil;
     }
 }
 

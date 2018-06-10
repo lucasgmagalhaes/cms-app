@@ -51,11 +51,13 @@ namespace Class_Management_System.ServicesImpl
             }
         }
 
-        public void CriarPerfil(PerfilUsuario perfil)
+        public int CriarPerfil(PerfilUsuario perfil)
         {
             try
             {
                 this.dataService.ExecutaQuery("INSERT INTO PERFIL_USUARIO(DSC_PERFIL_USUARIO) VALUES ('" + perfil.GetDescricao() + "');");
+                DataTable result = this.dataService.BuscaDados("SELECT MAX(COD_PERFIL_USUARIO) FROM PERFIL_USUARIO");
+                return result.Rows[0].Field<int>(0);
             }
             catch (Exception e)
             {
@@ -71,7 +73,6 @@ namespace Class_Management_System.ServicesImpl
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -80,12 +81,11 @@ namespace Class_Management_System.ServicesImpl
         {
             try
             {
-                this.dataService.ExecutaQuery(" SPDELETA_PERFIL (" + perfil.GetCodigo() + ");" );
+                this.dataService.ExecutaQuery("DELETE FROM PERFIL_USUARIO WHERE COD_PERFIL_USUARIO = " + perfil.GetCodigo() + "");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                throw new Exception(e.Message);
             }
         }
 
@@ -119,9 +119,9 @@ namespace Class_Management_System.ServicesImpl
                 DataTable result = this.dataService.BuscaDados(sSql);
                 return result;
             }
-            catch (Exception)
-            { 
-                throw;
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 
@@ -152,7 +152,7 @@ namespace Class_Management_System.ServicesImpl
                         sql = "SELECT U.COD_USUARIO ID , U.LOGIN LOGIN, PU.DSC_PERFIL_USUARIO PERFIL, " +
                               "P.NOME_PESSOA, P.COD_CPF, P.EMAIL, P.COD_PESSOA, PU.COD_PERFIL_USUARIO, U.SENHA " +
                               "FROM USUARIO U LEFT JOIN PERFIL_USUARIO PU ON PU.COD_PERFIL_USUARIO = U.COD_PERFIL_USUARIO " +
-                              " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND U.COD_USUARIO = " + filtro ;
+                              " LEFT JOIN PESSOA P ON P.COD_PESSOA = U.COD_PESSOA WHERE 1 = 1 AND U.COD_USUARIO = " + filtro;
                     }
                 }
                 catch
@@ -239,7 +239,7 @@ namespace Class_Management_System.ServicesImpl
                 {
                     sql = "SELECT * FROM PERFIL_USUARIO WHERE ID = " + id;
                 }
-                else if(filtro != null && filtro.Trim() != "")
+                else if (filtro != null && filtro.Trim() != "")
                 {
                     sql = "SELECT * FROM PERFIL_USUARIO WHERE DSC_PERFIL_USUARIO = '" + filtro + "'";
                 }
@@ -247,7 +247,7 @@ namespace Class_Management_System.ServicesImpl
                 {
                     sql = "SELECT * FROM PERFIL_USUARIO";
                 }
-               
+
                 DataTable dtbResult = this.dataService.BuscaDados(sql);
 
                 foreach (DataRow linha in dtbResult.Rows)

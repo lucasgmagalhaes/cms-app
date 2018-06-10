@@ -3,7 +3,6 @@ using Class_Management_System.Global;
 using Class_Management_System.Services;
 using Class_Management_System.Utils;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Class_Management_System.Forms
@@ -36,7 +35,6 @@ namespace Class_Management_System.Forms
             return cpf.Replace(".", "").Replace("-", "").Replace(",", "");
         }
 
-
         private void BtnGravar_Click(object sender, EventArgs e)
         {
             if(this.perfil == null)
@@ -44,13 +42,33 @@ namespace Class_Management_System.Forms
                 this.perfil = new PerfilUsuario();
             }
             this.perfil.SetDescricao(this.txtdescricao.Text);
-            this.perfil.Gravar();
+            try
+            {
+                this.perfil.Gravar();
+                this.txtid.Text = this.perfil.GetCodigo().ToString();
+                MessageBox.Show("Perfil cadastrado com sucesso", "Falha ao gravar perfil", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Falha ao gravar perfil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnDeletar_Click(object sender, EventArgs e)
         {
-            this.perfil.Deletar();
-            Session.perfil_removido = this.perfil;
+            try
+            {
+                this.perfil.Deletar();
+                Session.perfil_removido = this.perfil;
+                 MessageBox.Show("Perfil removido com sucesso", "Falha ao gravar perfil", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Falha ao remover perfil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FormEditarUsuario_KeyDown(object sender, KeyEventArgs e)
